@@ -159,7 +159,7 @@ public class ChatRoomClient extends JFrame {
                     name = "匿名用户";
 
 
-                //
+                // TEST
                 if (!addressText.getText().isEmpty()) {
                     connectionAddress = addressText.getText().split(":", 2)[0];
                     try {
