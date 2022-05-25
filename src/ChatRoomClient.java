@@ -14,6 +14,7 @@ public class ChatRoomClient extends JFrame {
     private String name;
 
     // UI
+    //
     private final JTextArea ta = new JTextArea(10, 20);
     private final JScrollPane sp = new JScrollPane(ta);
     private final JTextField tf = new JTextField(20);
