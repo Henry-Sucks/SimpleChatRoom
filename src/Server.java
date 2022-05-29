@@ -16,10 +16,10 @@ public class Server {
         ServerView serverView = new ServerView();
         try{
             // 在服务器端对客户端开启文件传输的线程
+            serverSocket = new ServerSocket(Client.port);
             ServerFileThread serverFileThread = new ServerFileThread();
             serverFileThread.start();
 
-            serverSocket = new ServerSocket(Client.port);
             // 等待连接并开启相应线程
             while (true) {
                 // 等待连接
