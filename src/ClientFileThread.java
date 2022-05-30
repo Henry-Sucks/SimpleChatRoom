@@ -13,6 +13,9 @@ public class ClientFileThread extends Thread{
     static DataInputStream fileReader = null;
     static DataOutputStream fileWriter = null;
 
+    // 用于存储用户文件的目录
+    static File userDir = null;
+
     public ClientFileThread(String userName, JFrame clientView, PrintWriter output){
         ClientFileThread.userName = userName;
         this.clientView = clientView;
@@ -44,21 +47,27 @@ public class ClientFileThread extends Thread{
                 // 提示框选择结果，0为确定，1位取消
                 if(result == 0){
                     File userFile;
+                    // 选择存放的文件夹地址
                     JFileChooser dirChooser = new JFileChooser();
                     dirChooser.setCurrentDirectory(new File("."));
                     dirChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
                     dirChooser.setAcceptAllFileFilterUsed(false);
 
+                    // 用户自己选择路径+用户名
                     if(dirChooser.showOpenDialog(clientView) == JFileChooser.APPROVE_OPTION){
-                        userFile = new File(dirChooser.getSelectedFile().getAbsolutePath());
+                        userFile = new File(dirChooser.getSelectedFile().getAbsolutePath() + "\\" + userName);
                         if(!userFile.exists())
                         userFile.mkdir();
                     }
+                    // 默认路径
                     else {
                         userFile = new File("D:\\接受文件\\" + userName);
                         if(!userFile.exists())
                         userFile.mkdir();
                     }
+
+                    // 保存下来
+                    userDir = userFile;
 
                     File file = new File(userFile.getAbsolutePath() + "\\"+ textName);
                     fileWriter = new DataOutputStream(new FileOutputStream(file));
