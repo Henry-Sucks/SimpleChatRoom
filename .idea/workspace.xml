@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93a7ba20-0cdc-406d-8de5-74912f6ecf64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/tools/Image2SuitableSize.java" afterDir="false" />
+    <list default="true" id="6760fd19-aaf2-468b-a989-c6537735496b" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ChatRoomClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ChatRoomClient$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ChatRoomClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ChatRoomClient$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ChatRoomClient$ReceiveInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ChatRoomClient$ReceiveInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ChatRoomClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ChatRoomClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientFileThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientFileThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientFileThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$LoginListen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$LoginListen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/FileReadAndWrite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/FileReadAndWrite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/LoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/LoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerFileThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerFileThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerReadAndPrint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/Image2SuitableSize.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/Image2SuitableSize.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,7 +41,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="29f2hRkREoaxqkpU6TumZJkRQHM" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="29sISVoR26HZHM9Fspgeq54n5oO" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,19 +52,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunManager" selected="Application.Image2SuitableSize">
+  <component name="RunManager" selected="应用程序.Client">
     <configuration name="ChatRoomClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatRoomClient" />
-      <module name="SimpleChatRoom" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ChatRoomServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ChatRoomServer" />
       <module name="SimpleChatRoom" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -58,19 +68,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Image2SuitableSize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tools.Image2SuitableSize" />
-      <module name="SimpleChatRoom" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tools.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server" />
       <module name="SimpleChatRoom" />
@@ -78,63 +75,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.ChatRoomClient" />
-      <item itemvalue="Application.ChatRoomServer" />
-      <item itemvalue="Application.Client" />
-      <item itemvalue="Application.Server" />
-      <item itemvalue="Application.Image2SuitableSize" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Image2SuitableSize" />
-        <item itemvalue="Application.Client" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.ChatRoomClient" />
-        <item itemvalue="Application.ChatRoomServer" />
+        <item itemvalue="应用程序.Client" />
+        <item itemvalue="应用程序.ChatRoomClient" />
+        <item itemvalue="应用程序.Server" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="93a7ba20-0cdc-406d-8de5-74912f6ecf64" name="Changes" comment="" />
-      <created>1653489942907</created>
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="6760fd19-aaf2-468b-a989-c6537735496b" name="变更" comment="" />
+      <created>1653895370791</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1653489942907</updated>
-      <workItem from="1653489945236" duration="1324000" />
-      <workItem from="1653531638382" duration="136000" />
-      <workItem from="1653536373654" duration="637000" />
-      <workItem from="1653549542891" duration="345000" />
-      <workItem from="1653560838210" duration="283000" />
-      <workItem from="1653803536224" duration="13200000" />
-      <workItem from="1653877453557" duration="6921000" />
+      <updated>1653895370791</updated>
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
