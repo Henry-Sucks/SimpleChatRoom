@@ -37,7 +37,7 @@ public class ClientFileThread extends Thread{
                         JOptionPane.YES_NO_OPTION);
                 int length = -1;
 
-                // buff?缓冲区？
+                // buff?缓冲区？->只能读取1024位
                 byte[] buff = new byte[1024];
                 long curLength = 0;
 
@@ -50,7 +50,7 @@ public class ClientFileThread extends Thread{
                     dirChooser.setAcceptAllFileFilterUsed(false);
 
                     if(dirChooser.showOpenDialog(clientView) == JFileChooser.APPROVE_OPTION){
-                        userFile = new File(dirChooser.getSelectedFile().getAbsolutePath() + userName);
+                        userFile = new File(dirChooser.getSelectedFile().getAbsolutePath());
                         if(!userFile.exists())
                         userFile.mkdir();
                     }
@@ -60,7 +60,7 @@ public class ClientFileThread extends Thread{
                         userFile.mkdir();
                     }
 
-                    File file = new File(userFile.getAbsolutePath() + userName + "\\"+ textName);
+                    File file = new File(userFile.getAbsolutePath() + "\\"+ textName);
                     fileWriter = new DataOutputStream(new FileOutputStream(file));
                     while((length = fileIn.read(buff)) > 0) {  // 把文件写进本地
                         fileWriter.write(buff, 0, length);
