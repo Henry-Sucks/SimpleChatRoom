@@ -22,6 +22,8 @@ public class ClientView {
         init();
     }
 
+
+
     // 初始化
     void init(){
         // 初始化用户窗口
@@ -46,7 +48,7 @@ public class ClientView {
         clientView.setBounds(500, 200, 400, 330);
 
         // 设置监听成功后作出的事件
-        sendListener = new ClientReadAndPrint().new ChatViewListen();
+        sendListener = new ClientReadAndPrint.ChatViewListen();
         sendListener.setJTextArea(textArea);
         sendListener.setJTextField(textField);
         sendListener.setClientView(clientView);

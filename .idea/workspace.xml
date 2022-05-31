@@ -2,7 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6760fd19-aaf2-468b-a989-c6537735496b" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GlobalSettings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SelectChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SelectiveChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ServerSelectiveChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserMapProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientFileThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientFileThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$LoginListen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$LoginListen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/FileReadAndWrite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/FileReadAndWrite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/LoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/LoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerFileThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerFileThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerReadAndPrint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientFileThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientReadAndPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientReadAndPrint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerFileThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +40,24 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -29,6 +73,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunManager" selected="应用程序.Client">
     <configuration name="ChatRoomClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

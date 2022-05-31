@@ -25,10 +25,8 @@ public class ClientFileThread extends Thread{
     // 客户端接受文件
     public void run(){
         try{
-            // InetAddress IP地址
-            InetAddress addr = InetAddress.getByName(null);  // 获取主机地址
-            socket = new Socket(addr, Client.port);  // 客户端套接字
-            // 每个Thread独有一个Socket（是否可以理解为与服务器端口？）
+            InetAddress addr = InetAddress.getByName(null);
+            socket = new Socket(addr, GlobalSettings.filePort);
             fileIn = new DataInputStream(socket.getInputStream());  // 输入流
             fileOut = new DataOutputStream(socket.getOutputStream());  // 输出流
             // 接收文件
@@ -101,6 +99,8 @@ public class ClientFileThread extends Thread{
             }
         } catch (Exception e) {}
     }
+
+
     // 客户端发送文件
     static void outFileToServer(String path) {
         try {

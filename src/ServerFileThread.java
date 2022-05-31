@@ -1,6 +1,7 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -9,12 +10,13 @@ import java.util.List;
 public class ServerFileThread extends Thread{
     ServerSocket server = null;
     Socket socket = null;
-    static List<Socket> list = new ArrayList<Socket>();  // 存储客户端
+    public static ArrayList<Socket> list = new ArrayList<>();
+//    public static UserMap<String, Socket> users = new UserMap<>();
+
     public void run() {
         try {
-            //BUG：Server中已经创建了相同端口的SeverSocket
-            //server = new ServerSocket(Client.port);
-            server = Server.serverSocket;
+            // 文件进程和文字进程并不一样!
+            server = new ServerSocket(GlobalSettings.filePort);
             while(true) {
                 socket = server.accept();
                 list.add(socket);
