@@ -12,6 +12,7 @@ public class ServerFileThread extends Thread{
     Socket socket = null;
     public static UserMap<String, Socket> users = new UserMap<>();
     static ServerToClient messager = null;
+    static String userName = null;
 
     public void run() {
         try {
@@ -22,6 +23,7 @@ public class ServerFileThread extends Thread{
                 messager = new ServerToClient(socket);
                 /** 接受登录信息 **/
                 String serverMsg = messager.getMsg();
+                userName =serverMsg;
                 System.out.println("文件登录：" + serverMsg);
                 users.put(Server.getRealMsg(serverMsg), socket);
 
@@ -72,7 +74,10 @@ class FileReadAndWrite extends Thread {
                 else
                     tempList = recvList;
 
-                System.out.println("开始文件传输");
+//                clientMsg = ServerFileThread.userName + " 向您发了一个文件";
+//                messager.sendMsg(clientMsg, tempList);
+
+
                 for(Socket socket: tempList) {
                     output = new DataOutputStream(socket.getOutputStream());  // 输出流
                     if(socket != nowSocket) {  // 发送给其它客户端

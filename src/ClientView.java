@@ -22,7 +22,11 @@ public class ClientView {
         init();
     }
 
-
+    // 用于向文本区域添加信息
+    void setTextArea(String str){
+        textArea.append(str+'\n');
+        textArea.setCaretPosition(textArea.getDocument().getLength());  // 设置滚动条在最下面
+    }
 
     // 初始化
     void init(){
@@ -93,5 +97,7 @@ public class ClientView {
             ClientFileThread.outFileToServer(path);
         }
     }
+
+
 
 }

@@ -88,17 +88,17 @@ class ClientReadAndPrint extends Thread{
                 if(str.startsWith("send:")){
                     str = str.substring(5);
                     int userNum = Integer.parseInt(str.split(":")[0]);
-                    serverMsg = UserMapProtocol.SELECT_ROUND;
+                    serverMsg = UserProtocol.SELECT_ROUND;
                     serverMsg += userNum;
                     for(int i = 1; i <= userNum; i++){
-                        serverMsg += UserMapProtocol.SPLIT_SIGN;
+                        serverMsg += UserProtocol.SPLIT_SIGN;
                         serverMsg += str.split(":")[i];
                     }
-                    serverMsg += UserMapProtocol.SELECT_ROUND;
+                    serverMsg += UserProtocol.SELECT_ROUND;
                 }
                 /** 2.文本信息 **/
                 else
-                    serverMsg = UserMapProtocol.MSG_ROUND + str + UserMapProtocol.MSG_ROUND;
+                    serverMsg = UserProtocol.MSG_ROUND + str + UserProtocol.MSG_ROUND;
 
                 System.out.println(serverMsg);
                 output.println(serverMsg);  // 输出给服务端
@@ -140,7 +140,7 @@ class ClientReadAndPrint extends Thread{
                     loginJFrame.setVisible(false);  // 隐藏登录窗口
                     output = new PrintWriter(socket.getOutputStream());  // 输出流
                     /** 将登陆信息传给服务器 **/
-                    output.println(UserMapProtocol.LOGIN_ROUND + userName + UserMapProtocol.LOGIN_ROUND);
+                    output.println(UserProtocol.LOGIN_ROUND + userName + UserProtocol.LOGIN_ROUND);
                     output.flush();  // 清空缓冲区out中的数据
                     Client.setOnline(true);
                 } catch (IOException e) {

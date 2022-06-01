@@ -30,13 +30,17 @@ public class ClientFileThread extends Thread{
             InetAddress addr = InetAddress.getByName(null);
             socket = new Socket(addr, GlobalSettings.filePort);
             messager = new ClientToServer(socket);  // 设定工具
-            String serverMsg = UserMapProtocol.LOGIN_ROUND + userName + UserMapProtocol.LOGIN_ROUND; // 发送登录信息
+            String serverMsg = UserProtocol.LOGIN_ROUND + userName + UserProtocol.LOGIN_ROUND; // 发送登录信息
             messager.sendToServer(serverMsg);
 
             fileIn = new DataInputStream(socket.getInputStream());  // 输入流
             fileOut = new DataOutputStream(socket.getOutputStream());  // 输出流
             // 接收文件
             while(true) {
+                // 收到提示信息
+//                clientView.(messager.getMsg());
+
+
                 String textName = fileIn.readUTF();
                 long titleLength = fileIn.readLong();
                 // 弹出窗口
@@ -50,6 +54,7 @@ public class ClientFileThread extends Thread{
 
                 // 提示框选择结果，0为确定，1位取消
                 if(result == 0){
+
                     File userFile;
                     // 选择存放的文件夹地址
                     JFileChooser dirChooser = new JFileChooser();
@@ -116,7 +121,7 @@ public class ClientFileThread extends Thread{
 
             /** 选择私发还是群发 **/
             /** 这里为了测试只写了私发的代码，三个用户1234,12345,123456，选择1234私发12345 **/
-            String serverMsg = UserMapProtocol.SELECT_ROUND + "1" + UserMapProtocol.SPLIT_SIGN + "12345" + UserMapProtocol.SELECT_ROUND;
+            String serverMsg = UserProtocol.SELECT_ROUND + "1" + UserProtocol.SPLIT_SIGN + "12345" + UserProtocol.SELECT_ROUND;
             messager.sendToServer(serverMsg);
 
 
@@ -136,8 +141,8 @@ public class ClientFileThread extends Thread{
             /** 还有地方没解决：收发文件的提示消息还是和ServerReadAndPrint共用一个进程，也就是说想要提示信息私发而不改变
              * ServerReadAndPrint的逻辑，必须FileThread拥有自己的文字收发
              */
-            output.println(UserMapProtocol.MSG_ROUND + "【" + userName + "已成功发送文件！】" + UserMapProtocol.MSG_ROUND);
-            output.flush();
+//            output.println(UserMapProtocol.MSG_ROUND + "【" + userName + "已成功发送文件！】" + UserMapProtocol.MSG_ROUND);
+//            output.flush();
         } catch (Exception e) {}
     }
 }

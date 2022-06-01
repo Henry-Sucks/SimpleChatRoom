@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Server {
     static ServerSocket serverSocket = null;
@@ -35,7 +34,7 @@ public class Server {
     }
 
     static public String getRealMsg(String line) {
-        return line.substring(UserMapProtocol.PROTOCOL_LEN,line.length()-UserMapProtocol.PROTOCOL_LEN);
+        return line.substring(UserProtocol.PROTOCOL_LEN,line.length()- UserProtocol.PROTOCOL_LEN);
     }
 }
 
@@ -76,7 +75,7 @@ class  ServerReadAndPrint extends Thread{
                  * str是客户端与服务器端交流的信息
                  * */
                 /** 1.登录信息 **/
-                if(str.startsWith(UserMapProtocol.LOGIN_ROUND) && str.endsWith(UserMapProtocol.LOGIN_ROUND)){
+                if(str.startsWith(UserProtocol.LOGIN_ROUND) && str.endsWith(UserProtocol.LOGIN_ROUND)){
                     curUser = Server.getRealMsg(str);
                     if(ServerReadAndPrint.users.map.containsKey(curUser)){
                         /** 用户名重复处理
@@ -104,7 +103,7 @@ class  ServerReadAndPrint extends Thread{
 
 
                 /** 3.接受者信息(群发？私发？) **/
-                if(str.startsWith(UserMapProtocol.SELECT_ROUND) && str.endsWith(UserMapProtocol.SELECT_ROUND)){
+                if(str.startsWith(UserProtocol.SELECT_ROUND) && str.endsWith(UserProtocol.SELECT_ROUND)){
 
                     recvList = SelectChat.getSelectList(clientMsg, users);
                     nameList = SelectChat.getNameList(clientMsg);
@@ -112,7 +111,7 @@ class  ServerReadAndPrint extends Thread{
                 }
 
                 /** 4. 发送的消息 **/
-                if(str.startsWith(UserMapProtocol.MSG_ROUND) && str.endsWith(UserMapProtocol.MSG_ROUND)){
+                if(str.startsWith(UserProtocol.MSG_ROUND) && str.endsWith(UserProtocol.MSG_ROUND)){
                     if(!selectState){
                         // 群发
                         clientMsg = curUser + " 对每个人说：" + clientMsg;
