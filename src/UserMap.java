@@ -1,3 +1,4 @@
+import java.net.Socket;
 import java.util.*;
 
 public class UserMap <k,v>{
@@ -18,6 +19,12 @@ public class UserMap <k,v>{
     public synchronized Set<v> valueSet(){
         Set<v> result=new HashSet<v>();
         //将map中的所有value添加到result集合中
+        map.forEach((key,value)->result.add(value));
+        return result;
+    }
+
+    public synchronized ArrayList<v> toArrayList(){
+        ArrayList<v> result = new ArrayList<>();
         map.forEach((key,value)->result.add(value));
         return result;
     }

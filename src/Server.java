@@ -44,6 +44,7 @@ class  ServerReadAndPrint extends Thread{
     Socket nowSocket = null;
     ServerView serverView = null;
     BufferedReader in = null;
+    PrintWriter out = null;
 
     // 所有连接着的端口
     public static UserMap<String, Socket> users = new UserMap<>();
@@ -51,10 +52,10 @@ class  ServerReadAndPrint extends Thread{
     String curUser = null;
     // 状态：私发还是单发？
     boolean selectState = false;
+    // 私发SocketList
+    ArrayList<Socket> recvList ;
     // 私发名单
-    ArrayList<String> recvList = new ArrayList<>();
-
-
+    ArrayList<String> nameList;
 
     // 构造函数
     public ServerReadAndPrint(Socket socket, ServerView serverView){
@@ -69,6 +70,7 @@ class  ServerReadAndPrint extends Thread{
             // 获取客户端信息并把信息发送给所有客户端
             while (true) {
                 String str = in.readLine();
+                String clientMsg = Server.getRealMsg(str);
 
                 /**
                  * str是客户端与服务器端交流的信息
@@ -86,59 +88,90 @@ class  ServerReadAndPrint extends Thread{
                         serverView.setTextArea(loginMsg);// 登录信息
                         ServerReadAndPrint.users.map.put(curUser, nowSocket);
                         // 群发
-                        SelectChat.TextChat.toEveryone(loginMsg, nowSocket, users);
+                        for(Socket socket : users.valueSet()){
+                            out = new PrintWriter(socket.getOutputStream());  // 对每个客户端新建相应的socket套接字
+                            if(socket == nowSocket) {  // 发送给当前客户端
+                                out.println("(你)" + loginMsg);
+                            }
+                            else {  // 发送给其它客户端
+                                out.println(loginMsg);
+                            }
+                            out.flush();  // 清空out中的缓存
+                        }
                     }
                 }
-                /** 2.发送者信息,需不需要？需要！写清名字 **/
-                if(str.startsWith(UserMapProtocol.CURNAME_ROUND) && str.endsWith(UserMapProtocol.CURNAME_ROUND)){
-                    curUser = Server.getRealMsg(str);
-                }
+                /** 2.发送者信息,需不需要？ **/
+
 
                 /** 3.接受者信息(群发？私发？) **/
                 if(str.startsWith(UserMapProtocol.SELECT_ROUND) && str.endsWith(UserMapProtocol.SELECT_ROUND)){
-                    String recvMsg = Server.getRealMsg(str);
-                    System.out.println(recvMsg);
-                    int recvNum = Integer.parseInt(recvMsg.split(UserMapProtocol.SPLIT_SIGN)[0]);
 
-
-                    for(int i = 1; i <= recvNum; i++){
-                        System.out.println(recvMsg);
-                        System.out.println("用户名：" + recvMsg.split(UserMapProtocol.SPLIT_SIGN)[i]);
-                        recvList.add(recvMsg.split(UserMapProtocol.SPLIT_SIGN)[i]);
-                    }
-
+                    recvList = SelectChat.getSelectList(clientMsg, users);
+                    nameList = SelectChat.getNameList(clientMsg);
                     selectState = true;
                 }
 
                 /** 4. 发送的消息 **/
                 if(str.startsWith(UserMapProtocol.MSG_ROUND) && str.endsWith(UserMapProtocol.MSG_ROUND)){
-                    String sendMsg = Server.getRealMsg(str);
                     if(!selectState){
-                        serverView.setTextArea("群发中。。。");
-                        SelectChat.TextChat.toEveryone(sendMsg, nowSocket, users);
+                        // 群发
+                        clientMsg = curUser + " 对每个人说：" + clientMsg;
+
+
+                        for(Socket socket : users.valueSet()){
+                            out = new PrintWriter(socket.getOutputStream());  // 对每个客户端新建相应的socket套接字
+                            if(socket == nowSocket) {  // 发送给当前客户端
+//                                out.println("(你)" + clientMsg);
+                            }
+                            else {  // 发送给其它客户端
+                                out.println(clientMsg);
+                            }
+                            out.flush();  // 清空out中的缓存
+                        }
                     }
                     else{
-                        serverView.setTextArea("私发中。。。");
-                        SelectChat.TextChat.toSelectOne(sendMsg, recvList, users);
-                    }
+                        // 私发
+                        clientMsg = curUser + " 悄悄对你说说：" + clientMsg;
+                        for(Socket socket : recvList){
+                            out = new PrintWriter(socket.getOutputStream());  // 对每个客户端新建相应的socket套接字
+                            // 发送给其它客户端
+                                out.println(clientMsg);
+                            }
+                            out.flush();  // 清空out中的缓存
+                        }
+                    // 自发
+                    out = new PrintWriter(nowSocket.getOutputStream());
+                    clientMsg = "(你)" + clientMsg;
+                    out.println(clientMsg);
+                    out.flush();
+
 
                     // 系统消息
                     StringBuilder serverMsg = null;
-                    serverMsg = new StringBuilder(curUser + "-> { ");
-                    for (String recv : recvList){
-                        serverMsg.append(recv);
-                        serverMsg.append(" ");
+                    if(selectState) {
+                        serverMsg = new StringBuilder(curUser + "-> { ");
+                        for (String recv : nameList) {
+                            serverMsg.append(recv);
+                            serverMsg.append(" ");
+                        }
+                        serverMsg.append("} :").append(clientMsg);
+                        serverView.setTextArea(serverMsg.toString());
                     }
-                    serverMsg.append("} :").append(sendMsg);
-                    serverView.setTextArea(serverMsg.toString());
+                    else{
+                        serverMsg = new StringBuilder(curUser + "-> 全部人 ");
+                        serverMsg.append("} :").append(clientMsg);
+                        serverView.setTextArea(serverMsg.toString());
+                    }
+                    }
                 }
 
 
-            }
+
         } catch (Exception e) {
             ServerReadAndPrint.users.map.remove(curUser);  // 线程关闭，移除相应套接字
         }
     }
 }
+
 
 

@@ -69,9 +69,9 @@ class ClientReadAndPrint extends Thread{
             try {
                 String serverMsg = "";
                 /** 先告诉系统自己叫什么名字 **/
-                serverMsg = UserMapProtocol.CURNAME_ROUND + userName + UserMapProtocol.CURNAME_ROUND;
-                output.println(serverMsg);  // 输出给服务端
-                output.flush();  // 清空缓冲区out中的数据
+//                serverMsg = UserMapProtocol.CURNAME_ROUND + userName + UserMapProtocol.CURNAME_ROUND;
+//                output.println(serverMsg);  // 输出给服务端
+//                output.flush();  // 清空缓冲区out中的数据
 
                 /** 用户输入 **/
                 String str = textInput.getText();
@@ -160,3 +160,6 @@ class ClientReadAndPrint extends Thread{
         }
     }
 }
+
+
+

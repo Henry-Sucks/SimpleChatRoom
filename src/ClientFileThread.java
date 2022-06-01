@@ -4,7 +4,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class ClientFileThread extends Thread{
-    private Socket socket = null;
+    static Socket socket = null;
     private JFrame clientView = null;
     static String userName = null;
     static PrintWriter output = null;  // 普通消息的发送（Server.java传来的值）
@@ -12,6 +12,8 @@ public class ClientFileThread extends Thread{
     static DataOutputStream fileOut = null;
     static DataInputStream fileReader = null;
     static DataOutputStream fileWriter = null;
+
+    static ClientToServer messager = null; // 属于自己的与服务器沟通的工具
 
     // 用于存储用户文件的目录
     static File userDir = null;
@@ -27,6 +29,10 @@ public class ClientFileThread extends Thread{
         try{
             InetAddress addr = InetAddress.getByName(null);
             socket = new Socket(addr, GlobalSettings.filePort);
+            messager = new ClientToServer(socket);  // 设定工具
+            String serverMsg = UserMapProtocol.LOGIN_ROUND + userName + UserMapProtocol.LOGIN_ROUND; // 发送登录信息
+            messager.sendToServer(serverMsg);
+
             fileIn = new DataInputStream(socket.getInputStream());  // 输入流
             fileOut = new DataOutputStream(socket.getOutputStream());  // 输出流
             // 接收文件
@@ -55,13 +61,13 @@ public class ClientFileThread extends Thread{
                     if(dirChooser.showOpenDialog(clientView) == JFileChooser.APPROVE_OPTION){
                         userFile = new File(dirChooser.getSelectedFile().getAbsolutePath() + "\\" + userName);
                         if(!userFile.exists())
-                        userFile.mkdir();
+                        userFile.mkdirs();
                     }
                     // 默认路径
                     else {
                         userFile = new File("D:\\接受文件\\" + userName);
                         if(!userFile.exists())
-                        userFile.mkdir();
+                        userFile.mkdirs();
                     }
 
                     // 保存下来
@@ -73,8 +79,8 @@ public class ClientFileThread extends Thread{
                         fileWriter.write(buff, 0, length);
                         fileWriter.flush();
                         curLength += length;
-						output.println("【接收进度:" + curLength/titleLength*100 + "%】");
-						output.flush();
+//						output.println("【接收进度:" + curLength/titleLength*100 + "%】");
+//						output.flush();
                         if(curLength == titleLength) {  // 强制结束
                             break;
                         }
@@ -104,6 +110,16 @@ public class ClientFileThread extends Thread{
     // 客户端发送文件
     static void outFileToServer(String path) {
         try {
+            /** 告诉服务端自己是谁 **/
+//            String serverMsg = UserMapProtocol.CURNAME_ROUND + userName + UserMapProtocol.CURNAME_ROUND;
+//            messager.sendToServer(serverMsg);
+
+            /** 选择私发还是群发 **/
+            /** 这里为了测试只写了私发的代码，三个用户1234,12345,123456，选择1234私发12345 **/
+            String serverMsg = UserMapProtocol.SELECT_ROUND + "1" + UserMapProtocol.SPLIT_SIGN + "12345" + UserMapProtocol.SELECT_ROUND;
+            messager.sendToServer(serverMsg);
+
+
             File file = new File(path);
             fileReader = new DataInputStream(new FileInputStream(file));
             fileOut.writeUTF(file.getName());  // 发送文件名字
@@ -117,7 +133,10 @@ public class ClientFileThread extends Thread{
                 fileOut.flush();
             }
 
-            output.println("【" + userName + "已成功发送文件！】");
+            /** 还有地方没解决：收发文件的提示消息还是和ServerReadAndPrint共用一个进程，也就是说想要提示信息私发而不改变
+             * ServerReadAndPrint的逻辑，必须FileThread拥有自己的文字收发
+             */
+            output.println(UserMapProtocol.MSG_ROUND + "【" + userName + "已成功发送文件！】" + UserMapProtocol.MSG_ROUND);
             output.flush();
         } catch (Exception e) {}
     }
