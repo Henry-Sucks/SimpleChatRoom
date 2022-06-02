@@ -49,7 +49,7 @@ public class LoginView {
         jp.add(jp2, BorderLayout.CENTER);
 
         // 设置监控
-        listener = new ClientReadAndPrint().new LoginListen();
+        listener = new ClientReadAndPrint.LoginListen();
         listener.setJTextField(textField);
         listener.setJPasswordField(pwdField);
         listener.setJFrame(jf);
