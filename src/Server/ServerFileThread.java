@@ -1,3 +1,5 @@
+package Server;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -13,7 +15,7 @@ public class ServerFileThread extends Thread{
     public void run() {
         try {
             //BUG：Server中已经创建了相同端口的SeverSocket
-            //server = new ServerSocket(Client.port);
+            //server = new ServerSocket(Client.Client.port);
             server = Server.serverSocket;
             while(true) {
                 socket = server.accept();

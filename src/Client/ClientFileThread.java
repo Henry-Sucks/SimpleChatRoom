@@ -1,19 +1,26 @@
-import javax.swing.*;
+package Client;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Optional;
 
 public class ClientFileThread extends Thread{
     private Socket socket = null;
-    private JFrame clientView = null;
+    private Stage clientView = null;
     static String userName = null;
-    static PrintWriter output = null;  // 普通消息的发送（Server.java传来的值）
+    static PrintWriter output = null;  // 普通消息的发送（Server.Server.java传来的值）
     static DataInputStream fileIn = null;
     static DataOutputStream fileOut = null;
     static DataInputStream fileReader = null;
     static DataOutputStream fileWriter = null;
 
-    public ClientFileThread(String userName, JFrame clientView, PrintWriter output){
+    public ClientFileThread(String userName, Stage clientView, PrintWriter output){
         ClientFileThread.userName = userName;
         this.clientView = clientView;
         ClientFileThread.output = output;
@@ -30,11 +37,17 @@ public class ClientFileThread extends Thread{
             fileOut = new DataOutputStream(socket.getOutputStream());  // 输出流
             // 接收文件
             while(true) {
+                System.out.println("1");
                 String textName = fileIn.readUTF();
+                System.out.println("2");
                 long titleLength = fileIn.readLong();
+                System.out.println("3");
                 // 弹出窗口
-                int result = JOptionPane.showConfirmDialog(clientView, "是否接受？", "提示",
-                        JOptionPane.YES_NO_OPTION);
+                Alert ifReceive = new Alert(Alert.AlertType.CONFIRMATION);
+                ifReceive.setTitle("接收文件");
+                ifReceive.setHeaderText("是否接收其他用户发来的文件");
+                Optional<ButtonType> result = ifReceive.showAndWait();
+
                 int length = -1;
 
                 // buff?缓冲区？->只能读取1024位
@@ -42,15 +55,19 @@ public class ClientFileThread extends Thread{
                 long curLength = 0;
 
                 // 提示框选择结果，0为确定，1位取消
-                if(result == 0){
+                if(result.get() == ButtonType.OK){
                     File userFile;
-                    JFileChooser dirChooser = new JFileChooser();
+                    DirectoryChooser chooser = new DirectoryChooser();
+                    chooser.setInitialDirectory(new File("."));
+                    File dir = chooser.showDialog(clientView);
+                    /*
                     dirChooser.setCurrentDirectory(new File("."));
                     dirChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
                     dirChooser.setAcceptAllFileFilterUsed(false);
+                     */
 
-                    if(dirChooser.showOpenDialog(clientView) == JFileChooser.APPROVE_OPTION){
-                        userFile = new File(dirChooser.getSelectedFile().getAbsolutePath());
+                    if(dir != null){
+                        userFile = new File(dir.getAbsolutePath());
                         if(!userFile.exists())
                         userFile.mkdir();
                     }
@@ -75,9 +92,19 @@ public class ClientFileThread extends Thread{
                     output.println("【" + userName + "接收了文件！】");
                     output.flush();
                     // 提示文件存放地址
+
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("文件接收成功");
+                    alert.setHeaderText("成功接收到了其他用户发送来的文件");
+                    alert.setContentText("文件存放地址" + file.getAbsolutePath());
+                    alert.showAndWait();
+                    /*
                     JOptionPane.showMessageDialog(clientView, "文件存放地址：\n" +
                             "D:\\接受文件\\" +
                             userName + "\\" + textName, "提示", JOptionPane.INFORMATION_MESSAGE);
+
+                     */
                 }
 
                 else {  // 不接受文件
@@ -90,10 +117,12 @@ public class ClientFileThread extends Thread{
                 }
                 fileWriter.close();
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     // 客户端发送文件
-    static void outFileToServer(String path) {
+    public static void outFileToServer(String path) {
         try {
             File file = new File(path);
             fileReader = new DataInputStream(new FileInputStream(file));

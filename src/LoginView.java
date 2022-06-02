@@ -1,11 +1,12 @@
+
+/*
+import Client.ClientReadAndPrint;
+
+
+import Client.ClientReadAndPrint;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.Socket;
 
 public class LoginView {
     JTextField textField = null;
@@ -61,3 +62,5 @@ public class LoginView {
         jf.setVisible(true);
     }
 }
+
+ */
