@@ -14,9 +14,8 @@ public class ServerFileThread extends Thread{
     static List<Socket> list = new ArrayList<Socket>();  // 存储客户端
     public void run() {
         try {
-            //BUG：Server中已经创建了相同端口的SeverSocket
-            //server = new ServerSocket(Client.Client.port);
-            server = Server.serverSocket;
+
+            server = new ServerSocket(9999);
             while(true) {
                 socket = server.accept();
                 list.add(socket);

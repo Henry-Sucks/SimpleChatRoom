@@ -2,35 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a7ba20-0cdc-406d-8de5-74912f6ecf64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/UI/ClientChatView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/ClientLoginView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/FileChoose.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tools/IconImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tools/ImagePut.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientFileThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$ChatViewListen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint$LoginListen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientReadAndPrint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ClientView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/LoginView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/ServerReadAndPrint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/Image2SuitableSize.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/Image2SuitableSize.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientFileThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientReadAndPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServerFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerFileThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Image2SuitableSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/Image2SuitableSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/FileReadAndWrite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/FileReadAndWrite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerFileThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerFileThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientFileThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerFileThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +141,8 @@
       <workItem from="1654042368917" duration="19036000" />
       <workItem from="1654075457501" duration="7468000" />
       <workItem from="1654131035987" duration="1393000" />
-      <workItem from="1654133045053" duration="29418000" />
+      <workItem from="1654133045053" duration="36455000" />
+      <workItem from="1654184186150" duration="117000" />
     </task>
     <servers />
   </component>

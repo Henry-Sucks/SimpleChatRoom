@@ -1,5 +1,6 @@
 package Client;
 
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.DirectoryChooser;
@@ -11,14 +12,18 @@ import java.net.Socket;
 import java.util.Optional;
 
 public class ClientFileThread extends Thread{
+    private int choose = 0; //判断是否选择了文件的存储路径
     private Socket socket = null;
     private Stage clientView = null;
+    private File dir = null;
+    private Optional<ButtonType> result = null;
     static String userName = null;
     static PrintWriter output = null;  // 普通消息的发送（Server.Server.java传来的值）
     static DataInputStream fileIn = null;
     static DataOutputStream fileOut = null;
     static DataInputStream fileReader = null;
     static DataOutputStream fileWriter = null;
+
 
     public ClientFileThread(String userName, Stage clientView, PrintWriter output){
         ClientFileThread.userName = userName;
@@ -31,23 +36,34 @@ public class ClientFileThread extends Thread{
         try{
             // InetAddress IP地址
             InetAddress addr = InetAddress.getByName(null);  // 获取主机地址
-            socket = new Socket(addr, Client.port);  // 客户端套接字
+            socket = new Socket(addr, 9999);  // 客户端套接字
             // 每个Thread独有一个Socket（是否可以理解为与服务器端口？）
             fileIn = new DataInputStream(socket.getInputStream());  // 输入流
             fileOut = new DataOutputStream(socket.getOutputStream());  // 输出流
             // 接收文件
             while(true) {
-                System.out.println("1");
+                
                 String textName = fileIn.readUTF();
-                System.out.println("2");
                 long titleLength = fileIn.readLong();
-                System.out.println("3");
                 // 弹出窗口
+                /*
                 Alert ifReceive = new Alert(Alert.AlertType.CONFIRMATION);
                 ifReceive.setTitle("接收文件");
                 ifReceive.setHeaderText("是否接收其他用户发来的文件");
                 Optional<ButtonType> result = ifReceive.showAndWait();
-
+                */
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        Alert ifReceive = new Alert(Alert.AlertType.CONFIRMATION);
+                        ifReceive.setTitle("接收文件");
+                        ifReceive.setHeaderText("是否接收其他用户发来的文件");
+                        result = ifReceive.showAndWait();
+                    }
+                });
+                while(result == null){
+                    System.out.println("result == null");
+                }
                 int length = -1;
 
                 // buff?缓冲区？->只能读取1024位
@@ -57,9 +73,20 @@ public class ClientFileThread extends Thread{
                 // 提示框选择结果，0为确定，1位取消
                 if(result.get() == ButtonType.OK){
                     File userFile;
-                    DirectoryChooser chooser = new DirectoryChooser();
-                    chooser.setInitialDirectory(new File("."));
-                    File dir = chooser.showDialog(clientView);
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            DirectoryChooser chooser = new DirectoryChooser();
+                            chooser.setInitialDirectory(new File("."));
+                            dir = chooser.showDialog(clientView);
+                            choose = 1;
+                        }
+                    });
+
+                    //检测选择是否完成
+                    while(choose == 0){
+                        System.out.println("choose = 0");
+                    }
                     /*
                     dirChooser.setCurrentDirectory(new File("."));
                     dirChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -72,6 +99,16 @@ public class ClientFileThread extends Thread{
                         userFile.mkdir();
                     }
                     else {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                                alert1.setTitle("自动选择路径");
+                                alert1.setHeaderText("你还没有选择文件存放路径");
+                                alert1.setContentText("文件将存放在默认存放地址" + "D:\\接受文件\\" + userName);
+                                alert1.show();
+                            }
+                        });
                         userFile = new File("D:\\接受文件\\" + userName);
                         if(!userFile.exists())
                         userFile.mkdir();
@@ -93,12 +130,19 @@ public class ClientFileThread extends Thread{
                     output.flush();
                     // 提示文件存放地址
 
+                    choose = 0;//重置choose 下一次传输文件会用上
+                    result = null;
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                            alert1.setTitle("文件接收成功");
+                            alert1.setHeaderText("成功接收到了其他用户发送来的文件");
+                            alert1.setContentText("文件存放地址" + file.getAbsolutePath());
+                            alert1.showAndWait();
+                        }
+                    });
 
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("文件接收成功");
-                    alert.setHeaderText("成功接收到了其他用户发送来的文件");
-                    alert.setContentText("文件存放地址" + file.getAbsolutePath());
-                    alert.showAndWait();
                     /*
                     JOptionPane.showMessageDialog(clientView, "文件存放地址：\n" +
                             "D:\\接受文件\\" +
@@ -141,4 +185,5 @@ public class ClientFileThread extends Thread{
             output.flush();
         } catch (Exception e) {}
     }
+
 }
