@@ -94,7 +94,7 @@ public class ClientFileThread extends Thread{
                     output.flush();
                     // 提示文件存放地址
                     JOptionPane.showMessageDialog(clientView, "文件存放地址：\n" +
-                            "D:\\接受文件\\" +
+                            userFile.getAbsolutePath() + "\\" +
                             userName + "\\" + textName, "提示", JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -120,8 +120,8 @@ public class ClientFileThread extends Thread{
 //            messager.sendToServer(serverMsg);
 
             /** 选择私发还是群发 **/
-            /** 这里为了测试只写了私发的代码，三个用户1234,12345,123456，选择1234私发12345 **/
-            String serverMsg = UserProtocol.SELECT_ROUND + "1" + UserProtocol.SPLIT_SIGN + "12345" + UserProtocol.SELECT_ROUND;
+            /** 这里为了测试只写了私发的代码，三个用户1234,12345,123456,1234567，选择1234私发12345,123456 **/
+            String serverMsg = UserProtocol.SELECT_ROUND + "2" + UserProtocol.SPLIT_SIGN + "12345" + UserProtocol.SPLIT_SIGN + "123456" + UserProtocol.SELECT_ROUND;
             messager.sendToServer(serverMsg);
 
 

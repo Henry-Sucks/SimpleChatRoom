@@ -4,9 +4,6 @@
     <list default="true" id="6760fd19-aaf2-468b-a989-c6537735496b" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientFileThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SelectChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SelectChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServerFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerFileThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
