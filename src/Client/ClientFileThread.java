@@ -120,7 +120,7 @@ public class ClientFileThread extends Thread{
                         fileWriter.write(buff, 0, length);
                         fileWriter.flush();
                         curLength += length;
-						output.println("【接收进度:" + curLength/titleLength*100 + "%】");
+						//output.println("【接收进度:" + curLength/titleLength*100 + "%】");
 						output.flush();
                         if(curLength == titleLength) {  // 强制结束
                             break;

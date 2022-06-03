@@ -4,10 +4,7 @@
     <list default="true" id="93a7ba20-0cdc-406d-8de5-74912f6ecf64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/FileReadAndWrite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/FileReadAndWrite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerFileThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerFileThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientFileThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerFileThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +140,8 @@
       <workItem from="1654131035987" duration="1393000" />
       <workItem from="1654133045053" duration="36455000" />
       <workItem from="1654184186150" duration="117000" />
+      <workItem from="1654184499420" duration="567000" />
+      <workItem from="1654220774756" duration="614000" />
     </task>
     <servers />
   </component>

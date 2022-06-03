@@ -29,7 +29,7 @@ public class ClientLoginView extends Application{
     @Override
     public void start(Stage primaryStage){
         GridPane pane = new GridPane();
-        BackgroundImage myBI= new BackgroundImage(new Image("file:D:\\俄罗斯方块1234\\登录背景.jpeg",450,300,false,true),
+        BackgroundImage myBI= new BackgroundImage(new Image("Source/Background/登录背景.jpeg",450,300,false,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         pane.setBackground(new Background(myBI));
