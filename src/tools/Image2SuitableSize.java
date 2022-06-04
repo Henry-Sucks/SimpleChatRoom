@@ -19,6 +19,7 @@ public class Image2SuitableSize {
             int width2 = w;
             BufferedImage image2 = new BufferedImage(width2, height2,BufferedImage.TYPE_INT_RGB);
             image2.getGraphics().drawImage(image.getScaledInstance(width2, height2, Image.SCALE_SMOOTH),0 ,0,null);
+            //获取文件的格式
             String formatName = objectPath.substring(objectPath.lastIndexOf(".") + 1);
             ImageIO.write(image2,formatName, new File(objectPath));
 
@@ -26,4 +27,5 @@ public class Image2SuitableSize {
             e.printStackTrace();
         }
     }
+
 }
