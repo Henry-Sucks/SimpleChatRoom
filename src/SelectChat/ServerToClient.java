@@ -18,11 +18,9 @@ public class ServerToClient {
         return in.readLine();
     }
 
-    public void sendMsg(String msg, ArrayList<Socket> list) throws IOException {
-        for (Socket socket : list) {
+    public void sendMsg(String msg, Socket socket) throws IOException {
             PrintWriter out = new PrintWriter(socket.getOutputStream());
             out.println(msg);
             out.flush();
-        }
     }
 }

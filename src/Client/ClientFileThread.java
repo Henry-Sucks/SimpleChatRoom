@@ -52,8 +52,7 @@ public class ClientFileThread extends Thread{
             // 接收文件
             while(true) {
                 // 收到提示信息
-//                clientView.(messager.getMsg());
-
+//                String otherName = Client.getRealMsg(messager.getMsg());
                 String textName = fileIn.readUTF();
                 long titleLength = fileIn.readLong();
                 // 弹出窗口
@@ -66,15 +65,17 @@ public class ClientFileThread extends Thread{
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
+                        System.out.println("收到文件");
                         Alert ifReceive = new Alert(Alert.AlertType.CONFIRMATION);
                         ifReceive.setTitle("接收文件");
-                        ifReceive.setHeaderText("是否接收其他用户发来的文件");
+                        ifReceive.setHeaderText("是否接收用户" + "发来的文件？");
                         result = ifReceive.showAndWait();
                     }
                 });
-                while(result.isEmpty()){
-                    System.out.println("result == null");
+                while(result == null){
                 }
+
+                System.out.println("能够接收");
                 int length = -1;
 
                 // buff?缓冲区？->只能读取1024位
@@ -83,6 +84,7 @@ public class ClientFileThread extends Thread{
 
                 // 提示框选择结果，0为确定，1位取消
                 if(result.get() == ButtonType.OK){
+                    System.out.println("允许接受");
                     File userFile;
                     Platform.runLater(new Runnable() {
                         @Override
@@ -96,7 +98,6 @@ public class ClientFileThread extends Thread{
 
                     //检测选择是否完成
                     while(choose == 0){
-                        System.out.println("choose = 0");
                     }
 
                     if(dir != null){
@@ -122,6 +123,7 @@ public class ClientFileThread extends Thread{
                         userFile.mkdirs();
                     }
 
+                    System.out.println("已选好路径");
                     // 保存下来
                     userDir = userFile;
 
@@ -206,7 +208,7 @@ public class ClientFileThread extends Thread{
              */
 //            output.println(UserMapProtocol.MSG_ROUND + "【" + userName + "已成功发送文件！】" + UserMapProtocol.MSG_ROUND);
 //            output.flush();
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
     }
 
 }

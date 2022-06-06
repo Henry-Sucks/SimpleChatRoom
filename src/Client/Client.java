@@ -1,5 +1,6 @@
 
 package Client;
+import Global.UserProtocol;
 import UI.*;
 import javafx.application.Application;
 
@@ -16,5 +17,10 @@ public class Client {
     }
     public static void setOnline(boolean i){
         online = i;
+    }
+
+
+    static public String getRealMsg(String line) {
+        return line.substring(UserProtocol.PROTOCOL_LEN,line.length()- UserProtocol.PROTOCOL_LEN);
     }
 }

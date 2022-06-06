@@ -34,7 +34,7 @@ public class ServerFileThread extends Thread{
                 users.put(Server.getRealMsg(serverMsg), socket);
 
                 // 开启文件传输线程
-                FileReadAndWrite fileReadAndWrite = new FileReadAndWrite(socket);
+                FileReadAndWrite fileReadAndWrite = new FileReadAndWrite(socket, userName);
                 fileReadAndWrite.start();
             }
         } catch (IOException e) {
@@ -51,9 +51,11 @@ class FileReadAndWrite extends Thread {
     private ArrayList<Socket> recvList; // 私发SocketList
     private ArrayList<String> nameList; // 私发名单
     static boolean selectState = false; // 是否选择私发状态
+    private String userName = null;
 
-    public FileReadAndWrite(Socket socket) {
+    public FileReadAndWrite(Socket socket, String userName) {
         this.nowSocket = socket;
+        this.userName = userName;
     }
     public void run() {
         try {
@@ -110,6 +112,7 @@ class FileReadAndWrite extends Thread {
                         }
                     }
                     if(curLength == textLength) {  // 强制退出
+                        System.out.println("发送完毕");
                         break;
                     }
                 }
