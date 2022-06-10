@@ -63,10 +63,10 @@ class ServerReadAndPrint extends Thread{
                 for(Socket socket: Server.list) {
                     out = new PrintWriter(socket.getOutputStream());  // 对每个客户端新建相应的socket套接字
                     if(socket == nowSocket) {  // 发送给当前客户端
-                        out.println("(你)" + str);
+                        out.println("1" + str);
                     }
                     else {  // 发送给其它客户端
-                        out.println(str);
+                        out.println("2" + str); //1和2用来判断自己和别人发的消息
                     }
                     out.flush();  // 清空out中的缓存
                 }

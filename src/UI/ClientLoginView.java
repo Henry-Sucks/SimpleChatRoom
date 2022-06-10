@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -59,6 +60,7 @@ public class ClientLoginView extends Application{
         pane.getChildren().add(textGroup);
         //设置文字label及其格式
         Label label1 = new Label("     Welcome");
+        label1.setTextFill(Paint.valueOf("#79f874"));
         Label label2 = new Label("用户名:");
         Label label3 = new Label("密码:");
         label1.setFont(font);
@@ -69,9 +71,11 @@ public class ClientLoginView extends Application{
         pane.add(label1,0,0);
         pane.add(label2,0,1);
         final TextField text = new TextField();
+        text.setPromptText("👩");
         pane.add(text,1,1);
         pane.add(label3,0,2);
         final PasswordField pb = new PasswordField();
+        pb.setPromptText("🔒");
         pane.add(pb,1,2);
         Button bt=new Button("登录");
         pane.add(bt,1,3);
@@ -85,7 +89,7 @@ public class ClientLoginView extends Application{
         bt.setOnAction(loginHandler);
 
         Scene scene=new Scene(pane,450,300);
-        primaryStage.setTitle("JavaFx Welcome");
+        primaryStage.setTitle("ChatRoom Welcome");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

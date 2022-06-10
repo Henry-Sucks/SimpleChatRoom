@@ -126,7 +126,7 @@ public class ClientFileThread extends Thread{
                             break;
                         }
                     }
-                    output.println("【" + userName + "接收了文件！】");
+                    output.println("                 【" + userName + "接收了文件！】");
                     output.flush();
                     // 提示文件存放地址
 
@@ -181,7 +181,7 @@ public class ClientFileThread extends Thread{
                 fileOut.flush();
             }
 
-            output.println("【" + userName + "已成功发送文件！】");
+            output.println("                     【" + userName + "已成功发送文件！】");
             output.flush();
         } catch (Exception e) {}
     }

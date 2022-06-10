@@ -1,6 +1,9 @@
 package Client;
 
 import UI.ClientChatView;
+import UI.OthersChatFrame;
+import UI.SelfChatFrame;
+import UI.WordFrame;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,10 +11,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.WordsSplit;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,6 +27,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ClientReadAndPrint extends Thread{
     static Socket socket = null;
@@ -38,19 +49,83 @@ public class ClientReadAndPrint extends Thread{
             while (true) {
                 // 获取服务端发送的信息
                 String str = input.readLine();
-
+                //这一部分暂时代替用户头像
+                Image image = new Image("source\\Background\\登录背景.jpeg");
+                ImageView iv = new ImageView();
+                iv.setFitWidth(50);
+                iv.setFitHeight(50);
+                iv.setImage(image);
                 //子线程改变主线程需要加这个选项 不太清楚为什么 不加会报错
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
                         //更新JavaFX的主线程的代码放在此处
-                        textOutput.getChildren().add(new Text(str + "\n"));
+                        String outStr;
+                        String sign = str.substring(0,1);
+                        String[] temp;
+                        String outName;
+                        if (str.charAt(1) != '用'){
+                            temp = str.split("说：",2);
+                            outName = temp[0].substring(1);
+                            outStr = temp[1];
+                        }else{
+                            String regex1 = "【";
+                            String regex2 = "】";
+                            Pattern pattern1 = Pattern.compile(regex1);
+                            Pattern pattern2 = Pattern.compile(regex2);
+                            Matcher matcher1 = pattern1.matcher(str);
+                            Matcher matcher2 = pattern2.matcher(str);
+                            matcher1.find();
+                            matcher2.find();
+                            int begin = matcher1.start();
+                            int end = matcher2.start();
+                            outName = str.substring(begin + 1, end);
+                            outStr = str.substring(1);
+                        }
+
+                        if (sign.equals("1")){//将输出内容集合到一个textflow里
+                            SelfChatFrame chat = new SelfChatFrame();
+                            chat.getChildren().add(iv);
+                            ArrayList<String> str = WordsSplit.splitWords(outStr);
+                            WordFrame wd = new WordFrame(str);
+                            wd.setStyle("-fx-background-color: rgba(0, 90, 0, 0.3); -fx-background-radius: 7;");
+                            chat.getChildren().add(wd);
+                            Text name = new Text(userName);
+                            name.setFill(Paint.valueOf("#d0aba4"));
+                            name.setOpacity(0.8);
+                            name.setWrappingWidth(150);
+                            Pane namePane = new Pane();
+                            namePane.getChildren().add(name);
+                            namePane.setPrefWidth(150);
+                            namePane.setPrefHeight(20);
+                            chat.getChildren().add(namePane);
+                            textOutput.getChildren().add(chat);
+                            textOutput.getChildren().add(new Text("\n"));
+
+                        }else if(sign.equals("2")){
+                            OthersChatFrame chat = new OthersChatFrame();
+                            chat.getChildren().add(iv);
+                            ArrayList<String> str = WordsSplit.splitWords(outStr);
+                            WordFrame wd = new WordFrame(str);
+                            wd.setStyle("-fx-background-color: rgba(50, 50, 50, 0.3); -fx-background-radius: 7;");
+                            chat.getChildren().add(wd);
+                            Text name = new Text(outName);
+                            name.setFill(Paint.valueOf("#d0aba4"));
+                            name.setOpacity(0.8);
+                            name.setWrappingWidth(150);
+                            Pane namePane = new Pane();
+                            namePane.getChildren().add(name);
+                            namePane.setPrefWidth(150);
+                            namePane.setPrefHeight(20);
+                            chat.getChildren().add(namePane);
+                            textOutput.getChildren().add(chat);
+                            textOutput.getChildren().add(new Text("\n"));
+                            sp.setVvalue(1D);
+                        }else {
+                            textOutput.getChildren().add(new Text(str + "\n"));
+                        }
                     }
                 });
-                if (sp != null){
-                    sp.setVvalue(1D);
-                }
-
             }
         } catch (Exception e) {
             e.printStackTrace();

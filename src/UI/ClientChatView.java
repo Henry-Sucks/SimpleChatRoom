@@ -5,19 +5,20 @@ import Client.ClientReadAndPrint;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.text.Text;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.*;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -29,7 +30,7 @@ public class ClientChatView extends Application {
     private TextFlow textFlow;
     private ScrollPane sp;
     private TextField  textIn = new TextField();
-    private Button send = new Button("发送");
+    private Button send = new Button("发送(S)");
     private Button fileChoose = new Button("发送文件");
     private ClientReadAndPrint.ChatViewHandler chatHandler;
     private FileChooseHnadler fileHandler;
@@ -46,46 +47,40 @@ public class ClientChatView extends Application {
     public void start(Stage primaryStage){
         try{
             // 最下端的消息编辑区
+            textIn.setBlendMode(BlendMode.GREEN);
             HBox downBox = new HBox();
             downBox.getChildren().addAll(textIn, send, fileChoose);
             downBox.setPadding(new Insets(10));
             downBox.setSpacing(5);
             HBox.setHgrow(textIn, Priority.ALWAYS);
+            BackgroundSize backgroundSize = new BackgroundSize(100,150,true,true,true,true);
+            BackgroundImage myBI= new BackgroundImage(new Image("Source/Background/聊天背景.jpeg",450,300,false,true),
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                    backgroundSize);
+            downBox.setBackground(new Background(myBI));
+
 
             //TextFlow支持显示富文本
             textFlow = new TextFlow();
-            ImageView iv = new ImageView();
-            Image icon = new Image("file:D:\\俄罗斯方块1234\\登录背景.jpeg");
-            iv.setPreserveRatio(true);
-            iv.setImage(icon);
-            iv.setFitHeight(100);
-            iv.setFitWidth(100);
-            Label label = new Label("hahah");
-            Label label1 = new Label("123");
-            Text t1 = new Text("11111\n");
-            textFlow.getChildren().add(iv);
-            textFlow.getChildren().add(t1);
-            textFlow.getChildren().add(label1);
-            textFlow.getChildren().add(label);
+            textFlow.setPadding(new Insets(5));
             textFlow.setLineSpacing(20.0f);
-            for (int i = 0; i < 100; i++){
-                textFlow.getChildren().add(new Text("haha\n"));
-            }
+
 
             //可滚动窗口
             sp = new ScrollPane();
-            sp.setPrefSize(400, 400);
+            sp.setPrefSize(600, 400);
             sp.setContent(textFlow);
             sp.setVvalue(1D);
-            //sp.setBackground(); 设置聊天的背景 后续可能用的上
+            textFlow.heightProperty().addListener(observable -> sp.setVvalue(1D));//自动滚动
 
-            //将布局加入到根结点内
+
             BorderPane root = new BorderPane();
-            root.setPrefSize(400,600);
+            root.setPrefSize(1000,600);
             Group group = new Group();
             group.getChildren().addAll(sp);
             root.setTop(group);
             root.setBottom(downBox);
+            root.setBackground(new Background(myBI));
 
             //处理发送按钮
             chatHandler = new ClientReadAndPrint(). new ChatViewHandler();
@@ -94,12 +89,28 @@ public class ClientChatView extends Application {
             chatHandler.setJTextField(textIn);
             chatHandler.setScrollPane(sp);
             send.setOnAction(chatHandler);
+            send.setEffect(new SepiaTone());
 
             //处理文件按钮
             fileHandler = new FileChooseHnadler();
             fileChoose.setOnAction(fileHandler);
+            fileChoose.setEffect(new SepiaTone());
 
-            Scene scene = new Scene(root, 400, 450);
+            //设置行间距
+            textFlow.setLineSpacing(10);
+            Scene scene = new Scene(root, 1000, 600);
+
+            // 为发送设置快捷键ctrl+s
+            scene.getAccelerators().put(
+                    new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN),
+                    new Runnable() {
+                        @FXML
+                        public void run() {
+                            send.fire();
+                        }
+                    }
+            );
+
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
