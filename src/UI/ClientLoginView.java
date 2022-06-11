@@ -3,6 +3,8 @@ package UI;
 
 import Client.ClientReadAndPrint;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -30,6 +32,7 @@ public class ClientLoginView extends Application{
     @Override
     public void start(Stage primaryStage){
         GridPane pane = new GridPane();
+
         BackgroundImage myBI= new BackgroundImage(new Image("Source/Background/登录背景.jpeg",450,300,false,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
@@ -79,6 +82,8 @@ public class ClientLoginView extends Application{
         pane.add(pb,1,2);
         Button bt=new Button("登录");
         pane.add(bt,1,3);
+        Button bt2 = new Button("注册");
+        pane.add(bt2,1,3);
         GridPane.setHalignment(bt,HPos.CENTER);
 
         //处理用户的登录请求
@@ -87,6 +92,7 @@ public class ClientLoginView extends Application{
         loginHandler.setPasswordField(pb);
         loginHandler.setTextField(text);
         bt.setOnAction(loginHandler);
+        bt2.setOnAction(new RegisterHandler());
 
         Scene scene=new Scene(pane,450,300);
         primaryStage.setTitle("ChatRoom Welcome");
@@ -96,7 +102,15 @@ public class ClientLoginView extends Application{
 
     }
 
-
+    private class RegisterHandler implements EventHandler<ActionEvent>
+    {
+        @Override
+        public void handle(ActionEvent event)
+        {
+           RegisterView register = new RegisterView();
+           register.run();
+        }
+    }
     public static void main(String args){
         Application.launch(args);
     }

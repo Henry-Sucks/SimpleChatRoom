@@ -13,9 +13,18 @@ public class WordsSplit {
         ArrayList<String> strList = new ArrayList<>();
         for (int i = 1; i < length + 1; i++){
             String tempStr =  input.substring(begin,i);
+            System.out.println(WordLength.length(tempStr));
             if ((WordLength.length(tempStr))> 300){
-                strList.add(tempStr);
+                int temp = begin;
                 begin = i;
+                if (input.length() > (i + 1)){
+                    System.out.println(input.substring(i-2,i+1));
+                    if (input.substring(i-1,i+2).matches("%\\d\\d")){
+                        tempStr = input.substring(temp, i - 2);
+                        begin = i - 2;
+                    }
+                }
+                strList.add(tempStr);
             }
         }
         if (begin != length){

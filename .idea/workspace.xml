@@ -2,35 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a7ba20-0cdc-406d-8de5-74912f6ecf64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Source/Background/聊天背景.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/FriendList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/OthersChatFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/RegisterView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/SelfChatFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/WordFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tools/WordLength.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tools/WordsSplit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Background/动态背景.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Background/注册背景.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/EmojyPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tools/EmojiFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$LoginHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$LoginHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerReadAndPrint.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/RegisterView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/RegisterView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/WordFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/WordFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/Image2SuitableSize.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/Image2SuitableSize.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientFileThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordLength.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordLength.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordsSplit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordsSplit.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/ClientChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientChatView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/ClientLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientLoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/RegisterView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/WordFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/WordFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tools/Image2SuitableSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/Image2SuitableSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tools/WordLength.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/WordLength.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tools/WordsSplit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/WordsSplit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +108,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\俄罗斯方块\java项目\聊天室\SimpleChatRoom\src\Source\Emojy" />
       <recent name="D:\俄罗斯方块\java项目\聊天室\SimpleChatRoom\src\Source\Background" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FriendList">
+  <component name="RunManager" selected="Application.ClientLoginView">
     <configuration name="ClientLoginView" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UI.ClientLoginView" />
       <module name="SimpleChatRoom" />
@@ -92,8 +126,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FriendList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UI.FriendList" />
+    <configuration name="RegisterView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UI.RegisterView" />
       <module name="SimpleChatRoom" />
       <extension name="coverage">
         <pattern>
@@ -105,22 +139,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Image2SuitableSize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tools.Image2SuitableSize" />
-      <module name="SimpleChatRoom" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tools.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="SimpleChatRoom" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,20 +165,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="t" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UI.t" />
+      <module name="SimpleChatRoom" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Server" />
       <item itemvalue="Application.ClientLoginView" />
+      <item itemvalue="Application.RegisterView" />
       <item itemvalue="Application.Test" />
-      <item itemvalue="Application.Image2SuitableSize" />
-      <item itemvalue="Application.FriendList" />
+      <item itemvalue="Application.t" />
+      <item itemvalue="Application.Server" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FriendList" />
         <item itemvalue="Application.ClientLoginView" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.Image2SuitableSize" />
+        <item itemvalue="Application.t" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.RegisterView" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +231,10 @@
       <workItem from="1654826496955" duration="3288000" />
       <workItem from="1654835330318" duration="597000" />
       <workItem from="1654838336440" duration="359000" />
-      <workItem from="1654840925575" duration="18287000" />
+      <workItem from="1654840925575" duration="31933000" />
+      <workItem from="1654879980086" duration="1735000" />
+      <workItem from="1654882815653" duration="2859000" />
+      <workItem from="1654960980708" duration="1097000" />
     </task>
     <servers />
   </component>

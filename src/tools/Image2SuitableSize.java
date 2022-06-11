@@ -29,7 +29,7 @@ public class Image2SuitableSize {
     }
 
     public static void main(String[] args){
-        changeSize("D:\\Downloads\\聊天背景.jpeg","D:\\俄罗斯方块1234\\聊天背景.jpeg",100,600);
+        changeSize("D:\\俄罗斯方块1234\\1.jpeg","D:\\俄罗斯方块1234\\注册背景.jpeg",450,300);
     }
 
 }

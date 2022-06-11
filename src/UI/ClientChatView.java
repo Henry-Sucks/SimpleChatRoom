@@ -22,6 +22,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import tools.EmojiFactory;
 
 import java.io.File;
 
@@ -36,6 +37,7 @@ public class ClientChatView extends Application {
     private FileChooseHnadler fileHandler;
 
     public void run(){
+        EmojiFactory.init();
         start(new Stage());
     }
 
