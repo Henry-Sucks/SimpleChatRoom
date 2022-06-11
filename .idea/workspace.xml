@@ -2,68 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a7ba20-0cdc-406d-8de5-74912f6ecf64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Source/Background/动态背景.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Background/注册背景.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/27.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/28.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/31.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/33.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/34.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/35.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/36.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/37.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/38.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/Emoji/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/EmojyPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tools/EmojiFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/RegisterView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/RegisterView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/WordFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/WordFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/Image2SuitableSize.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/Image2SuitableSize.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordLength.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordLength.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordsSplit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordsSplit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/ClientChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientChatView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/ClientLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientLoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/RegisterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/WordFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/WordFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Image2SuitableSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/Image2SuitableSize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tools/WordLength.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/WordLength.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/WordsSplit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/WordsSplit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +175,7 @@
       <workItem from="1654840925575" duration="31933000" />
       <workItem from="1654879980086" duration="1735000" />
       <workItem from="1654882815653" duration="2859000" />
-      <workItem from="1654960980708" duration="1097000" />
+      <workItem from="1654960980708" duration="1435000" />
     </task>
     <servers />
   </component>

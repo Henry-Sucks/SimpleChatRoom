@@ -18,7 +18,7 @@ public class WordLength {
                 length += 1;
             }
         }
-        return length * 7.5 + 5 - hasEmojy(str) * 5;
+        return length * 7.5 + 7 - hasEmojy(str) * 5;
     }
 
     public static boolean IsChinese(char c)

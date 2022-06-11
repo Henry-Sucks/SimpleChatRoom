@@ -72,9 +72,9 @@ public class WordFrame extends TextFlow {
                getChildren().add(new Text("%" + index));
            }else{
                ImageView emojy = new ImageView();
-               emojy.setFitWidth(15);
-               emojy.setFitHeight(15);
-               emojy.setImage(EmojiFactory.getEmojys()[indexNum]);
+               emojy.setFitWidth(18);
+               emojy.setFitHeight(18);
+               emojy.setImage(EmojiFactory.getEmojys()[indexNum - 1]);
                ArrayList<ImageView> emojys = new ArrayList<>();
                emojys.add(emojy);
                ImageView emojyTemp;
@@ -86,9 +86,9 @@ public class WordFrame extends TextFlow {
                        if (num < 36) {
                            matcher.find();
                            emojyTemp = new ImageView();
-                           emojyTemp.setFitWidth(15);
-                           emojyTemp.setFitHeight(15);
-                           emojyTemp.setImage(EmojiFactory.getEmojys()[num]);
+                           emojyTemp.setFitWidth(18);
+                           emojyTemp.setFitHeight(18);
+                           emojyTemp.setImage(EmojiFactory.getEmojys()[num - 1]);
                            emojys.add(emojyTemp);
                            end += 3;
                        }
