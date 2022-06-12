@@ -10,15 +10,18 @@ import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -65,6 +68,19 @@ public class ClientChatView extends Application {
             //TextFlow支持显示富文本
             textFlow = new TextFlow();
             textFlow.setPadding(new Insets(5));
+            ImageView iv = new ImageView();
+            Image icon = new Image("Source\\Background\\登录背景.jpeg");
+            iv.setPreserveRatio(true);
+            iv.setImage(icon);
+            iv.setFitHeight(100);
+            iv.setFitWidth(100);
+            Label label = new Label("hahah");
+            Label label1 = new Label("123");
+            Text t1 = new Text("11111\n");
+            textFlow.getChildren().add(iv);
+            textFlow.getChildren().add(t1);
+            textFlow.getChildren().add(label1);
+            textFlow.getChildren().add(label);
             textFlow.setLineSpacing(20.0f);
 
 

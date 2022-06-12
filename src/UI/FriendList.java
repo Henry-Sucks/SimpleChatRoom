@@ -40,7 +40,6 @@ public class FriendList extends Application
 
             // 设置单元格生成器 （工厂）
             listView.setCellFactory(new Callback<ListView<Role>,ListCell<Role>>() {
-
                 @Override
                 public ListCell<Role> call(ListView<Role> param)
                 {

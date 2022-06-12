@@ -31,6 +31,10 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import Global.*;
+
+/** 客户端主逻辑：实现登录以及文字的发送与接收 **/
+
 public class ClientReadAndPrint extends Thread{
     static Socket socket = null;
     static TextField textInput;
@@ -133,6 +137,7 @@ public class ClientReadAndPrint extends Thread{
     }
 
     /**聊天界面监听（内部类）**/
+
     public class ChatViewHandler implements EventHandler<ActionEvent> {
         public void setJTextField(TextField text) {
             textInput = text;  // 放在外部类，因为其它地方也要用到
@@ -149,7 +154,7 @@ public class ClientReadAndPrint extends Thread{
             clientView.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent event) {
-                    if (Client.getOnline() == false){
+                    if (!Client.getOnline()){
                         System.exit(0);
                     }
                     else {
@@ -165,6 +170,13 @@ public class ClientReadAndPrint extends Thread{
         @Override
         public void handle(ActionEvent event) {
             try {
+                String serverMsg = "";
+                /** 先告诉系统自己叫什么名字 **/
+//                serverMsg = UserMapProtocol.CURNAME_ROUND + userName + UserMapProtocol.CURNAME_ROUND;
+//                output.println(serverMsg);  // 输出给服务端
+//                output.flush();  // 清空缓冲区out中的数据
+
+                /** 用户输入 **/
                 String str = textInput.getText();
                 // 如果文本框内容为空
                 if("".equals(str)) {
@@ -177,7 +189,26 @@ public class ClientReadAndPrint extends Thread{
                     alert.show();
                     return;
                 }
-                output.println(userName + "说：" + str);  // 输出给服务端
+
+                /** 将用户输入转为系统信息 **/
+                /** 1.要求私聊 **/
+                if(str.startsWith("send:")){
+                    str = str.substring(5);
+                    int userNum = Integer.parseInt(str.split(":")[0]);
+                    serverMsg = UserProtocol.SELECT_ROUND;
+                    serverMsg += userNum;
+                    for(int i = 1; i <= userNum; i++){
+                        serverMsg += UserProtocol.SPLIT_SIGN;
+                        serverMsg += str.split(":")[i];
+                    }
+                    serverMsg += UserProtocol.SELECT_ROUND;
+                }
+                /** 2.文本信息 **/
+                else
+                    serverMsg = UserProtocol.MSG_ROUND + str + UserProtocol.MSG_ROUND;
+
+                System.out.println(serverMsg);
+                output.println(serverMsg);  // 输出给服务端
                 output.flush();  // 清空缓冲区out中的数据
 
                 textInput.setText("");  // 清空文本框
@@ -215,15 +246,19 @@ public class ClientReadAndPrint extends Thread{
                 // 建立和服务器的联系
                 try {
                     InetAddress addr = InetAddress.getByName(null);  // 获取主机地址
-                    socket = new Socket(addr, Client.port);  // 客户端套接字
-                    loginStage.hide();// 隐藏登录窗口
+                    /** 新建用于文字传输的Socket **/
+                    socket = new Socket(addr, GlobalSettings.textPort);  // 客户端套接字
+                    loginStage.hide();  // 隐藏登录窗口
+
                     output = new PrintWriter(socket.getOutputStream());  // 输出流
-                    output.println("用户【" + userName + "】进入聊天室！");  // 发送用户名给服务器
+                    /** 将登陆信息传给服务器 **/
+                    output.println(UserProtocol.LOGIN_ROUND + userName + UserProtocol.LOGIN_ROUND);
                     output.flush();  // 清空缓冲区out中的数据
                     Client.setOnline(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
                 // 新建普通读写线程并启动
                 ClientReadAndPrint readAndPrint = new ClientReadAndPrint();
                 readAndPrint.start();
@@ -241,3 +276,6 @@ public class ClientReadAndPrint extends Thread{
         }
     }
 }
+
+
+
