@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="playerPane" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MediaPlayer.PlayerController">
+   <children>
+      <AnchorPane layoutX="274.0" layoutY="472.0" prefHeight="204.0" prefWidth="628.0" style="-fx-background-color: rgba(255, 255, 255, 0.5);">
+         <children>
+            <Label fx:id="runtimeLabel" layoutX="-2.0" layoutY="89.0" style="-fx-background-color: rgba(255, 255, 255, 0);" text="Label" />
+            <Label fx:id="volumeLabel" layoutX="468.0" layoutY="99.0" style="-fx-background-color: rgba(255, 255, 255, 0);" text="Label" />
+            <Slider fx:id="songProgressBar" layoutY="53.0" prefHeight="38.0" prefWidth="628.0" style="-fx-background-color: rgba(255, 255, 255, 0);" />
+            <Button fx:id="nextBtn" layoutX="356.0" layoutY="123.0" mnemonicParsing="false" onAction="#nextMedia" style="-fx-background-color: rgba(255, 255, 255, 0);" text="Next" />
+            <Button fx:id="playBtn" layoutX="294.0" layoutY="123.0" mnemonicParsing="false" onAction="#playMedia" style="-fx-background-color: rgba(255, 255, 255, 0);" text="Play" />
+            <Button fx:id="prevBtn" layoutX="226.0" layoutY="123.0" mnemonicParsing="false" onAction="#prevMedia" style="-fx-background-color: rgba(255, 255, 255, 0);" text="Prev" />
+            <Slider fx:id="volumeBar" layoutX="468.0" layoutY="127.0" style="-fx-background-color: rgba(255, 255, 255, 0);" />
+            <Label fx:id="songNameLabel" layoutY="1.0" prefHeight="54.0" prefWidth="628.0" style="-fx-background-color: rgba(255, 255, 255, 0);" text="Label" />
+         </children>
+      </AnchorPane>
+      <ListView fx:id="playlistView" layoutX="-6.0" prefHeight="676.0" prefWidth="280.0" />
+      <ListView fx:id="songListView" layoutX="274.0" prefHeight="466.0" prefWidth="634.0" />
+   </children>
+</AnchorPane>
