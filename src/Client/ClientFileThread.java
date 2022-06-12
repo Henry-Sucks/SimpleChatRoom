@@ -140,7 +140,7 @@ public class ClientFileThread extends Thread{
                             break;
                         }
                     }
-                    output.println("【" + userName + "接收了文件！】");
+                    output.println("                 【" + userName + "接收了文件！】");
                     output.flush();
                     // 提示文件存放地址
 
