@@ -31,10 +31,12 @@ public class ClientChatView extends Application {
     private TextFlow textFlow;
     private ScrollPane sp;
     private TextField  textIn = new TextField();
+    private Button emoji = new Button(" ");
     private Button send = new Button("发送(S)");
     private Button fileChoose = new Button("发送文件");
     private ClientReadAndPrint.ChatViewHandler chatHandler;
     private FileChooseHnadler fileHandler;
+    private EmojiChooseHandler emojiHandler;
 
     public void run(){
         EmojiFactory.init();
@@ -51,7 +53,7 @@ public class ClientChatView extends Application {
             // 最下端的消息编辑区
             textIn.setBlendMode(BlendMode.GREEN);
             HBox downBox = new HBox();
-            downBox.getChildren().addAll(textIn, send, fileChoose);
+            downBox.getChildren().addAll(textIn,emoji, send, fileChoose);
             downBox.setPadding(new Insets(10));
             downBox.setSpacing(5);
             HBox.setHgrow(textIn, Priority.ALWAYS);
@@ -66,7 +68,6 @@ public class ClientChatView extends Application {
             textFlow = new TextFlow();
             textFlow.setPadding(new Insets(5));
             textFlow.setLineSpacing(20.0f);
-
 
             //可滚动窗口
             sp = new ScrollPane();
@@ -97,6 +98,15 @@ public class ClientChatView extends Application {
             fileHandler = new FileChooseHnadler();
             fileChoose.setOnAction(fileHandler);
             fileChoose.setEffect(new SepiaTone());
+
+            //处理表情按钮
+            BackgroundImage myBK= new BackgroundImage(new Image("Source/Emoji/1.png",18.5,18.5,false,true),
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+            emoji.setBackground(new Background(myBK));
+            emojiHandler = new EmojiChooseHandler();
+            emoji.setOnAction(emojiHandler);
+
 
             //设置行间距
             textFlow.setLineSpacing(10);
@@ -142,6 +152,15 @@ public class ClientChatView extends Application {
                 String path = dir.getAbsolutePath();
                 ClientFileThread.outFileToServer(path);
             }
+        }
+    }
+
+    private class EmojiChooseHandler implements  EventHandler<ActionEvent>{
+        @Override
+        public void handle(ActionEvent event){
+            EmojiChooseView ev = new EmojiChooseView();
+            ev.run();
+            ev.setText(textIn);
         }
     }
 }
