@@ -1,17 +1,24 @@
 package MediaPlayer;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 public class SongListView {
     private ListView<String> songListView;
     private ObservableList<String> songListData;
 
-    public SongListView(ListView<String> songListView, ObservableList<String> songListData){
+    private PlayerController playerController;
+
+    public SongListView(ListView<String> songListView, ObservableList<String> songListData, PlayerController playerController){
         this.songListView = songListView;
         this.songListData = songListData;
+        this.playerController = playerController;
     }
 
     public void init(){
@@ -24,6 +31,16 @@ public class SongListView {
             @Override
             public ListCell<String> call(ListView<String> param) {
                 return new SongListCell();
+            }
+        });
+
+        // 添加切换歌曲监听器(是click监听器！)
+
+        songListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                String curSongName = songListView.getSelectionModel().getSelectedItem();
+                playerController.setCurSong(curSongName);
             }
         });
     }

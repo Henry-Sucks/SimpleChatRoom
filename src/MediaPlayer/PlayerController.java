@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -31,7 +32,7 @@ public class PlayerController implements Initializable {
     @FXML
     private VBox playlistBox, songNameBox;
     @FXML
-    private Label songNameLabel, volumeLabel, runtimeLabel;
+    private Label songNameLabel, volumeLabel, runtimeLabel, playlistLabel;
     @FXML
     private Button revBtn, nextBtn, playBtn;
     @FXML
@@ -66,21 +67,24 @@ public class PlayerController implements Initializable {
                 BackgroundSize.DEFAULT);
         playerPane.setBackground(new Background(backgroundImage));
 
+        /** 一些label的初始化 **/
+        songNameLabel.setText("尚无播放中歌曲");
+        runtimeLabel.setText("0:00");
 
         /** 默认音量设置 **/
         volumeBar.setValue(50);
         volumeLabel.setText("当前音量:" + 50);
 
+        /** 初始化歌单界面 **/
+        PlaylistView playlistViewController = new PlaylistView(playlistView, playlistData, this);
+        playlistViewController.init();
     }
 
 
     public void playlistInit(String playlistName){
-        System.out.println("Start init");
-        // 初始化歌单界面
-        PlaylistView playlistViewController = new PlaylistView(playlistView, playlistData);
-        playlistViewController.init();
-
         if(!playlistName.isEmpty()){
+            // 设置标签
+            playlistLabel.setText("正在播放：" + playlistName);
             // 初始化歌单
             playListDir = getPlaylistDir(playlistName);
             playlistSongDir = getPlaylistSongDir(playListDir.getAbsolutePath());
@@ -88,7 +92,7 @@ public class PlayerController implements Initializable {
             temp = playlistSongDir.listFiles();
 
             // 导入歌单
-            SongListView songListViewController = new SongListView(songListView, songListData);
+            SongListView songListViewController = new SongListView(songListView, songListData, this);
             songListViewController.init();
             songs.clear();
             for(File song : temp){
@@ -96,14 +100,17 @@ public class PlayerController implements Initializable {
                 songListViewController.addSong(song.getName());
             }
 
-
-
             // 设置现在播放歌曲
             songIndex = 0;
             setCurSong();
         }
+        else{
+            // 设置标签
+            playlistLabel.setText("尚未选择歌单");
+        }
     }
 
+    // 根据songIndex选取歌曲
     public void setCurSong(){
         var songKeyList = songs.keySet().toArray();
 
@@ -113,12 +120,25 @@ public class PlayerController implements Initializable {
             mediaPlayer.dispose();
         mediaPlayer = new MediaPlayer(media);
         // 初始化播放器
-        playerInit();
-
-        songNameLabel.setText(curSong.getName());
+        playerInit(curSong.getName());
     }
 
-    public void playerInit(){
+    // 根据歌名选取歌曲
+    public void setCurSong(String songName){
+        File curSong = songs.get(songName);
+        media = new Media(curSong.toURI().toString());
+        if(mediaPlayer != null)
+            mediaPlayer.dispose();
+        mediaPlayer = new MediaPlayer(media);
+        // 初始化播放器
+        playerInit(curSong.getName());
+    }
+
+    public void playerInit(String songName){
+        System.out.println("开始init:" + songName);
+        /** 设置歌名 **/
+        songNameLabel.setText(songName);
+
         /** 设置音量与音量监听 **/
         mediaPlayer.setVolume(volumeBar.getValue());
         volumeBar.valueProperty().addListener(e -> {
@@ -126,20 +146,18 @@ public class PlayerController implements Initializable {
             volumeLabel.setText("当前音量:" + (int) volumeBar.getValue());
         });
 
-        // 设置slider尺寸
+        /** 将进度条清空,播放进度清0 **/
+        System.out.println(songName + "进度条清零");
+        songProgressBar.setValue(0);
+        runtimeLabel.setText(seconds2str(mediaPlayer.getCurrentTime().toSeconds())
+                + " : " + seconds2str(mediaPlayer.getStopTime().toSeconds()));
 
         /** 设置播放器对播放结束的监听 **/
         mediaPlayer.currentTimeProperty().addListener(e ->{
             if(mediaPlayer.getCurrentTime().equals(mediaPlayer.getStopTime())) {
-                // 如果有在播放的歌曲
-                if (running) {
-                    // 设置文本框的颜色，播放完成状态
-                }
-
                 // 自动播放下一首歌曲
                 nextMedia(null);
             }
-
                 runtimeLabel.setText(seconds2str(mediaPlayer.getCurrentTime().toSeconds())
                         + " : " + seconds2str(mediaPlayer.getStopTime().toSeconds()));
                 songProgressBar.setValue(mediaPlayer.getCurrentTime().toMillis()//到毫秒
@@ -155,7 +173,12 @@ public class PlayerController implements Initializable {
                 ));
             }
         });
+
+        System.out.println(songName + "开始播放");
+        running = false;
+        playMedia(null);
     }
+
 
 
     public void playMedia(ActionEvent actionEvent) {
@@ -183,7 +206,6 @@ public class PlayerController implements Initializable {
         running = false;
 
         setCurSong();
-        playMedia(null);
     }
 
     public void nextMedia(ActionEvent actionEvent) {
@@ -198,7 +220,6 @@ public class PlayerController implements Initializable {
         running = false;
 
         setCurSong();
-        playMedia(null);
     }
 
 
@@ -223,4 +244,5 @@ public class PlayerController implements Initializable {
         else
             return Minutes + ":" + count;
     }
+
 }

@@ -1,43 +1,118 @@
 package MediaPlayer;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import tools.IconImage;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.util.Optional;
 
-import static MediaPlayer.MediaPlayerGlobal.defaultSrc;
+import static MediaPlayer.MediaPlayerGlobal.*;
 
 public class PlaylistView {
     private ListView<Playlist> playlistView;
     private ObservableList<Playlist> playlistData;
 
-    public PlaylistView(ListView<Playlist> playlistView, ObservableList<Playlist> playlistData){
+    private PlayerController playerController;
+    public PlaylistView(ListView<Playlist> playlistView, ObservableList<Playlist> playlistData, PlayerController playerController){
         this.playlistView = playlistView;
         this.playlistData = playlistData;
+        this.playerController = playerController;
     }
     public void init(){
         playlistView.getItems().clear();
         playlistData.clear();
         // 设置数据源
         playlistView.setItems(playlistData);
-        playlistData.add(new PlaylistView.Playlist("轻音乐", defaultSrc+ '\\' +"轻音乐"));
-        playlistData.add(new PlaylistView.Playlist("白噪音", defaultSrc+ '\\' +"白噪音"));
-        playlistData.add(new PlaylistView.Playlist("创建歌单", defaultSrc+ '\\' +"创建歌单"));
+        playlistData.add(new PlaylistView.Playlist("轻音乐", sysSrc + '\\' +"harp.jpeg"));
+        playlistData.add(new PlaylistView.Playlist("白噪音", sysSrc + '\\' +"heavy_rain.jpg"));
+        playlistData.add(new PlaylistView.Playlist("创建歌单", sysSrc + '\\' +"plus-icon-black-2.png"));
         // 设置单元格生成器（工厂）
         playlistView.setCellFactory(new Callback<ListView<Playlist>, ListCell<Playlist>>() {
             @Override
             public ListCell<Playlist> call(ListView<Playlist> param) {
                 return new PlaylistCell();
+            }
+        });
+
+        // 增加切换歌单监听器（注意，是click！）
+        playlistView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Playlist curList = playlistView.getSelectionModel().getSelectedItem();
+                // 已经存在歌单
+                if(curList.name != "创建歌单") {
+                    playerController.playlistInit(curList.name);
+                    return;
+                }
+                // 新建歌单
+                else{
+                    // 弹出输入框取新名字
+                    String newName;
+                    TextInputDialog td = new TextInputDialog("名字叫...");
+                    td.setHeaderText("为新歌单取个名字吧！");
+                    Optional<String> res = td.showAndWait();
+                    if(res.isPresent()){
+                        newName = td.getEditor().getText();
+                    }
+                    else{
+                        return;
+                    }
+                    // 创建新文件夹
+                    File playlistSrc = new File(defaultSrc+'\\'+newName+ '\\' + "songs");
+                    if(!playlistSrc.exists()){
+                        playlistSrc.mkdirs();
+                    }
+
+                    // 弹出提示框
+                    Alert a = new Alert(Alert.AlertType.INFORMATION);
+                    a.setTitle("新歌单已创建完成！");
+                    a.setContentText("歌单目录位于:\n"+ defaultSrc+'\\'+newName+ '\\' + "songs" + "\n请将本地音乐文件放置至此");
+                    a.showAndWait();
+
+                    // 设置歌单封面
+                    FileChooser fileChooser = new FileChooser();
+                    fileChooser.setTitle("选择专辑封面");
+                    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("图片文件", ".jpg", ".jpeg", ".png");
+                    fileChooser.getExtensionFilters().add(extFilter);
+                    File selectedFile = fileChooser.showOpenDialog(null);
+
+                    String iconSrc;
+                    if(selectedFile != null) {
+                        iconSrc = selectedFile.getAbsolutePath();
+                        a.setAlertType(Alert.AlertType.INFORMATION);
+                        a.setTitle("您已选择歌单封面！");
+                        a.setContentText("歌单封面路径位于\n" + iconSrc);
+                        a.showAndWait();
+                    }
+                    else {
+                        iconSrc = null;
+                        a.setAlertType(Alert.AlertType.INFORMATION);
+                        a.setTitle("您未选择歌单封面！");
+                        a.setContentText("歌单封面将使用默认封面");
+                        a.showAndWait();
+                    }
+
+                    // 新建表项
+                    int index = playlistData.size()-1;
+                    playlistData.remove(index);
+                    playlistData.add(new Playlist(newName, iconSrc));
+                    playlistData.add(new Playlist("创建歌单", sysSrc + '\\' +"plus-icon-black-2.png"));
+                    // 有bug，更新列表后附表会乱移动！
+                }
             }
         });
     }
@@ -73,35 +148,25 @@ public class PlaylistView {
     // 管理Playlist的数据
     static class Playlist{
         public String name;
-
-        // 最标准的写法
-        public String src;
-
-        // 当然也可以单独传入icon
+        // 头像来源
         public String iconSrc;
-        public Playlist(String name, String src){
-            this.name = name;
-            this.src = src;
-        }
 
-        public Playlist(String name, String src, String iconSrc){
+        public Playlist(String name, String iconSrc){
             this.name = name;
-            this.src = src;
             this.iconSrc = iconSrc;
         }
 
+
         public Image getIcon(){
-            // 如果自己设置了图标
-            if(iconSrc != null)
-                return new Image(iconSrc);
+            // 默认图案
+            if(iconSrc == null)
+                return new Image(sysSrc + "\\" + "default.jpg");
+            // 自选图案
             else{
-                // 按照默认情况，在歌单文件夹里搜寻图片
-                FileFilter filter = file -> !file.isHidden() && (
-                        file.getName().endsWith(".jpg") || file.getName().endsWith(".jpeg") || file.getName().endsWith(".png"));
-                File files[] = new File(src).listFiles(filter);
-                return new Image(files[0].getAbsolutePath());
+                return new Image(iconSrc);
             }
         }
     }
+
 
 }
