@@ -55,7 +55,7 @@ public class ClientChatView extends Application {
             //TextFlow支持显示富文本
             textFlow = new TextFlow();
             ImageView iv = new ImageView();
-            Image icon = new Image("file:D:\\俄罗斯方块1234\\登录背景.jpeg");
+            Image icon = new Image("Source\\Background\\登录背景.jpeg");
             iv.setPreserveRatio(true);
             iv.setImage(icon);
             iv.setFitHeight(100);
