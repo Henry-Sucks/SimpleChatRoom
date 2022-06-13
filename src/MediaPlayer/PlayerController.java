@@ -1,5 +1,7 @@
 package MediaPlayer;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -59,8 +61,12 @@ public class PlayerController implements Initializable {
     ListView<String> songListView = new ListView<>();
     ObservableList<String> songListData = FXCollections.observableArrayList();
 
+
+    /** 与miniPlayer绑定 **/
+    private Slider miniProcessBar;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(playerPane.getChildren());
         /** 设置桌面 **/
         BackgroundImage backgroundImage= new BackgroundImage(new Image(sysSrc + '\\' + "yoga.jpg",900,675,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
@@ -167,15 +173,18 @@ public class PlayerController implements Initializable {
 
         /** 设置进度条与进度条监听 **/
         songProgressBar.valueProperty().addListener(e->{
-            if (songProgressBar.isValueChanging()){
+            if (songProgressBar.isValueChanging() || miniProcessBar.isValueChanging()){
                 mediaPlayer.seek(new Duration(
                        mediaPlayer.getStopTime().multiply(songProgressBar.getValue() / 100).toMillis()
                 ));
             }
         });
 
-        System.out.println(songName + "开始播放");
         running = false;
+
+        /** 设置mediaPlayer和miniPlayer的bind **/
+
+
         playMedia(null);
     }
 
@@ -244,5 +253,26 @@ public class PlayerController implements Initializable {
         else
             return Minutes + ":" + count;
     }
+    /** 与miniPlayer相关 **/
 
+
+    public StringProperty getSongName(){
+        return songNameLabel.textProperty();
+    }
+
+    public StringProperty getRunTime(){
+        return runtimeLabel.textProperty();
+    }
+
+    public DoubleProperty getVolume(){
+        return volumeBar.valueProperty();
+    }
+
+    public DoubleProperty getProcessBar(){
+        return songProgressBar.valueProperty();
+    }
+
+    public void setMiniProcessBar(Slider slider){
+        this.miniProcessBar = slider;
+    }
 }

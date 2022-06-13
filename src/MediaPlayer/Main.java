@@ -1,6 +1,7 @@
 package MediaPlayer;
 
 import javafx.application.Application;
+import javafx.beans.property.BooleanProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,16 +10,17 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    FXMLLoader loader = new FXMLLoader((getClass().getResource("Menu.fxml")));
+    MenuController menuController;
     @Override
     public void start(Stage stage) throws Exception {
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-
-
+            Parent root = loader.load();
             Scene menu = new Scene(root);
             stage.setScene(menu);
             stage.show();
 
+            menuController = loader.getController();
             stage.setOnCloseRequest(event -> {
                 event.consume();
                 menuExit(stage);
@@ -37,5 +39,13 @@ public class Main extends Application {
         if(alert.showAndWait().get() == ButtonType.OK){
             stage.close();
         }
+    }
+
+    public PlayerController getPlayerController(){
+        return menuController.getPlayerController();
+    }
+
+    public BooleanProperty getIfPlayerStart(){
+        return menuController.ifPlayerStart;
     }
 }

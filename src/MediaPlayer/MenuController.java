@@ -1,5 +1,7 @@
 package MediaPlayer;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +32,8 @@ public class MenuController implements Initializable {
     private AnchorPane menuPane;
     private FXMLLoader loader;
     private PlayerController playerController;
+
+    BooleanProperty ifPlayerStart = new SimpleBooleanProperty(false);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         System.out.println("Menu initialized");
@@ -61,8 +65,8 @@ public class MenuController implements Initializable {
 
         playerController = loader.getController();
         playerController.playlistInit(playList);
-
         stage.show();
+        ifPlayerStart.setValue(true);
     }
 
     public void lightMusicPlayer(ActionEvent actionEvent) throws IOException{
@@ -88,5 +92,9 @@ public class MenuController implements Initializable {
             stage = (Stage) menuPane.getScene().getWindow();
             stage.close();
         }
+    }
+
+    public PlayerController getPlayerController(){
+        return playerController;
     }
 }

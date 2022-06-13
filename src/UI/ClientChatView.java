@@ -2,6 +2,7 @@ package UI;
 
 import Client.ClientFileThread;
 import Client.ClientReadAndPrint;
+import MediaPlayer.MiniPlayer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -39,6 +40,7 @@ public class ClientChatView extends Application {
     private ClientReadAndPrint.ChatViewHandler chatHandler;
     private FileChooseHnadler fileHandler;
 
+    private MiniPlayer miniPlayer;
     public void run(){
         EmojiFactory.init();
         start(new Stage());
@@ -100,6 +102,16 @@ public class ClientChatView extends Application {
             root.setBottom(downBox);
             root.setBackground(new Background(myBI));
 
+
+
+            /** 增加音乐播放器 **/
+            miniPlayer = new MiniPlayer();
+            root.setRight(miniPlayer.getMiniPlayer());
+            // 在播放器未启动前，上有按钮
+            // 播放器启动!
+
+
+
             //处理发送按钮
             chatHandler = new ClientReadAndPrint(). new ChatViewHandler();
             chatHandler.setClientView(primaryStage);
@@ -132,7 +144,7 @@ public class ClientChatView extends Application {
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
-        }catch(Exception e){
+        } catch(Exception e){
             e.printStackTrace();
         }
     }

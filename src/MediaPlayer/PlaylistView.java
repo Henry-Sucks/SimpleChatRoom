@@ -54,6 +54,9 @@ public class PlaylistView {
             public void handle(MouseEvent mouseEvent) {
                 Playlist curList = playlistView.getSelectionModel().getSelectedItem();
                 // 已经存在歌单
+                if(curList == null){
+
+                }
                 if(curList.name != "创建歌单") {
                     playerController.playlistInit(curList.name);
                     return;
