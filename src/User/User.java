@@ -104,7 +104,7 @@ public class User implements Comparable<Object>{
 	public void User_login(User user) {
 		user.if_login = true;
 		for(User i : User_list) {
-			if(i.friend_list.contains(user)) {
+			if(i.friend_list.contains(user) && i.if_login) {
 				i.sort_friend();
 			}
 		}
@@ -116,7 +116,7 @@ public class User implements Comparable<Object>{
 	public void User_logout(User user) {
 		user.if_login = false;
 		for(User i : User_list) {
-			if(i.friend_list.contains(user)) {
+			if(i.friend_list.contains(user) && i.if_login) {
 				i.sort_friend();
 			}
 		}
@@ -125,6 +125,7 @@ public class User implements Comparable<Object>{
 		Collections.sort(friend_list);
 	}
 	
+	// 测试，不用管
 	public static void main(String[] args) {
 		User a = new User("a", "ap");
 		User b = new User("b", "bp");
