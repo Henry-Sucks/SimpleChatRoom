@@ -24,6 +24,9 @@ public class Server {
             ServerFileThread serverFileThread = new ServerFileThread();
             serverFileThread.start();
 
+            ServerImageThread serverImageThread = new ServerImageThread();
+            serverImageThread.start();
+
             // 等待连接并开启相应线程
             while (true) {
                 // 等待连接

@@ -214,7 +214,7 @@ public class ClientReadAndPrint extends Thread{
                 clientView.run();
                 // 建立和服务器的联系
                 try {
-                    InetAddress addr = InetAddress.getByName(null);  // 获取主机地址
+                    InetAddress addr = InetAddress.getByName(null);// 获取主机地址
                     socket = new Socket(addr, Client.port);  // 客户端套接字
                     loginStage.hide();// 隐藏登录窗口
                     output = new PrintWriter(socket.getOutputStream());  // 输出流
@@ -230,6 +230,8 @@ public class ClientReadAndPrint extends Thread{
                 // 新建文件读写线程并启动
                 ClientFileThread fileThread = new ClientFileThread(userName, loginStage, output);
                 fileThread.start();
+                ClientImageThread imageThread = new ClientImageThread(userName, loginStage,clientView.getTextFlow());
+                imageThread.start();
             }
             else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -110,24 +110,25 @@ public class ClientFileThread extends Thread{
                             }
                         });
                         userFile = new File("D:\\接受文件\\" + userName);
-                        if(!userFile.exists())
-                        userFile.mkdir();
+                        if(!userFile.exists()){
+                            System.out.println(userFile.mkdirs());
+                        }
                     }
 
-                    File file = new File(userFile.getAbsolutePath() + "\\"+ textName);
+                    File file = new File(userFile.getAbsolutePath() + "\\" + textName);
                     fileWriter = new DataOutputStream(new FileOutputStream(file));
                     while((length = fileIn.read(buff)) > 0) {  // 把文件写进本地
                         fileWriter.write(buff, 0, length);
                         fileWriter.flush();
                         curLength += length;
 						//output.println("【接收进度:" + curLength/titleLength*100 + "%】");
-						output.flush();
+						//output.flush();
                         if(curLength == titleLength) {  // 强制结束
                             break;
                         }
                     }
-                    output.println("                 【" + userName + "接收了文件！】");
-                    output.flush();
+                   // output.println("                 【" + userName + "接收了文件！】");
+                   // output.flush();
                     // 提示文件存放地址
 
                     choose = 0;//重置choose 下一次传输文件会用上
@@ -181,8 +182,8 @@ public class ClientFileThread extends Thread{
                 fileOut.flush();
             }
 
-            output.println("                     【" + userName + "已成功发送文件！】");
-            output.flush();
+          //  output.println("                     【" + userName + "已成功发送文件！】");
+           // output.flush();
         } catch (Exception e) {}
     }
 

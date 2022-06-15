@@ -1,6 +1,7 @@
 package UI;
 
 import Client.ClientFileThread;
+import Client.ClientImageThread;
 import Client.ClientReadAndPrint;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -34,9 +35,15 @@ public class ClientChatView extends Application {
     private Button emoji = new Button(" ");
     private Button send = new Button("发送(S)");
     private Button fileChoose = new Button("发送文件");
+    private Button imageChoose = new Button("发送图片");
     private ClientReadAndPrint.ChatViewHandler chatHandler;
     private FileChooseHnadler fileHandler;
+    private ImageChooseHnadler imageHandler;
     private EmojiChooseHandler emojiHandler;
+
+    public TextFlow getTextFlow() {
+        return textFlow;
+    }
 
     public void run(){
         EmojiFactory.init();
@@ -53,7 +60,7 @@ public class ClientChatView extends Application {
             // 最下端的消息编辑区
             textIn.setBlendMode(BlendMode.GREEN);
             HBox downBox = new HBox();
-            downBox.getChildren().addAll(textIn,emoji, send, fileChoose);
+            downBox.getChildren().addAll(textIn,emoji, send, fileChoose, imageChoose);
             downBox.setPadding(new Insets(10));
             downBox.setSpacing(5);
             HBox.setHgrow(textIn, Priority.ALWAYS);
@@ -99,6 +106,10 @@ public class ClientChatView extends Application {
             fileChoose.setOnAction(fileHandler);
             fileChoose.setEffect(new SepiaTone());
 
+            //处理图片按钮
+            imageHandler = new ImageChooseHnadler();
+            imageChoose.setOnAction(imageHandler);
+            imageChoose.setEffect(new SepiaTone());
             //处理表情按钮
             BackgroundImage myBK= new BackgroundImage(new Image("Source/Emoji/1.png",18.5,18.5,false,true),
                     BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
@@ -151,6 +162,23 @@ public class ClientChatView extends Application {
             }else{
                 String path = dir.getAbsolutePath();
                 ClientFileThread.outFileToServer(path);
+            }
+        }
+    }
+
+    private class ImageChooseHnadler implements EventHandler<ActionEvent>{
+        @Override
+        public void handle(ActionEvent event){
+            FileChooser chooser = new FileChooser();
+            chooser.setTitle("打开目录");
+            chooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("图片类型","*.jpg", "*.png"));
+            File dir = chooser.showOpenDialog(new Stage());
+            if (dir == null){
+                return;
+            }else{
+                String path = dir.getAbsolutePath();
+                ClientImageThread.outImageToServer(path, textFlow,userName);
             }
         }
     }
