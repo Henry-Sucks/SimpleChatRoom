@@ -49,7 +49,6 @@ public class SongListView {
         @Override
         public void updateItem(String item, boolean empty){
             super.updateItem(item, empty);
-
             if (empty || item == null) {
                 this.setText(null);
             }

@@ -4,16 +4,15 @@ import Client.ClientFileThread;
 import Client.ClientReadAndPrint;
 import MediaPlayer.MiniPlayer;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.Image;
@@ -29,6 +28,7 @@ import javafx.stage.Stage;
 import tools.EmojiFactory;
 
 import java.io.File;
+import java.util.Objects;
 
 public class ClientChatView extends Application {
     private String userName;
@@ -40,7 +40,15 @@ public class ClientChatView extends Application {
     private ClientReadAndPrint.ChatViewHandler chatHandler;
     private FileChooseHnadler fileHandler;
 
+
+    /** 音乐播放器 **/
     private MiniPlayer miniPlayer;
+
+    /** 好友列表 **/
+    private FriendListPane friendListPane;
+    private ObservableList<FriendListPane.Friend> listData = FXCollections.observableArrayList();
+    private ListView<FriendListPane.Friend> listView = new ListView<>();
+
     public void run(){
         EmojiFactory.init();
         start(new Stage());
@@ -98,19 +106,26 @@ public class ClientChatView extends Application {
             root.setPrefSize(1000,600);
             Group group = new Group();
             group.getChildren().addAll(sp);
-            root.setTop(group);
+            root.setLeft(group);
             root.setBottom(downBox);
             root.setBackground(new Background(myBI));
 
 
+            VBox vBox = new VBox();
+            /** 增加好友列表 **/
+            friendListPane = new FriendListPane(listData, listView);
+            friendListPane.init();
+
+//            root.setRight(listView);
 
             /** 增加音乐播放器 **/
             miniPlayer = new MiniPlayer();
-            root.setRight(miniPlayer.getMiniPlayer());
+//            root.setRight(miniPlayer.getMiniPlayer());
             // 在播放器未启动前，上有按钮
             // 播放器启动!
 
-
+            vBox.getChildren().addAll(listView, miniPlayer.getMiniPlayer());
+            root.setRight(vBox);
 
             //处理发送按钮
             chatHandler = new ClientReadAndPrint(). new ChatViewHandler();
@@ -130,6 +145,9 @@ public class ClientChatView extends Application {
             textFlow.setLineSpacing(10);
             Scene scene = new Scene(root, 1000, 600);
 
+            // 引入css文件
+            scene.getStylesheets().add("/UI/ClientChatView.css");
+
             // 为发送设置快捷键ctrl+s
             scene.getAccelerators().put(
                     new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN),
@@ -143,6 +161,8 @@ public class ClientChatView extends Application {
 
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
+
+
             primaryStage.show();
         } catch(Exception e){
             e.printStackTrace();

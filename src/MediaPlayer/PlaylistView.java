@@ -1,36 +1,34 @@
 package MediaPlayer;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 import tools.IconImage;
 
 import java.io.File;
-import java.io.FileFilter;
+import java.nio.file.*;
 import java.util.Optional;
 
 import static MediaPlayer.MediaPlayerGlobal.*;
+
 
 public class PlaylistView {
     private ListView<Playlist> playlistView;
     private ObservableList<Playlist> playlistData;
 
     private PlayerController playerController;
-    public PlaylistView(ListView<Playlist> playlistView, ObservableList<Playlist> playlistData, PlayerController playerController){
+    private ObservableList<String> songListData;
+    public PlaylistView(ListView<Playlist> playlistView, ObservableList<Playlist> playlistData, PlayerController playerController, ObservableList<String> songListData){
         this.playlistView = playlistView;
         this.playlistData = playlistData;
         this.playerController = playerController;
+        this.songListData = songListData;
     }
     public void init(){
         playlistView.getItems().clear();
@@ -38,8 +36,15 @@ public class PlaylistView {
         // 设置数据源
         playlistView.setItems(playlistData);
         playlistData.add(new PlaylistView.Playlist("轻音乐", sysSrc + '\\' +"harp.jpeg"));
+        setWatchService(defaultSrc + "\\轻音乐");
         playlistData.add(new PlaylistView.Playlist("白噪音", sysSrc + '\\' +"heavy_rain.jpg"));
-        playlistData.add(new PlaylistView.Playlist("创建歌单", sysSrc + '\\' +"plus-icon-black-2.png"));
+        setWatchService(defaultSrc + "\\白噪音");
+        // 进入时自动扫描新歌单
+        // 意义不大！需要知道icon位置
+        // 不如添加配置文件
+
+
+        playlistData.add(new PlaylistView.Playlist("创建歌单", sysSrc + '\\' +"plus.png"));
         // 设置单元格生成器（工厂）
         playlistView.setCellFactory(new Callback<ListView<Playlist>, ListCell<Playlist>>() {
             @Override
@@ -55,7 +60,7 @@ public class PlaylistView {
                 Playlist curList = playlistView.getSelectionModel().getSelectedItem();
                 // 已经存在歌单
                 if(curList == null){
-
+                    return;
                 }
                 if(curList.name != "创建歌单") {
                     playerController.playlistInit(curList.name);
@@ -79,6 +84,10 @@ public class PlaylistView {
                     if(!playlistSrc.exists()){
                         playlistSrc.mkdirs();
                     }
+
+                    // 对文件夹进行监听：WatchService
+                    setWatchService(playlistSrc.getAbsolutePath());
+
 
                     // 弹出提示框
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
@@ -120,6 +129,11 @@ public class PlaylistView {
         });
     }
 
+    public void setWatchService(String playlistSrc){
+        SongListWatcher newWatcher = new SongListWatcher(playlistSrc, songListData);
+        newWatcher.start();
+    }
+
 
     // 负责单元格Cell的显示
     static class PlaylistCell extends ListCell<Playlist>{
@@ -145,6 +159,8 @@ public class PlaylistView {
                 this.setGraphic(hbox);
             }
         }
+
+
     }
 
 
@@ -166,6 +182,7 @@ public class PlaylistView {
                 return new Image(sysSrc + "\\" + "default.jpg");
             // 自选图案
             else{
+                System.out.println(iconSrc);
                 return new Image(iconSrc);
             }
         }

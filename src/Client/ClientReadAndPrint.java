@@ -245,9 +245,9 @@ public class ClientReadAndPrint extends Thread{
                 clientView.run();
                 // 建立和服务器的联系
                 try {
-                    InetAddress addr = InetAddress.getByName(null);  // 获取主机地址
+//                    InetAddress addr = InetAddress.getByName("192.168.3.78");  // 获取主机地址
                     /** 新建用于文字传输的Socket **/
-                    socket = new Socket(addr, GlobalSettings.textPort);  // 客户端套接字
+                    socket = new Socket("117.169.94.11", GlobalSettings.textPort);  // 客户端套接字
                     loginStage.hide();  // 隐藏登录窗口
 
                     output = new PrintWriter(socket.getOutputStream());  // 输出流

@@ -2,12 +2,18 @@ package MediaPlayer;
 
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import static MediaPlayer.MediaPlayerGlobal.sysSrc;
 
 public class Main extends Application {
     FXMLLoader loader = new FXMLLoader((getClass().getResource("Menu.fxml")));
@@ -18,6 +24,11 @@ public class Main extends Application {
             Parent root = loader.load();
             Scene menu = new Scene(root);
             stage.setScene(menu);
+
+            // 增加icon
+            Image image = new Image(sysSrc + "\\lotus.png");
+            stage.getIcons().add(image);
+            stage.setTitle("欢迎来到专注空间！");
             stage.show();
 
             menuController = loader.getController();
