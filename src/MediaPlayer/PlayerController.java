@@ -1,5 +1,8 @@
 package MediaPlayer;
 
+import animatefx.animation.Bounce;
+import animatefx.animation.ZoomIn;
+import animatefx.animation.ZoomOut;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -12,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -36,20 +40,18 @@ public class PlayerController implements Initializable {
     @FXML
     private Label songNameLabel, volumeLabel, runtimeLabel, playlistLabel;
     @FXML
-    private Button revBtn, nextBtn, playBtn;
+    private Button prevBtn, nextBtn, playBtn;
     @FXML
     private Slider songProgressBar, volumeBar;
 
     /** 媒体播放相关 **/
     File playListDir;
-    File playlistSongDir;
     LinkedHashMap<String, File> songs = new LinkedHashMap<>();
     final String playlistSrc = defaultSrc;
     int songIndex = -1;
     Media media;
     MediaPlayer mediaPlayer;
     boolean running = false;
-
 
     /** 左边栏歌单列表 **/
     @FXML
@@ -61,6 +63,10 @@ public class PlayerController implements Initializable {
     ListView<String> songListView = new ListView<>();
     ObservableList<String> songListData = FXCollections.observableArrayList();
 
+
+    /** 全局设置变量 **/
+    static int buttonSize = 52;
+    static int buttonImaSize = 50;
 
     /** 与miniPlayer绑定 **/
     private Slider miniProcessBar;
@@ -81,8 +87,19 @@ public class PlayerController implements Initializable {
         volumeBar.setValue(50);
         volumeLabel.setText("当前音量:" + 50);
 
+        /** 设置初始画面 **/
+        Image image = new Image(sysSrc + '\\' + "pause.png", buttonImaSize, buttonImaSize, true, false);
+        playBtn.setPrefSize(buttonSize, buttonSize);
+        playBtn.setGraphic(new ImageView(image));
+        image = new Image(sysSrc + '\\' + "previous.png", buttonImaSize, buttonImaSize, true, false);
+        prevBtn.setPrefSize(buttonSize, buttonSize);
+        prevBtn.setGraphic(new ImageView(image));
+        image = new Image(sysSrc + '\\' + "next.png", buttonImaSize, buttonImaSize, true, false);
+        nextBtn.setPrefSize(buttonSize, buttonSize);
+        nextBtn.setGraphic(new ImageView(image));
+
         /** 初始化歌单界面 **/
-        PlaylistView playlistViewController = new PlaylistView(playlistView, playlistData, this);
+        PlaylistView playlistViewController = new PlaylistView(playlistView, playlistData, this, songListData);
         playlistViewController.init();
     }
 
@@ -93,9 +110,8 @@ public class PlayerController implements Initializable {
             playlistLabel.setText("正在播放：" + playlistName);
             // 初始化歌单
             playListDir = getPlaylistDir(playlistName);
-            playlistSongDir = getPlaylistSongDir(playListDir.getAbsolutePath());
             File[] temp;
-            temp = playlistSongDir.listFiles();
+            temp = playListDir.listFiles();
 
             // 导入歌单
             SongListView songListViewController = new SongListView(songListView, songListData, this);
@@ -162,7 +178,7 @@ public class PlayerController implements Initializable {
         mediaPlayer.currentTimeProperty().addListener(e ->{
             if(mediaPlayer.getCurrentTime().equals(mediaPlayer.getStopTime())) {
                 // 自动播放下一首歌曲
-                nextMedia(null);
+                nextMedia();
             }
                 runtimeLabel.setText(seconds2str(mediaPlayer.getCurrentTime().toSeconds())
                         + " : " + seconds2str(mediaPlayer.getStopTime().toSeconds()));
@@ -173,7 +189,7 @@ public class PlayerController implements Initializable {
 
         /** 设置进度条与进度条监听 **/
         songProgressBar.valueProperty().addListener(e->{
-            if (songProgressBar.isValueChanging() || miniProcessBar.isValueChanging()){
+            if (songProgressBar.isValueChanging() || (miniProcessBar != null && miniProcessBar.isValueChanging())){
                 mediaPlayer.seek(new Duration(
                        mediaPlayer.getStopTime().multiply(songProgressBar.getValue() / 100).toMillis()
                 ));
@@ -182,42 +198,43 @@ public class PlayerController implements Initializable {
 
         running = false;
 
-        /** 设置mediaPlayer和miniPlayer的bind **/
+        playMedia();
+    }
 
+    public void playClick(){
+        playMedia();
+        switchState();
+    }
 
-        playMedia(null);
+    public void prevClick(){
+        new ZoomIn(prevBtn).play();
+        prevMedia();
+    }
+
+    public void nextClick(){
+        new ZoomIn(nextBtn).play();
+        nextMedia();
+    }
+
+    /** 工具类函数 **/
+    public File getPlaylistDir(String playlistName){
+        return new File(playlistSrc + '\\' + playlistName);
     }
 
 
 
-    public void playMedia(ActionEvent actionEvent) {
-        if(!running) {
-            mediaPlayer.play();
-            running = true;
-//            switchState();
-        }
-        else{
-            mediaPlayer.pause();
-            running = false;
-//            switchState();
-        }
+    static String seconds2str(Double seconds) {
+        int count = seconds.intValue();
+        count = count % 3600;
+        int Minutes = count / 60;//获取当前分数
+        count = count % 60;//获取当前秒数
+        if(count < 10)
+            return Minutes + ":" + "0" + count;
+        else
+            return Minutes + ":" + count;
     }
 
-    public void prevMedia(ActionEvent actionEvent) {
-        if(songIndex > 0){
-            songIndex--;
-        }
-        else{
-            songIndex = songs.size()-1;
-        }
-
-        mediaPlayer.stop();
-        running = false;
-
-        setCurSong();
-    }
-
-    public void nextMedia(ActionEvent actionEvent) {
+    public void nextMedia() {
         if(songIndex < songs.size() - 1){
             songIndex++;
         }
@@ -231,28 +248,32 @@ public class PlayerController implements Initializable {
         setCurSong();
     }
 
+    public void prevMedia() {
+        if(songIndex > 0){
+            songIndex--;
+        }
+        else{
+            songIndex = songs.size()-1;
+        }
 
-
-    /** 工具类函数 **/
-    public File getPlaylistDir(String playlistName){
-        return new File(playlistSrc + '\\' + playlistName);
+        mediaPlayer.stop();
+        running = false;
+        setCurSong();
     }
 
-    public File getPlaylistSongDir(String path){
-        return new File(path+"\\songs");
+    public void playMedia() {
+        if(!running) {
+            mediaPlayer.play();
+            running = true;
+            switchState();
+        }
+        else{
+            mediaPlayer.pause();
+            running = false;
+            switchState();
+        }
     }
 
-
-    static String seconds2str(Double seconds) {
-        int count = seconds.intValue();
-        count = count % 3600;
-        int Minutes = count / 60;//获取当前分数
-        count = count % 60;//获取当前秒数
-        if(count < 10)
-            return Minutes + ":" + "0" + count;
-        else
-            return Minutes + ":" + count;
-    }
     /** 与miniPlayer相关 **/
 
 
@@ -274,5 +295,17 @@ public class PlayerController implements Initializable {
 
     public void setMiniProcessBar(Slider slider){
         this.miniProcessBar = slider;
+    }
+
+    public void switchState(){
+        if(running){
+            Image image = new Image(sysSrc + '\\' + "pause.png", buttonImaSize, buttonImaSize, true, true);
+            playBtn.setGraphic(new ImageView(image));
+
+        }
+        else{
+            Image image = new Image(sysSrc + '\\' + "play-button.png", buttonImaSize, buttonImaSize, true, true);
+            playBtn.setGraphic(new ImageView(image));
+        }
     }
 }

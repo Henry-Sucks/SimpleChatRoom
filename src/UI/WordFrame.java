@@ -79,7 +79,7 @@ public class WordFrame extends TextFlow {
                emojys.add(emojy);
                ImageView emojyTemp;
                int end = matcher.end();
-               if (str.length() > end + 3) {
+               if (str.length() > end + 2) {
                    while (str.substring(end, end + 3).matches(regex)) {
                        String str1 = str.substring(end + 1, end + 3);
                        int num = Integer.parseInt(str1);

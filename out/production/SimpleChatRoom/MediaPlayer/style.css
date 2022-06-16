@@ -1,6 +1,19 @@
 .list-cell {
     -fx-background-color: transparent;
+
 }
-.list-view {
-    -fx-background-color: transparent;
+#playlistView{
+    -fx-background-color: rgba(220, 137, 147, 0.7);
+}
+
+#songListView{
+    -fx-background-color: rgba(237, 186, 192, 0.5);
+}
+
+#playerHolder{
+    -fx-background-color: rgba(245, 214, 218, 0.9);
+}
+
+#playlistLabel{
+    -fx-background-color: rgba(237, 186, 192, 0.7);
 }
