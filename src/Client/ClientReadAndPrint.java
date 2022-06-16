@@ -1,5 +1,7 @@
 package Client;
 
+import Global.GlobalSettings;
+import Global.UserProtocol;
 import UI.ClientChatView;
 import UI.OthersChatFrame;
 import UI.SelfChatFrame;
@@ -25,13 +27,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import Global.*;
 
 /** 客户端主逻辑：实现登录以及文字的发送与接收 **/
 
@@ -249,7 +248,6 @@ public class ClientReadAndPrint extends Thread{
                     /** 新建用于文字传输的Socket **/
                     socket = new Socket("117.169.94.11", GlobalSettings.textPort);  // 客户端套接字
                     loginStage.hide();  // 隐藏登录窗口
-
                     output = new PrintWriter(socket.getOutputStream());  // 输出流
                     /** 将登陆信息传给服务器 **/
                     output.println(UserProtocol.LOGIN_ROUND + userName + UserProtocol.LOGIN_ROUND);
@@ -265,6 +263,8 @@ public class ClientReadAndPrint extends Thread{
                 // 新建文件读写线程并启动
                 ClientFileThread fileThread = new ClientFileThread(userName, loginStage, output);
                 fileThread.start();
+                ClientImageThread imageThread = new ClientImageThread(userName, loginStage,clientView.getTextFlow());
+                imageThread.start();
             }
             else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -119,29 +119,23 @@ public class ClientFileThread extends Thread{
                             }
                         });
                         userFile = new File("D:\\接受文件\\" + userName);
-                        if(!userFile.exists())
-                        userFile.mkdirs();
+                        if(!userFile.exists()){
+                            System.out.println(userFile.mkdirs());
+                        }
                     }
 
-                    System.out.println("已选好路径");
-                    // 保存下来
-                    userDir = userFile;
-
-                    File file = new File(userFile.getAbsolutePath() + "\\"+ textName);
+                    File file = new File(userFile.getAbsolutePath() + "\\" + textName);
                     fileWriter = new DataOutputStream(new FileOutputStream(file));
                     while((length = fileIn.read(buff)) > 0) {  // 把文件写进本地
                         fileWriter.write(buff, 0, length);
                         fileWriter.flush();
                         curLength += length;
-
-						// output.println("【接收进度:" + curLength/titleLength*100 + "%】");
-                        // output.flush();
                         if(curLength == titleLength) {  // 强制结束
                             break;
                         }
                     }
-                    output.println("                 【" + userName + "接收了文件！】");
-                    output.flush();
+                   // output.println("                 【" + userName + "接收了文件！】");
+                   // output.flush();
                     // 提示文件存放地址
 
                     choose = 0;//重置choose 下一次传输文件会用上
@@ -202,13 +196,9 @@ public class ClientFileThread extends Thread{
                 fileOut.write(buff, 0, length);
                 fileOut.flush();
             }
-
-            /** 还有地方没解决：收发文件的提示消息还是和ServerReadAndPrint共用一个进程，也就是说想要提示信息私发而不改变
-             * ServerReadAndPrint的逻辑，必须FileThread拥有自己的文字收发
-             */
-//            output.println(UserMapProtocol.MSG_ROUND + "【" + userName + "已成功发送文件！】" + UserMapProtocol.MSG_ROUND);
-//            output.flush();
-        } catch (Exception ignored) {}
+          //  output.println("                     【" + userName + "已成功发送文件！】");
+           // output.flush();
+        } catch (Exception e) {}
     }
 
 }

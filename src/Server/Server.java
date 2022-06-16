@@ -1,6 +1,9 @@
 package Server;
 
-import Client.Client;
+import Global.GlobalSettings;
+import Global.UserMap;
+import Global.UserProtocol;
+import SelectChat.SelectChat;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,9 +12,6 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-
-import Global.*;
-import SelectChat.*;
 
 public class Server {
     static ServerSocket serverSocket = null;
@@ -26,6 +26,9 @@ public class Server {
             // 在服务器端对客户端开启文件传输的线程
             ServerFileThread serverFileThread = new ServerFileThread();
             serverFileThread.start();
+
+            ServerImageThread serverImageThread = new ServerImageThread();
+            serverImageThread.start();
 
             // 等待连接并开启相应线程
             while (true) {

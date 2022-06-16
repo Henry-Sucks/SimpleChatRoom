@@ -16,7 +16,7 @@ public class Test extends Application {
     public void start (Stage primaryStage){
         try{
             TextFlow test = new TextFlow();
-            test.getChildren().add(new Text("haha"));
+            test.getChildren().add(new Text(null));
             test.getChildren().add(new Text("123"));
             Scene scene = new Scene(test, 400, 300);
             primaryStage.setScene(scene);

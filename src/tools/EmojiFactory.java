@@ -20,8 +20,8 @@ public class EmojiFactory {
             Image image = new Image("source\\Emoji\\" + i +".png");
             emojys[i-1] = image;
             ImageView iv = new ImageView();
-            iv.setFitHeight(15);
-            iv.setFitWidth(15);
+            iv.setFitHeight(30);
+            iv.setFitWidth(30);
             iv.setImage(image);
             emojyViews[i-1] = iv;
         }

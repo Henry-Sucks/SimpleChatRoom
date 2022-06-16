@@ -16,13 +16,11 @@ public class EmojyPane extends Pane {
         if (getChildren().size() == 0){
             return;
         }
-        setWidth(50 * chlidren);
-        setHeight(160);
-
+        setWidth(20 * chlidren);
+        setHeight(20);
         for (int i = 0; i < chlidren; i++){
             ImageView emojy = (ImageView) getChildren().get(i);
-            System.out.println(i*16);
-            emojy.resizeRelocate(i * 16,0,15, 15);
+            emojy.resizeRelocate(i * 19,0,18, 18);
         }
 
 
