@@ -249,7 +249,6 @@ public class ClientReadAndPrint extends Thread{
                     /** 新建用于文字传输的Socket **/
                     socket = new Socket(addr, GlobalSettings.textPort);  // 客户端套接字
                     loginStage.hide();  // 隐藏登录窗口
-
                     output = new PrintWriter(socket.getOutputStream());  // 输出流
                     /** 将登陆信息传给服务器 **/
                     output.println(UserProtocol.LOGIN_ROUND + userName + UserProtocol.LOGIN_ROUND);
@@ -265,6 +264,8 @@ public class ClientReadAndPrint extends Thread{
                 // 新建文件读写线程并启动
                 ClientFileThread fileThread = new ClientFileThread(userName, loginStage, output);
                 fileThread.start();
+                ClientImageThread imageThread = new ClientImageThread(userName, loginStage,clientView.getTextFlow());
+                imageThread.start();
             }
             else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
