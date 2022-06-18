@@ -11,9 +11,6 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Optional;
 
-import SelectChat.*;
-import Global.*;
-
 public class ClientFileThread extends Thread{
     private int choose = 0; //判断是否选择了文件的存储路径
     private Socket socket = null;
@@ -27,10 +24,6 @@ public class ClientFileThread extends Thread{
     static DataInputStream fileReader = null;
     static DataOutputStream fileWriter = null;
 
-    static ClientToServer messager = null; // 属于自己的与服务器沟通的工具
-
-    // 用于存储用户文件的目录
-    static File userDir = null;
 
     public ClientFileThread(String userName, Stage clientView, PrintWriter output){
         ClientFileThread.userName = userName;
@@ -41,18 +34,15 @@ public class ClientFileThread extends Thread{
     // 客户端接受文件
     public void run(){
         try{
-            InetAddress addr = InetAddress.getByName(null);
-            socket = new Socket(addr, GlobalSettings.filePort);
-            messager = new ClientToServer(socket);  // 设定工具
-            String serverMsg = UserProtocol.LOGIN_ROUND + userName + UserProtocol.LOGIN_ROUND; // 发送登录信息
-            messager.sendToServer(serverMsg);
-
+            // InetAddress IP地址
+            InetAddress addr = InetAddress.getByName(null);  // 获取主机地址
+            socket = new Socket(addr, 9999);  // 客户端套接字
+            // 每个Thread独有一个Socket（是否可以理解为与服务器端口？）
             fileIn = new DataInputStream(socket.getInputStream());  // 输入流
             fileOut = new DataOutputStream(socket.getOutputStream());  // 输出流
             // 接收文件
             while(true) {
-                // 收到提示信息
-//                String otherName = Client.getRealMsg(messager.getMsg());
+
                 String textName = fileIn.readUTF();
                 long titleLength = fileIn.readLong();
                 // 弹出窗口
@@ -65,17 +55,15 @@ public class ClientFileThread extends Thread{
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println("收到文件");
                         Alert ifReceive = new Alert(Alert.AlertType.CONFIRMATION);
                         ifReceive.setTitle("接收文件");
-                        ifReceive.setHeaderText("是否接收用户" + "发来的文件？");
+                        ifReceive.setHeaderText("是否接收其他用户发来的文件");
                         result = ifReceive.showAndWait();
                     }
                 });
                 while(result == null){
+                    System.out.println("result == null");
                 }
-
-                System.out.println("能够接收");
                 int length = -1;
 
                 // buff?缓冲区？->只能读取1024位
@@ -84,7 +72,6 @@ public class ClientFileThread extends Thread{
 
                 // 提示框选择结果，0为确定，1位取消
                 if(result.get() == ButtonType.OK){
-                    System.out.println("允许接受");
                     File userFile;
                     Platform.runLater(new Runnable() {
                         @Override
@@ -98,15 +85,19 @@ public class ClientFileThread extends Thread{
 
                     //检测选择是否完成
                     while(choose == 0){
+                        System.out.println("choose = 0");
                     }
+                    /*
+                    dirChooser.setCurrentDirectory(new File("."));
+                    dirChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                    dirChooser.setAcceptAllFileFilterUsed(false);
+                     */
 
                     if(dir != null){
                         userFile = new File(dir.getAbsolutePath());
-
                         if(!userFile.exists())
-                        userFile.mkdirs();
+                            userFile.mkdir();
                     }
-                    // 默认路径
                     else {
                         Platform.runLater(new Runnable() {
                             @Override
@@ -130,12 +121,14 @@ public class ClientFileThread extends Thread{
                         fileWriter.write(buff, 0, length);
                         fileWriter.flush();
                         curLength += length;
+                        //output.println("【接收进度:" + curLength/titleLength*100 + "%】");
+                        //output.flush();
                         if(curLength == titleLength) {  // 强制结束
                             break;
                         }
                     }
-                   // output.println("                 【" + userName + "接收了文件！】");
-                   // output.flush();
+                    // output.println("                 【" + userName + "接收了文件！】");
+                    // output.flush();
                     // 提示文件存放地址
 
                     choose = 0;//重置choose 下一次传输文件会用上
@@ -153,9 +146,8 @@ public class ClientFileThread extends Thread{
 
                     /*
                     JOptionPane.showMessageDialog(clientView, "文件存放地址：\n" +
-                            userFile.getAbsolutePath() + "\\" +
+                            "D:\\接受文件\\" +
                             userName + "\\" + textName, "提示", JOptionPane.INFORMATION_MESSAGE);
-
                      */
                 }
 
@@ -173,17 +165,9 @@ public class ClientFileThread extends Thread{
             e.printStackTrace();
         }
     }
-
-
     // 客户端发送文件
     public static void outFileToServer(String path) {
         try {
-            /** 选择私发还是群发 **/
-            /** 这里为了测试只写了私发的代码，三个用户1234,12345,123456，实现1234私发12345 **/
-            String serverMsg = UserProtocol.SELECT_ROUND + "1" + UserProtocol.SPLIT_SIGN + "12345"  + UserProtocol.SELECT_ROUND;
-            messager.sendToServer(serverMsg);
-
-
             File file = new File(path);
             fileReader = new DataInputStream(new FileInputStream(file));
             fileOut.writeUTF(file.getName());  // 发送文件名字
@@ -196,8 +180,9 @@ public class ClientFileThread extends Thread{
                 fileOut.write(buff, 0, length);
                 fileOut.flush();
             }
-          //  output.println("                     【" + userName + "已成功发送文件！】");
-           // output.flush();
+
+            //  output.println("                     【" + userName + "已成功发送文件！】");
+            // output.flush();
         } catch (Exception e) {}
     }
 

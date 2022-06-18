@@ -1,12 +1,14 @@
 package MediaPlayer;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.util.Callback;
 
 public class SongListView {
@@ -14,6 +16,8 @@ public class SongListView {
     private ObservableList<String> songListData;
 
     private PlayerController playerController;
+
+    static Font font1 = Font.font("微软雅黑Light", FontWeight.EXTRA_LIGHT, FontPosture.REGULAR, 15);
 
     public SongListView(ListView<String> songListView, ObservableList<String> songListData, PlayerController playerController){
         this.songListView = songListView;
@@ -54,6 +58,8 @@ public class SongListView {
             }
             else{
                 this.setText(item);
+                this.setFont(font1);
+                this.setTextFill(Color.web("#610A74FF"));
             }
         }
     }

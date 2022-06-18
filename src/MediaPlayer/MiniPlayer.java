@@ -1,42 +1,27 @@
 package MediaPlayer;
 
-import animatefx.animation.*;
-import com.sun.media.jfxmedia.MediaPlayer;
-import javafx.application.Application;
-import javafx.beans.InvalidationListener;
+import animatefx.animation.FadeIn;
+import animatefx.animation.ZoomIn;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.converter.DoubleStringConverter;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import static MediaPlayer.MediaPlayerGlobal.sysSrc;
 
@@ -62,10 +47,17 @@ public class MiniPlayer{
     static int buttonSize1 = 42;
     static int buttonSize2 =35;
 
+    // 用户名
+    private String userName;
+
     /** 与mediaPlayer的交互与监听 **/
     PlayerController playerController;
     BooleanProperty ifPlayerStart;
     Main main;
+
+    public MiniPlayer(String userName){
+        this.userName = userName;
+    }
 
     public void miniPlayerMenu(){
         miniPlayer.setBackground(null);
@@ -94,7 +86,7 @@ public class MiniPlayer{
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                main = new Main();
+                main = new Main(userName);
                 Stage newStage = new Stage();
                 try {
                     main.start(newStage);
@@ -213,4 +205,5 @@ public class MiniPlayer{
             play.setGraphic(new ImageView(image));
         }
     }
+
 }

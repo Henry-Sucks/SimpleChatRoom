@@ -2,6 +2,7 @@
 package UI;
 
 import Client.ClientReadAndPrint;
+import User.User;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -26,6 +27,14 @@ import javafx.stage.Stage;
 public class RegisterView extends Application{
     private ClientReadAndPrint.LoginHandler loginHandler = null;
 
+    private User user;
+
+    public RegisterView (User user){
+        this.user = user;
+    }
+
+    public RegisterView (){
+    }
     @Override
     public void start(Stage primaryStage){
         GridPane pane = new GridPane();
@@ -76,9 +85,11 @@ public class RegisterView extends Application{
 
         //处理用户的登录请求
         loginHandler = new ClientReadAndPrint(). new LoginHandler();
+        loginHandler.setState(true);
         loginHandler.setStage(primaryStage);
         loginHandler.setPasswordField(pb);
         loginHandler.setTextField(text);
+        loginHandler.setEmailField(textEmail);
         bt.setOnAction(loginHandler);
 
         Scene scene=new Scene(pane,450,300);

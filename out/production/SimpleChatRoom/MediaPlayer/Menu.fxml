@@ -11,12 +11,12 @@
       <Button fx:id="buttonWn" cacheShape="false" centerShape="false" contentDisplay="CENTER" layoutX="275.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#whiteNoisePlayer" onMouseEntered="#whiteNoiseEnterAni" onMouseExited="#whiteNoiseExitAni" prefHeight="120.0" prefWidth="120.0" scaleShape="false"/>
       <Button fx:id="buttonMl" layoutX="467.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#myListPlayer" onMouseEntered="#myListEnterAni" onMouseExited="#myListExitAni" prefHeight="120.0" prefWidth="120.0"/>
       <Button fx:id="buttonExit" layoutX="656.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#menuExit" prefHeight="120.0" prefWidth="120.0" onMouseEntered="#menuExitEnterAni" onMouseExited="#menuExitExitAni"/>
-      <Text fx:id="welcomeText" layoutX="85.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="欢迎进入专注空间">
+      <Text fx:id="welcomeText" layoutX="85.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" >
          <font>
             <Font name="Microsoft YaHei Bold" size="48.0" />
          </font>
       </Text>
-      <Text fx:id="recommendText" layoutX="85.0" layoutY="170.0" lineSpacing="1.0" stroke="#dfd0ef" strokeType="OUTSIDE" text="放点你想听的音乐吧。" wrappingWidth="266.9333801269531">
+      <Text fx:id="recommendText" layoutX="85.0" layoutY="210.0" lineSpacing="1.0" stroke="#dfd0ef" strokeType="OUTSIDE" text="放点你想听的音乐吧。" wrappingWidth="266.9333801269531">
          <font>
             <Font name="Microsoft YaHei Light" size="24.0" />
          </font>

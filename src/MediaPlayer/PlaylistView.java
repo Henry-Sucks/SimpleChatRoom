@@ -1,21 +1,27 @@
 package MediaPlayer;
 
+import animatefx.animation.FadeIn;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.stage.FileChooser;
 import javafx.util.Callback;
 import tools.IconImage;
 
 import java.io.File;
-import java.nio.file.*;
 import java.util.Optional;
 
-import static MediaPlayer.MediaPlayerGlobal.*;
+import static MediaPlayer.MediaPlayerGlobal.defaultSrc;
+import static MediaPlayer.MediaPlayerGlobal.sysSrc;
 
 
 public class PlaylistView {
@@ -24,6 +30,11 @@ public class PlaylistView {
 
     private PlayerController playerController;
     private ObservableList<String> songListData;
+
+    /** 全局变量 **/
+    static Font font1 = Font.font("微软雅黑", FontWeight.MEDIUM, FontPosture.REGULAR, 20);
+
+
     public PlaylistView(ListView<Playlist> playlistView, ObservableList<Playlist> playlistData, PlayerController playerController, ObservableList<String> songListData){
         this.playlistView = playlistView;
         this.playlistData = playlistData;
@@ -122,7 +133,7 @@ public class PlaylistView {
                     int index = playlistData.size()-1;
                     playlistData.remove(index);
                     playlistData.add(new Playlist(newName, iconSrc));
-                    playlistData.add(new Playlist("创建歌单", sysSrc + '\\' +"plus-icon-black-2.png"));
+                    playlistData.add(new Playlist("创建歌单", sysSrc + '\\' +"plus.png"));
                     // 有bug，更新列表后附表会乱移动！
                 }
             }
@@ -130,8 +141,13 @@ public class PlaylistView {
     }
 
     public void setWatchService(String playlistSrc){
-        SongListWatcher newWatcher = new SongListWatcher(playlistSrc, songListData);
-        newWatcher.start();
+        SongListWatcher newWatcher = new SongListWatcher(playlistSrc, playerController);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                newWatcher.start();
+            }
+        });
     }
 
 
@@ -153,10 +169,13 @@ public class PlaylistView {
 
                 Label label = new Label(item.name);
                 label.setPadding(new Insets(10));
+                label.setFont(font1);
 
                 HBox hbox = new HBox();
+                hbox.setAlignment(Pos.CENTER_LEFT);
                 hbox.getChildren().addAll(icon, label);
                 this.setGraphic(hbox);
+                new FadeIn(hbox).play();
             }
         }
 

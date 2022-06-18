@@ -2,6 +2,7 @@
 package UI;
 
 import Client.ClientReadAndPrint;
+import User.User;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,7 +29,7 @@ import javafx.stage.Stage;
 
 public class ClientLoginView extends Application{
     private ClientReadAndPrint.LoginHandler loginHandler = null;
-
+    private User user;
     @Override
     public void start(Stage primaryStage){
         GridPane pane = new GridPane();
@@ -107,7 +108,7 @@ public class ClientLoginView extends Application{
         @Override
         public void handle(ActionEvent event)
         {
-           RegisterView register = new RegisterView();
+           RegisterView register = new RegisterView(user);
            register.run();
         }
     }

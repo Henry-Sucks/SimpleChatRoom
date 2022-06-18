@@ -1,13 +1,10 @@
 package MediaPlayer;
 
-import animatefx.animation.Bounce;
 import animatefx.animation.ZoomIn;
-import animatefx.animation.ZoomOut;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,13 +16,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.util.Duration;
 
 import java.io.File;
 import java.net.URL;
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.ResourceBundle;
 
 import static MediaPlayer.MediaPlayerGlobal.defaultSrc;
 import static MediaPlayer.MediaPlayerGlobal.sysSrc;
@@ -53,6 +49,11 @@ public class PlayerController implements Initializable {
     MediaPlayer mediaPlayer;
     boolean running = false;
 
+    private String curSong;
+
+    /** userName **/
+    private String userName;
+
     /** 左边栏歌单列表 **/
     @FXML
     ListView<PlaylistView.Playlist> playlistView = new ListView<PlaylistView.Playlist>();
@@ -65,8 +66,9 @@ public class PlayerController implements Initializable {
 
 
     /** 全局设置变量 **/
-    static int buttonSize = 52;
-    static int buttonImaSize = 50;
+    static int buttonSize1 = 45;
+    static int buttonSize2 = 40;
+
 
     /** 与miniPlayer绑定 **/
     private Slider miniProcessBar;
@@ -88,14 +90,14 @@ public class PlayerController implements Initializable {
         volumeLabel.setText("当前音量:" + 50);
 
         /** 设置初始画面 **/
-        Image image = new Image(sysSrc + '\\' + "pause.png", buttonImaSize, buttonImaSize, true, false);
-        playBtn.setPrefSize(buttonSize, buttonSize);
+        Image image = new Image(sysSrc + '\\' + "pause.png", buttonSize1, buttonSize1, true, false);
+        playBtn.setPrefSize(buttonSize1, buttonSize1);
         playBtn.setGraphic(new ImageView(image));
-        image = new Image(sysSrc + '\\' + "previous.png", buttonImaSize, buttonImaSize, true, false);
-        prevBtn.setPrefSize(buttonSize, buttonSize);
+        image = new Image(sysSrc + '\\' + "previous.png", buttonSize2, buttonSize2, true, false);
+        prevBtn.setPrefSize(buttonSize2, buttonSize2);
         prevBtn.setGraphic(new ImageView(image));
-        image = new Image(sysSrc + '\\' + "next.png", buttonImaSize, buttonImaSize, true, false);
-        nextBtn.setPrefSize(buttonSize, buttonSize);
+        image = new Image(sysSrc + '\\' + "next.png", buttonSize2, buttonSize2, true, false);
+        nextBtn.setPrefSize(buttonSize2, buttonSize2);
         nextBtn.setGraphic(new ImageView(image));
 
         /** 初始化歌单界面 **/
@@ -143,6 +145,7 @@ public class PlayerController implements Initializable {
         mediaPlayer = new MediaPlayer(media);
         // 初始化播放器
         playerInit(curSong.getName());
+        this.curSong = curSong.getName();
     }
 
     // 根据歌名选取歌曲
@@ -154,6 +157,7 @@ public class PlayerController implements Initializable {
         mediaPlayer = new MediaPlayer(media);
         // 初始化播放器
         playerInit(curSong.getName());
+        this.curSong = curSong.getName();
     }
 
     public void playerInit(String songName){
@@ -299,13 +303,35 @@ public class PlayerController implements Initializable {
 
     public void switchState(){
         if(running){
-            Image image = new Image(sysSrc + '\\' + "pause.png", buttonImaSize, buttonImaSize, true, true);
+            Image image = new Image(sysSrc + '\\' + "pause.png", buttonSize1, buttonSize1, true, true);
             playBtn.setGraphic(new ImageView(image));
 
         }
         else{
-            Image image = new Image(sysSrc + '\\' + "play-button.png", buttonImaSize, buttonImaSize, true, true);
+            Image image = new Image(sysSrc + '\\' + "play-button.png", buttonSize1, buttonSize1, true, true);
             playBtn.setGraphic(new ImageView(image));
         }
     }
+
+    public void setUserName(String userName){
+        this.userName = userName;
+    }
+
+    public void songListReset(){
+        File[] temp;
+        temp = playListDir.listFiles();
+
+        // 导入歌单
+        SongListView songListViewController = new SongListView(songListView, songListData, this);
+        songListViewController.init();
+        songs.clear();
+        for(File song : temp){
+            songs.put(song.getName(), song);
+            songListViewController.addSong(song.getName());
+        }
+
+        // 重置index
+
+    }
+
 }

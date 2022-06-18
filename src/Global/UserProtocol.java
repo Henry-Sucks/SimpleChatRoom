@@ -11,7 +11,10 @@ public interface UserProtocol {
      */
 
     String MSG_ROUND="ηθ";
+
     String LOGIN_ROUND="∏∑";
+    String REGISTER_ROUND="∑∏";
+
     String CURNAME_ROUND="θη";
     String LOGIN_SUCCESS="1";
     String NAME_REP="-1";

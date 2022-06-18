@@ -11,27 +11,27 @@ public class User implements Comparable<Object>{
         else return -1;
     }
 
-
-    private static String sign_default = "暂无签名";
-    private static LinkedList<User> User_list = new LinkedList<User>();
     private static int User_count = 0;
-    //private static LinkedList<Integer> User_id_list = new LinkedList<Integer>();
-
-
     private int user_id;
     private String name;
     private String password;
+
+    private String email;
+    private String sign;
+
+    private String icon;
+
+    private int sex;
+
     private boolean if_login = false; // 默认在线状态为false
     private LinkedList<User> friend_list = new LinkedList<User>();
-    private String sign = sign_default;
 
-
-    private User(String name, String password) {
+    public User(String name, String password, String email) {
         this.name = name;
         this.password = password;
+        this.email = email;
         user_id = User_count;
         User_count++;
-        User_list.add(this);
     }
 
     public int getId() {
@@ -56,14 +56,14 @@ public class User implements Comparable<Object>{
     /*
      * 根据用户id返回用户
      */
-    public User getUser(int id) {
-        for(User i : User_list) {
-            if(i.user_id == id) {
-                return i;
-            }
-        }
-        return null;
-    }
+//    public User getUser(int id) {
+//        for(User i : User_list) {
+//            if(i.user_id == id) {
+//                return i;
+//            }
+//        }
+//        return null;
+//    }
 
     public void setId(int newId) {
         user_id = newId;
@@ -80,8 +80,8 @@ public class User implements Comparable<Object>{
     /*
      * 设置一个新用户
      */
-    public static void addUser(String name, String password) {
-        new User(name, password);
+    public static void addUser(String name, String password, String email) {
+        new User(name, password, email);
     }
 
     /*
@@ -102,55 +102,55 @@ public class User implements Comparable<Object>{
     /*
      * 登录用户并重排所有含该用户的friend列表
      */
-    public void User_login(User user) {
-        user.if_login = true;
-        for(User i : User_list) {
-            if(i.friend_list.contains(user) && i.if_login) {
-                i.sort_friend();
-            }
-        }
-    }
+//    public void User_login(User user) {
+//        user.if_login = true;
+//        for(User i : User_list) {
+//            if(i.friend_list.contains(user) && i.if_login) {
+//                i.sort_friend();
+//            }
+//        }
+//    }
 
     /*
      * 登出用户并重排所有含该用户的friend列表
      */
-    public void User_logout(User user) {
-        user.if_login = false;
-        for(User i : User_list) {
-            if(i.friend_list.contains(user) && i.if_login) {
-                i.sort_friend();
-            }
-        }
-    }
+//    public void User_logout(User user) {
+//        user.if_login = false;
+//        for(User i : User_list) {
+//            if(i.friend_list.contains(user) && i.if_login) {
+//                i.sort_friend();
+//            }
+//        }
+//    }
     public void sort_friend() {
         Collections.sort(friend_list);
     }
 
     // 测试，不用管
-    public static void main(String[] args) {
-        User a = new User("a", "ap");
-        User b = new User("b", "bp");
-        User c = new User("c", "cp");
-        a.setIf_login(true);
-        a.addFriend(b);
-        a.addFriend(c);
-        a.sort_friend();
-        System.out.println("b c both logout:");
-        for(User i : a.friend_list) {
-            System.out.println(i.name);
-        }
-        c.setIf_login(true);
-        a.sort_friend();
-        System.out.println("c is login:");
-        for(User i : a.friend_list) {
-            System.out.println(i.name);
-        }
-        b.setIf_login(true);
-        c.setIf_login(true);
-        a.sort_friend();
-        System.out.println("b  c both login:");
-        for(User i : a.friend_list) {
-            System.out.println(i.name);
-        }
-    }
+//    public static void main(String[] args) {
+//        User a = new User("a", "ap");
+//        User b = new User("b", "bp");
+//        User c = new User("c", "cp");
+//        a.setIf_login(true);
+//        a.addFriend(b);
+//        a.addFriend(c);
+//        a.sort_friend();
+//        System.out.println("b c both logout:");
+//        for(User i : a.friend_list) {
+//            System.out.println(i.name);
+//        }
+//        c.setIf_login(true);
+//        a.sort_friend();
+//        System.out.println("c is login:");
+//        for(User i : a.friend_list) {
+//            System.out.println(i.name);
+//        }
+//        b.setIf_login(true);
+//        c.setIf_login(true);
+//        a.sort_friend();
+//        System.out.println("b  c both login:");
+//        for(User i : a.friend_list) {
+//            System.out.println(i.name);
+//        }
+//    }
 }

@@ -1,21 +1,18 @@
 package UI;
 
-import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 import tools.IconImage;
 
@@ -24,6 +21,8 @@ import static MediaPlayer.MediaPlayerGlobal.sysSrc;
 public class FriendListPane{
     ObservableList<Friend> listData;
     ListView<Friend> listView;
+
+    private String userName;
 
     public FriendListPane(ObservableList<Friend> listData, ListView<Friend> listView){
         System.out.println(1);
@@ -35,8 +34,10 @@ public class FriendListPane{
         System.out.println(2);
         listData.clear();
         listView.getItems().clear();
+        listView.setPrefWidth(400);
         // 设置数据源
         // 如何判断是否是房主(登录用户)?
+        // 通过用户名
         listData.add(new Friend(null, "何睿", "大家好啊，我是电棍", -1));
         listData.add(new Friend(null, "万光曦", null, -1));
 
@@ -132,6 +133,10 @@ public class FriendListPane{
     public Node getListView(){
         init();
         return listView;
+    }
+
+    public void setUserName(String userName){
+        this.userName = userName;
     }
 
     static class Friend{
