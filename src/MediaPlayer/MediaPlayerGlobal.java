@@ -5,5 +5,5 @@ public interface MediaPlayerGlobal {
     String defaultSrc = "D:\\Studying\\Sophomore II\\java_project\\test\\javafx\\src\\assets\\playlist";
 
     // 所有系统文件都处于这个文件夹中
-    String sysSrc = "D:\\Studying\\Sophomore II\\java_project\\test\\javafx\\src\\assets\\systemSrc";
+    String sysSrc = "Source\\systemSrc";
 }

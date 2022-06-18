@@ -31,7 +31,7 @@ import tools.EmojiFactory;
 import java.io.File;
 
 public class ClientChatView extends Application {
-    private String userName;
+    private String userName = "默认";
     private TextFlow textFlow;
     private ScrollPane sp;
     private TextField  textIn = new TextField();
@@ -121,16 +121,17 @@ public class ClientChatView extends Application {
             VBox vBox = new VBox();
             /** 增加好友列表 **/
             friendListPane = new FriendListPane(listData, listView);
+            friendListPane.setUserName(userName);
             friendListPane.init();
 
 //            root.setRight(listView);
 
             /** 增加音乐播放器 **/
-            miniPlayer = new MiniPlayer();
+            miniPlayer = new MiniPlayer(userName);
 //            root.setRight(miniPlayer.getMiniPlayer());
             // 在播放器未启动前，上有按钮
             // 播放器启动!
-
+            vBox.setPrefWidth(400);
             vBox.getChildren().addAll(listView, miniPlayer.getMiniPlayer());
             root.setRight(vBox);
 
@@ -238,5 +239,7 @@ public class ClientChatView extends Application {
             ev.setText(textIn);
         }
     }
+
+
 }
 

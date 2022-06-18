@@ -1,7 +1,7 @@
 
 package Client;
-import Global.UserProtocol;
-import UI.*;
+
+import UI.ClientLoginView;
 import javafx.application.Application;
 
 public class Client {
@@ -10,6 +10,7 @@ public class Client {
     // 主函数，新建登录窗口
     public static void main(String[] args){
         Application.launch(ClientLoginView.class);
+
     }
 
     public static boolean getOnline(){
@@ -19,8 +20,4 @@ public class Client {
         online = i;
     }
 
-
-    static public String getRealMsg(String line) {
-        return line.substring(UserProtocol.PROTOCOL_LEN,line.length()- UserProtocol.PROTOCOL_LEN);
-    }
 }

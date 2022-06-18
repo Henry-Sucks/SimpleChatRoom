@@ -1,14 +1,11 @@
 package MediaPlayer;
 
-import javafx.collections.ObservableList;
-
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.Objects;
 
 public class SongListWatcher extends Thread{
     String srcPath;
-    private ObservableList<String> songListData;
+    private PlayerController playerController;
     @Override
     public void run() {
         System.out.println("死循环？");
@@ -25,14 +22,14 @@ public class SongListWatcher extends Thread{
                 System.out.println("4");
                 for(WatchEvent<?> event : key.pollEvents()){
                     // 得到的是删除或增加songName
-                    if(event.kind() == StandardWatchEventKinds.ENTRY_CREATE){
-                        // 如果多了歌曲文件，则读取它
-                        songListData.add(Objects.toString(event.context()));
-                    } else if (event.kind() == StandardWatchEventKinds.ENTRY_DELETE) {
-                    // 如果少了歌曲文件，就删掉它
-                        songListData.remove(Objects.toString(event.context()));
-
-                    }
+//                    if(event.kind() == StandardWatchEventKinds.ENTRY_CREATE){
+//                        // 如果多了歌曲文件，则读取它
+//                        songListData.add(Objects.toString(event.context()));
+//                    } else if (event.kind() == StandardWatchEventKinds.ENTRY_DELETE) {
+//                    // 如果少了歌曲文件，就删掉它
+//                        songListData.remove(Objects.toString(event.context()));
+//                    }
+                    playerController.songListReset();
                 }
         }
         } catch (IOException | InterruptedException e) {
@@ -40,8 +37,8 @@ public class SongListWatcher extends Thread{
         }
     }
 
-    public SongListWatcher(String path, ObservableList<String> songListData){
+    public SongListWatcher(String path, PlayerController playerController){
         this.srcPath = path;
-        this.songListData = songListData;
+        this.playerController = playerController;
     }
 }

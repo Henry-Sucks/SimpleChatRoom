@@ -27,12 +27,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-/** 客户端主逻辑：实现登录以及文字的发送与接收 **/
 
 public class ClientReadAndPrint extends Thread{
     static Socket socket = null;
@@ -136,7 +135,6 @@ public class ClientReadAndPrint extends Thread{
     }
 
     /**聊天界面监听（内部类）**/
-
     public class ChatViewHandler implements EventHandler<ActionEvent> {
         public void setJTextField(TextField text) {
             textInput = text;  // 放在外部类，因为其它地方也要用到
@@ -153,7 +151,7 @@ public class ClientReadAndPrint extends Thread{
             clientView.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent event) {
-                    if (!Client.getOnline()){
+                    if (Client.getOnline() == false){
                         System.exit(0);
                     }
                     else {
@@ -169,13 +167,6 @@ public class ClientReadAndPrint extends Thread{
         @Override
         public void handle(ActionEvent event) {
             try {
-                String serverMsg = "";
-                /** 先告诉系统自己叫什么名字 **/
-//                serverMsg = UserMapProtocol.CURNAME_ROUND + userName + UserMapProtocol.CURNAME_ROUND;
-//                output.println(serverMsg);  // 输出给服务端
-//                output.flush();  // 清空缓冲区out中的数据
-
-                /** 用户输入 **/
                 String str = textInput.getText();
                 // 如果文本框内容为空
                 if("".equals(str)) {
@@ -188,26 +179,7 @@ public class ClientReadAndPrint extends Thread{
                     alert.show();
                     return;
                 }
-
-                /** 将用户输入转为系统信息 **/
-                /** 1.要求私聊 **/
-                if(str.startsWith("send:")){
-                    str = str.substring(5);
-                    int userNum = Integer.parseInt(str.split(":")[0]);
-                    serverMsg = UserProtocol.SELECT_ROUND;
-                    serverMsg += userNum;
-                    for(int i = 1; i <= userNum; i++){
-                        serverMsg += UserProtocol.SPLIT_SIGN;
-                        serverMsg += str.split(":")[i];
-                    }
-                    serverMsg += UserProtocol.SELECT_ROUND;
-                }
-                /** 2.文本信息 **/
-                else
-                    serverMsg = UserProtocol.MSG_ROUND + str + UserProtocol.MSG_ROUND;
-
-                System.out.println(serverMsg);
-                output.println(serverMsg);  // 输出给服务端
+                output.println(userName + "说：" + str);  // 输出给服务端
                 output.flush();  // 清空缓冲区out中的数据
 
                 textInput.setText("");  // 清空文本框
@@ -217,46 +189,78 @@ public class ClientReadAndPrint extends Thread{
     }
 
     /**登录监听 内部类**/
-   public class LoginHandler implements EventHandler<ActionEvent>{
-        TextField textField;
+    public class LoginHandler implements EventHandler<ActionEvent>{
+        TextField nameField;
         PasswordField pwdField;
+
+        TextField emailField;
         Stage loginStage;  // 登录窗口本身
+
+        boolean state; // true是注册状态, false是登录状态
 
         ClientChatView clientView = null;
 
         public void setTextField(TextField textField) {
-            this.textField = textField;
+            this.nameField = textField;
         }
         public void setPasswordField(PasswordField pwdField) {
             this.pwdField = pwdField;
         }
+        public void setEmailField(TextField textField){this.emailField = textField;}
         public void setStage(Stage stage) {
             this.loginStage = stage;
         }
 
+        public void setState(boolean state){this.state = state;}
+
         @Override
         public void handle(ActionEvent event) {
-            userName = textField.getText();
+            ClientLoginThread clientLoginThread = new ClientLoginThread();
+            clientLoginThread.start();
+            // 等clientLoginThread 100ms
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            userName = nameField.getText();
             String userPwd = String.valueOf(pwdField.getText());  // getPassword方法获得char数组
-            if(userName.length() >= 1 && userPwd.equals("123")) {  // 密码为123并且用户名长度大于等于1
+            String userEmail = null;
+            if(state)
+                userEmail = String.valueOf(emailField.getText());
+            int res;
+            // 还是需要发送系统消息...注册
+            if(state){
+                String msg = UserProtocol.REGISTER_ROUND + userName + UserProtocol.SPLIT_SIGN + userPwd
+                + UserProtocol.SPLIT_SIGN + userEmail;
+                clientLoginThread.sendRegisterMsg(msg);
+                res = 0;
+            }
+            // 还是需要发送系统消息...登录
+            else{
+                String msg = UserProtocol.LOGIN_ROUND + userName + UserProtocol.SPLIT_SIGN + userPwd;
+                System.out.println("消息:" + msg);
+                res = clientLoginThread.sendLoginMsg(msg);
+            }
+            // res == 0 成功登录/注册
+            if(res == 0) {  // 密码为123并且用户名长度大于等于1
                 clientView = new ClientChatView();  // 新建聊天窗口,设置聊天窗口的用户名（静态）
                 clientView.setUserName(userName);
                 clientView.run();
+
+
                 // 建立和服务器的联系
                 try {
-//                    InetAddress addr = InetAddress.getByName("192.168.3.78");  // 获取主机地址
-                    /** 新建用于文字传输的Socket **/
-                    socket = new Socket("117.169.94.11", GlobalSettings.textPort);  // 客户端套接字
-                    loginStage.hide();  // 隐藏登录窗口
+                    InetAddress addr = InetAddress.getByName(null);// 获取主机地址
+                    socket = new Socket(addr, GlobalSettings.textPort);  // 客户端套接字
+                    loginStage.hide();// 隐藏登录窗口
                     output = new PrintWriter(socket.getOutputStream());  // 输出流
-                    /** 将登陆信息传给服务器 **/
-                    output.println(UserProtocol.LOGIN_ROUND + userName + UserProtocol.LOGIN_ROUND);
+                    output.println("用户【" + userName + "】进入聊天室！");  // 发送用户名给服务器
                     output.flush();  // 清空缓冲区out中的数据
                     Client.setOnline(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
                 // 新建普通读写线程并启动
                 ClientReadAndPrint readAndPrint = new ClientReadAndPrint();
                 readAndPrint.start();
@@ -268,8 +272,11 @@ public class ClientReadAndPrint extends Thread{
             }
             else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("账号或者密码错误");
-                alert.setTitle("输入错误");
+                if(res == -1)
+                    alert.setContentText("不存在该账号");
+                else
+                    alert.setContentText("密码错误");
+                alert.setTitle("请重试！");
                 alert.setHeaderText("");
                 alert.show();
             }
