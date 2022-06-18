@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a7ba20-0cdc-406d-8de5-74912f6ecf64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Client/ClientImageThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Server/ServerImageThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/OtherImageFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/SelfImageFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tools/SerializableImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$LoginHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$LoginHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/WordFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/WordFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientFileThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/ClientChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientChatView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +182,9 @@
       <workItem from="1655108579920" duration="516000" />
       <workItem from="1655126770571" duration="2508000" />
       <workItem from="1655266388327" duration="1551000" />
-      <workItem from="1655275424109" duration="25373000" />
+      <workItem from="1655275424109" duration="26356000" />
+      <workItem from="1655468980515" duration="2225000" />
+      <workItem from="1655562243957" duration="4432000" />
     </task>
     <servers />
   </component>
