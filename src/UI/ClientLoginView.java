@@ -11,10 +11,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -30,6 +27,8 @@ import javafx.stage.Stage;
 public class ClientLoginView extends Application{
     private ClientReadAndPrint.LoginHandler loginHandler = null;
     private User user;
+    TextField text;
+    PasswordField pb;
     @Override
     public void start(Stage primaryStage){
         GridPane pane = new GridPane();
@@ -74,11 +73,11 @@ public class ClientLoginView extends Application{
         label3.setTextFill(Color.color(0.6,0.6,0.6,0.9));
         pane.add(label1,0,0);
         pane.add(label2,0,1);
-        final TextField text = new TextField();
+        text = new TextField();
         text.setPromptText("👩");
         pane.add(text,1,1);
         pane.add(label3,0,2);
-        final PasswordField pb = new PasswordField();
+        pb = new PasswordField();
         pb.setPromptText("🔒");
         pane.add(pb,1,2);
         Button bt=new Button("登录");
@@ -108,8 +107,8 @@ public class ClientLoginView extends Application{
         @Override
         public void handle(ActionEvent event)
         {
-           RegisterView register = new RegisterView(user);
-           register.run();
+            RegisterView register = new RegisterView(user);
+            register.run();
         }
     }
     public static void main(String args){

@@ -1,18 +1,19 @@
 package UI;
 
+import Client.ClientReadAndPrint;
+import Global.UserProtocol;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
+import javafx.scene.text.*;
 import javafx.util.Callback;
 import tools.IconImage;
 
@@ -22,24 +23,33 @@ public class FriendListPane{
     ObservableList<Friend> listData;
     ListView<Friend> listView;
 
+    // 记录初始化时的顺序
+    private TextFlow textFlow;
+
     private String userName;
 
+    private ClientReadAndPrint.ChatViewDirectSend chatViewDirectSend;
+
     public FriendListPane(ObservableList<Friend> listData, ListView<Friend> listView){
-        System.out.println(1);
         this.listData = listData;
         this.listView = listView;
     }
 
-    public void init(){
-        System.out.println(2);
+
+
+    public void init(String loginSet){
         listData.clear();
         listView.getItems().clear();
         listView.setPrefWidth(400);
         // 设置数据源
-        // 如何判断是否是房主(登录用户)?
-        // 通过用户名
-        listData.add(new Friend(null, "何睿", "大家好啊，我是电棍", -1));
-        listData.add(new Friend(null, "万光曦", null, -1));
+//        listData.add(new Friend(null, userName, null, 0));
+
+        // 设置目前在房间里的所有名单
+        int num = Integer.parseInt(loginSet.split(UserProtocol.SPLIT_SIGN)[0]);
+        for(int i = 1; i <= num; i++){
+            String temp = loginSet.split(UserProtocol.SPLIT_SIGN)[i];
+            listData.add(new Friend(null, temp, null, 0));
+        }
 
         listView.setItems(listData);
         // 设置单元格生成器
@@ -51,8 +61,11 @@ public class FriendListPane{
         });
 
 
+
+
+
     }
-    static class FriendListCell extends ListCell<Friend>{
+    class FriendListCell extends ListCell<Friend>{
         @Override
         public void updateItem(Friend item, boolean empty){
             super.updateItem(item,empty);
@@ -90,7 +103,11 @@ public class FriendListPane{
 
 
                 // 设置姓名标签与签名标签
-                Label nameLabel = new Label(item.name);
+                Label nameLabel = new Label();
+                if(userName.equals(item.name))
+                    nameLabel.setText(item.name + " （您）");
+                else
+                    nameLabel = new Label(item.name);
                 Label signLabel = new Label();
 
                 // 设置字体
@@ -130,16 +147,37 @@ public class FriendListPane{
         }
     }
 
-    public Node getListView(){
-        init();
-        return listView;
-    }
-
     public void setUserName(String userName){
         this.userName = userName;
     }
+    // 私聊监听器
+    public void setChatViewDirectSend(ClientReadAndPrint.ChatViewDirectSend chatViewDirectSend){
+        this.chatViewDirectSend = chatViewDirectSend;
+        listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                String name = listView.getSelectionModel().getSelectedItem().getName();
+                Text newText = new Text();
+                newText.setFill(Color.web("#999999FF"));
+                if(!name.equals(userName)) {
+                    chatViewDirectSend.DirectSend("%&%~" + (listView.getSelectionModel().getSelectedIndex() + 1));
+                    newText.setText('\n' + "                                      开启私聊模式-> " + name);
+                    textFlow.getChildren().add(newText);
+                }
+                else{
+                    chatViewDirectSend.DirectSend("%&%~" + 7);
+                    newText.setText('\n' + "                                      关闭私聊模式");
+                    textFlow.getChildren().add(newText);
+                }
+            }
+        });
+    }
 
-    static class Friend{
+    public void setTextFlow(TextFlow textFlow){
+        this.textFlow = textFlow;
+    }
+
+    public static class Friend{
         // 图片地址
         String icon;
         String name;
@@ -153,6 +191,10 @@ public class FriendListPane{
             this.name = name;
             this.sign = sign;
             this.sex = sex;
+        }
+
+        public String getName(){
+            return name;
         }
     }
 }

@@ -2,6 +2,7 @@ package UI;
 
 import Client.ClientFileThread;
 import Client.ClientImageThread;
+import Client.ClientMessageThread;
 import Client.ClientReadAndPrint;
 import MediaPlayer.MiniPlayer;
 import javafx.application.Application;
@@ -13,16 +14,17 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -40,9 +42,15 @@ public class ClientChatView extends Application {
     private Button fileChoose = new Button("发送文件");
     private Button imageChoose = new Button("发送图片");
     private ClientReadAndPrint.ChatViewHandler chatHandler;
+    private ClientReadAndPrint.ChatViewDirectSend chatViewDirectSend;
     private FileChooseHnadler fileHandler;
     private ImageChooseHnadler imageHandler;
     private EmojiChooseHandler emojiHandler;
+
+
+    /** 与服务端交互的线程 **/
+    private ClientMessageThread clientMessageThread;
+
 
     public TextFlow getTextFlow() {
         return textFlow;
@@ -66,6 +74,11 @@ public class ClientChatView extends Application {
         this.userName = userName;
     }
 
+    public void setClientMessageThread(ClientMessageThread clientMessageThread){
+        this.clientMessageThread = clientMessageThread;
+    }
+
+
     @Override
     public void start(Stage primaryStage){
         try{
@@ -86,19 +99,6 @@ public class ClientChatView extends Application {
             //TextFlow支持显示富文本
             textFlow = new TextFlow();
             textFlow.setPadding(new Insets(5));
-            ImageView iv = new ImageView();
-            Image icon = new Image("Source\\Background\\登录背景.jpeg");
-            iv.setPreserveRatio(true);
-            iv.setImage(icon);
-            iv.setFitHeight(100);
-            iv.setFitWidth(100);
-            Label label = new Label("hahah");
-            Label label1 = new Label("123");
-            Text t1 = new Text("11111\n");
-            textFlow.getChildren().add(iv);
-            textFlow.getChildren().add(t1);
-            textFlow.getChildren().add(label1);
-            textFlow.getChildren().add(label);
             textFlow.setLineSpacing(20.0f);
 
             //可滚动窗口
@@ -118,17 +118,22 @@ public class ClientChatView extends Application {
             root.setBackground(new Background(myBI));
 
 
+            // 增加直接发送
+            chatViewDirectSend = new ClientReadAndPrint().new ChatViewDirectSend();
             VBox vBox = new VBox();
             /** 增加好友列表 **/
+            String friendListSet = clientMessageThread.getCurLogin();
+            Thread.sleep(20);
+
             friendListPane = new FriendListPane(listData, listView);
             friendListPane.setUserName(userName);
-            friendListPane.init();
-
-//            root.setRight(listView);
+            friendListPane.init(friendListSet);
+            friendListPane.setChatViewDirectSend(chatViewDirectSend);
+            friendListPane.setTextFlow(textFlow);
+            clientMessageThread.setListData(listData);
 
             /** 增加音乐播放器 **/
             miniPlayer = new MiniPlayer(userName);
-//            root.setRight(miniPlayer.getMiniPlayer());
             // 在播放器未启动前，上有按钮
             // 播放器启动!
             vBox.setPrefWidth(400);
@@ -143,6 +148,7 @@ public class ClientChatView extends Application {
             chatHandler.setScrollPane(sp);
             send.setOnAction(chatHandler);
             send.setEffect(new SepiaTone());
+
 
             //处理文件按钮
             fileHandler = new FileChooseHnadler();

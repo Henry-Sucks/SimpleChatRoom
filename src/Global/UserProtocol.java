@@ -9,13 +9,13 @@ public interface UserProtocol {
     /** 私聊设置系统消息
      * SELECT_ROUND + 私聊人数 + SPLIT_SIGN + 用户名 + SPLIT_SIGN .... + SELECT_ROUND
      */
-
-    String MSG_ROUND="ηθ";
-
     String LOGIN_ROUND="∏∑";
     String REGISTER_ROUND="∑∏";
 
-    String CURNAME_ROUND="θη";
+    String CHECK_LOGIN_ROUND="θη";
+    String LOGOUT_ROUND="ηθ";
+
+
     String LOGIN_SUCCESS="1";
     String NAME_REP="-1";
     String SELECT_ROUND="★【";

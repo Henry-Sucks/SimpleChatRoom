@@ -33,6 +33,8 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static MediaPlayer.MediaPlayerGlobal.sysSrc;
+
 public class ClientReadAndPrint extends Thread{
     static Socket socket = null;
     static TextField textInput;
@@ -52,10 +54,10 @@ public class ClientReadAndPrint extends Thread{
                 // 获取服务端发送的信息
                 String str = input.readLine();
                 //这一部分暂时代替用户头像
-                Image image = new Image("source\\Background\\登录背景.jpeg");
+                Image image = new Image(sysSrc+"\\"+"default-icon.png");
                 ImageView iv = new ImageView();
-                iv.setFitWidth(50);
-                iv.setFitHeight(50);
+                iv.setFitWidth(45);
+                iv.setFitHeight(45);
                 iv.setImage(image);
                 //子线程改变主线程需要加这个选项 不太清楚为什么 不加会报错
                 Platform.runLater(new Runnable() {
@@ -188,6 +190,14 @@ public class ClientReadAndPrint extends Thread{
         }
     }
 
+    /** 聊天界面直接发送信息 内部类 **/
+    public class ChatViewDirectSend {
+        public void DirectSend(String msg){
+            output.println(msg);
+            output.flush();
+        }
+    }
+
     /**登录监听 内部类**/
     public class LoginHandler implements EventHandler<ActionEvent>{
         TextField nameField;
@@ -215,8 +225,8 @@ public class ClientReadAndPrint extends Thread{
 
         @Override
         public void handle(ActionEvent event) {
-            ClientLoginThread clientLoginThread = new ClientLoginThread();
-            clientLoginThread.start();
+            ClientMessageThread clientMessageThread = new ClientMessageThread();
+            clientMessageThread.start();
             // 等clientLoginThread 100ms
             try {
                 Thread.sleep(50);
@@ -226,26 +236,37 @@ public class ClientReadAndPrint extends Thread{
             userName = nameField.getText();
             String userPwd = String.valueOf(pwdField.getText());  // getPassword方法获得char数组
             String userEmail = null;
+
+            if(userName.equals("") || userPwd.equals("")){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("错误！");
+                alert.setContentText("用户名或密码不能为空！");
+                alert.show();
+                return;
+            }
             if(state)
                 userEmail = String.valueOf(emailField.getText());
             int res;
-            // 还是需要发送系统消息...注册
+            // 发送系统消息...注册
             if(state){
                 String msg = UserProtocol.REGISTER_ROUND + userName + UserProtocol.SPLIT_SIGN + userPwd
                 + UserProtocol.SPLIT_SIGN + userEmail;
-                clientLoginThread.sendRegisterMsg(msg);
+                clientMessageThread.sendRegisterMsg(msg);
                 res = 0;
             }
-            // 还是需要发送系统消息...登录
+            // 发送系统消息...登录
             else{
                 String msg = UserProtocol.LOGIN_ROUND + userName + UserProtocol.SPLIT_SIGN + userPwd;
                 System.out.println("消息:" + msg);
-                res = clientLoginThread.sendLoginMsg(msg);
+                res = clientMessageThread.sendLoginMsg(msg);
+
             }
             // res == 0 成功登录/注册
-            if(res == 0) {  // 密码为123并且用户名长度大于等于1
+            if(res == 0) {
+                System.out.println("成功登入");
                 clientView = new ClientChatView();  // 新建聊天窗口,设置聊天窗口的用户名（静态）
                 clientView.setUserName(userName);
+                clientView.setClientMessageThread(clientMessageThread);
                 clientView.run();
 
 

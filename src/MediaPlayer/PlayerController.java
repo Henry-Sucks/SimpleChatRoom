@@ -102,6 +102,7 @@ public class PlayerController implements Initializable {
 
         /** 初始化歌单界面 **/
         PlaylistView playlistViewController = new PlaylistView(playlistView, playlistData, this, songListData);
+        playlistViewController.setUserName(userName);
         playlistViewController.init();
     }
 
