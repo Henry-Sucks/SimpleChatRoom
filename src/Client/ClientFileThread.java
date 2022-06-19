@@ -149,6 +149,7 @@ public class ClientFileThread extends Thread{
                             "D:\\接受文件\\" +
                             userName + "\\" + textName, "提示", JOptionPane.INFORMATION_MESSAGE);
                      */
+                    fileWriter.close();
                 }
 
                 else {  // 不接受文件
@@ -159,7 +160,6 @@ public class ClientFileThread extends Thread{
                         }
                     }
                 }
-                fileWriter.close();
             }
         } catch (Exception e) {
             e.printStackTrace();

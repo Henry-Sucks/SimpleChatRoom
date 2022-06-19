@@ -1,66 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SimpleChatRoom:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9d2a9643-4d79-402b-b964-4d432635b2d6" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$LoginHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/Menu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MenuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/Player.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlayerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$Playlist.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$PlaylistCell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/SongListView$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/SongListView$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/SongListView$SongListCell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/SongListView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/SongListWatcher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$Friend.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$FriendListCell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu$Info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/User/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientFileThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlayerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerReadAndPrint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$EmojiChooseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$EmojiChooseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$ImageChooseHnadler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$ImageChooseHnadler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$Friend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$Friend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientMessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientMessageThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Global/GlobalSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Global/GlobalSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Global/UserProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Global/UserProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/MediaPlayerGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/MediaPlayerGlobal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/MiniPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/MiniPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/Player.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/Player.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MediaPlayer/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/PlayerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MediaPlayer/PlaylistView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/PlaylistView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/SongListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/SongListView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/SongListWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/SongListWatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerFileThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerMessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerMessageThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/ClientChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientChatView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/ClientLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientLoginView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/FriendListPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/FriendListPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/RegisterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/UserMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/UserMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +56,10 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Client/ClientMessageThread.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -96,19 +68,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Studying/Sophomore II/java_project/SimpleChatRoom/src/Source/systemSrc&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Studying/Sophomore II/java_project/SimpleChatRoom/src/Source/playlist/1234/我的歌单",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "工件",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.database.main"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Studying\Sophomore II\java_project\SimpleChatRoom\src\Source\playlist\1234\我的歌单" />
       <recent name="D:\Studying\Sophomore II\java_project\SimpleChatRoom\src\Source\systemSrc" />
+      <recent name="D:\Studying\Sophomore II\java_project\SimpleChatRoom\src\Source\playlist" />
       <recent name="D:\Studying\Sophomore II\java_project\SimpleChatRoom\src\Source" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -117,12 +94,12 @@
     </key>
   </component>
   <component name="RunManager" selected="应用程序.Client.Client">
-    <configuration name="ClientChatView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UI.ClientChatView" />
+    <configuration name="Client.Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client.Client" />
       <module name="SimpleChatRoom" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="UI.*" />
+          <option name="PATTERN" value="Client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -130,12 +107,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Client.Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Client.Client" />
+    <configuration name="ClockStage.ClockStage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClockStage.ClockStage" />
       <module name="SimpleChatRoom" />
+      <option name="VM_PARAMETERS" value="--module-path D:\JavaFX\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml,javafx.media" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Client.*" />
+          <option name="PATTERN" value="ClockStage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -157,7 +135,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Server.Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="SimpleChatRoom" />
       <extension name="coverage">
@@ -170,8 +148,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UI.RegisterView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UI.RegisterView" />
+    <configuration name="UI.UserMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UI.UserMenu" />
       <module name="SimpleChatRoom" />
       <option name="VM_PARAMETERS" value="--module-path D:\JavaFX\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml,javafx.media" />
       <extension name="coverage">
@@ -185,19 +163,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="应用程序.UI.RegisterView" />
+      <item itemvalue="应用程序.ClockStage.ClockStage" />
+      <item itemvalue="应用程序.Server.Server" />
+      <item itemvalue="应用程序.UI.UserMenu" />
       <item itemvalue="应用程序.Client.Client" />
       <item itemvalue="应用程序.MediaPlayer.Main" />
-      <item itemvalue="应用程序.ClientChatView" />
-      <item itemvalue="应用程序.Server" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.Client.Client" />
-        <item itemvalue="应用程序.Server" />
+        <item itemvalue="应用程序.Server.Server" />
         <item itemvalue="应用程序.MediaPlayer.Main" />
-        <item itemvalue="应用程序.UI.RegisterView" />
-        <item itemvalue="应用程序.ClientChatView" />
+        <item itemvalue="应用程序.ClockStage.ClockStage" />
+        <item itemvalue="应用程序.UI.UserMenu" />
       </list>
     </recent_temporary>
   </component>
@@ -259,7 +237,11 @@
       <workItem from="1655451958992" duration="8074000" />
       <workItem from="1655468404435" duration="2664000" />
       <workItem from="1655471217553" duration="245000" />
-      <workItem from="1655522572992" duration="7572000" />
+      <workItem from="1655522572992" duration="7893000" />
+      <workItem from="1655547327950" duration="698000" />
+      <workItem from="1655559925925" duration="4508000" />
+      <workItem from="1655592829988" duration="26022000" />
+      <workItem from="1655625155844" duration="7427000" />
     </task>
     <servers />
   </component>
@@ -284,11 +266,10 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/ServerLoginThread.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

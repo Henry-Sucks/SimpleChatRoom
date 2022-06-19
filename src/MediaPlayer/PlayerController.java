@@ -99,30 +99,23 @@ public class PlayerController implements Initializable {
         image = new Image(sysSrc + '\\' + "next.png", buttonSize2, buttonSize2, true, false);
         nextBtn.setPrefSize(buttonSize2, buttonSize2);
         nextBtn.setGraphic(new ImageView(image));
-
-        /** 初始化歌单界面 **/
-        PlaylistView playlistViewController = new PlaylistView(playlistView, playlistData, this, songListData);
-        playlistViewController.init();
     }
 
+    public void initStart(){
+        /** 初始化歌单界面 **/
+        PlaylistView playlistViewController = new PlaylistView(playlistView, playlistData, this, songListData);
+        playlistViewController.setUserName(userName);
+        playlistViewController.init();
+    }
 
     public void playlistInit(String playlistName){
         if(!playlistName.isEmpty()){
             // 设置标签
             playlistLabel.setText("正在播放：" + playlistName);
+
             // 初始化歌单
             playListDir = getPlaylistDir(playlistName);
-            File[] temp;
-            temp = playListDir.listFiles();
-
-            // 导入歌单
-            SongListView songListViewController = new SongListView(songListView, songListData, this);
-            songListViewController.init();
-            songs.clear();
-            for(File song : temp){
-                songs.put(song.getName(), song);
-                songListViewController.addSong(song.getName());
-            }
+            songListReset();
 
             // 设置现在播放歌曲
             songIndex = 0;
@@ -136,8 +129,11 @@ public class PlayerController implements Initializable {
 
     // 根据songIndex选取歌曲
     public void setCurSong(){
+        if(songs == null || songs.size() == 0){
+            playerInit();
+            return;
+        }
         var songKeyList = songs.keySet().toArray();
-
         File curSong = songs.get(songKeyList[songIndex]);
         media = new Media(curSong.toURI().toString());
         if(mediaPlayer != null)
@@ -191,6 +187,8 @@ public class PlayerController implements Initializable {
 
         });
 
+
+
         /** 设置进度条与进度条监听 **/
         songProgressBar.valueProperty().addListener(e->{
             if (songProgressBar.isValueChanging() || (miniProcessBar != null && miniProcessBar.isValueChanging())){
@@ -203,6 +201,22 @@ public class PlayerController implements Initializable {
         running = false;
 
         playMedia();
+    }
+
+    public void playerInit() {
+        /** 设置歌名 **/
+        songNameLabel.setText("歌单内尚无歌曲");
+
+        /** 设置音量与音量监听 **/
+//        mediaPlayer.setVolume(volumeBar.getValue());
+//        volumeBar.valueProperty().addListener(e -> {
+//            mediaPlayer.setVolume(volumeBar.getValue() * 0.01);
+//            volumeLabel.setText("当前音量:" + (int) volumeBar.getValue());
+//        });
+
+        /** 将进度条清空,播放进度清0 **/
+        songProgressBar.setValue(0);
+        runtimeLabel.setText("0:00");
     }
 
     public void playClick(){
@@ -222,7 +236,10 @@ public class PlayerController implements Initializable {
 
     /** 工具类函数 **/
     public File getPlaylistDir(String playlistName){
-        return new File(playlistSrc + '\\' + playlistName);
+        if(playlistName.equals("轻音乐") || playlistName.equals("白噪音"))
+            return new File(playlistSrc + '\\' + playlistName);
+        else
+            return new File(playlistSrc + '\\' + userName + '\\' + playlistName);
     }
 
 
@@ -319,18 +336,21 @@ public class PlayerController implements Initializable {
 
     public void songListReset(){
         File[] temp;
+        System.out.println(playListDir.getAbsolutePath());
         temp = playListDir.listFiles();
 
         // 导入歌单
         SongListView songListViewController = new SongListView(songListView, songListData, this);
         songListViewController.init();
         songs.clear();
+        if(temp == null || temp.length == 0) {
+            mediaPlayer.dispose();
+            return;
+        }
         for(File song : temp){
             songs.put(song.getName(), song);
             songListViewController.addSong(song.getName());
         }
-
-        // 重置index
 
     }
 

@@ -10,7 +10,10 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Server {
     static ServerSocket serverSocket = null;
@@ -19,13 +22,16 @@ public class Server {
 
     static UserMap<String, User> userHashMap = new UserMap<>();
 
+    static HashMap<Socket, ArrayList<Socket>> chatPerson = new HashMap<>();
+
+
     public static void main(String[] args) {
         ServerView serverView = new ServerView();
         try{
             // 在服务器端对客户端开启文件传输的线程
             serverSocket = new ServerSocket(8090);
-            ServerLoginThread serverLoginThread = new ServerLoginThread(userHashMap);
-            serverLoginThread.start();
+            ServerMessageThread serverMessageThread = new ServerMessageThread(userHashMap);
+            serverMessageThread.start();
 
             ServerFileThread serverFileThread = new ServerFileThread();
             serverFileThread.start();
@@ -40,6 +46,16 @@ public class Server {
                 socket = serverSocket.accept();
                 // 添加当前客户端到列表
                 list.add(socket);
+
+                chatPerson.put(socket, new ArrayList<>());
+                for (Socket socket: list){
+                    if(chatPerson.get(socket).size() > 2 || list.size() <= 3 ||
+                            chatPerson.get(socket).size() == 0){
+                        chatPerson.get(socket).clear();
+                        chatPerson.get(socket).addAll(list);
+                    }
+                }
+
                 // 在服务器端对客户端开启相应的线程
                 ServerReadAndPrint readAndPrint = new ServerReadAndPrint(socket, serverView);
                 readAndPrint.start();
@@ -69,17 +85,42 @@ class ServerReadAndPrint extends Thread{
             // 获取客户端信息并把信息发送给所有客户端
             while (true) {
                 String str = in.readLine();
-                // 发送给所有客户端
-                for(Socket socket: Server.list) {
-                    out = new PrintWriter(socket.getOutputStream());  // 对每个客户端新建相应的socket套接字
-                    if(socket == nowSocket) {  // 发送给当前客户端
-                        out.println("1" + str);
+
+                String regex = "%&%~\\d";//假设房间最多仅有6个人
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(str);
+                ArrayList<Socket> outList = Server.chatPerson.get(nowSocket);
+                if(matcher.find())
+                {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    String num = str.substring(start+4,end);
+                    System.out.println(num);
+                    int number = Integer.parseInt(num) - 1;
+                    outList.clear();
+                    System.out.println("num" + number);
+                    if(number == 6){//与所有人通信
+                        outList.addAll(Server.list);
+                    }else{
+                        outList.add(Server.list.get(number));//与指定人通信
+                        outList.add(nowSocket);
                     }
-                    else {  // 发送给其它客户端
-                        out.println("2" + str); //1和2用来判断自己和别人发的消息
-                    }
-                    out.flush();  // 清空out中的缓存
+                    continue; //跳过输出
                 }
+
+                System.out.println(outList.size());
+                for(Socket socket: outList) {
+                    out = new PrintWriter(socket.getOutputStream());  // 对每个客户端新建相应的socket套接字
+                    if(socket != nowSocket) {  // 发送给其他客户端
+                        out.println("2" + str); //1和2用来判断自己和别人发的消息
+                        out.flush();  // 清空out中的缓存
+                    }
+                }
+                // 发送给当前客户端
+                out = new PrintWriter(nowSocket.getOutputStream());
+                out.println("1" + str);
+                System.out.println("1" + str);
+                out.flush();
                 // 调用自定义函数输出到图形界面
                 serverView.setTextArea(str);
             }

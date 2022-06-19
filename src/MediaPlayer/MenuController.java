@@ -56,7 +56,7 @@ public class MenuController implements Initializable {
     BooleanProperty ifPlayerStart = new SimpleBooleanProperty(false);
 
     /** 与聊天室的联系 **/
-    private String userName = "NMSL";
+    private String userName;
 
 
     @Override
@@ -66,7 +66,6 @@ public class MenuController implements Initializable {
 
         welcomeText.setVisible(false);
         recommendText.setVisible(false);
-        welcomeText.setText(userName + + ',' + '\n' + "欢迎来到用户空间！");
         // 设置背景
         BackgroundImage backgroundImage= new BackgroundImage(new Image(sysSrc + '\\' + "yoga.jpg",900,675,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
@@ -91,11 +90,7 @@ public class MenuController implements Initializable {
         buttonMl.setGraphic(new ImageView(image));
         buttonMl.setBackground(null);
 
-        // 标语动画
-        welcomeText.setVisible(true);
-        recommendText.setVisible(true);
-        new FadeInUp(welcomeText).play();
-        new FadeInDown(recommendText).play();
+
     }
 
 
@@ -115,6 +110,7 @@ public class MenuController implements Initializable {
 
         playerController = loader.getController();
         playerController.setUserName(userName);
+        playerController.initStart();
         playerController.playlistInit(playList);
         stage.show();
         ifPlayerStart.setValue(true);
@@ -205,5 +201,12 @@ public class MenuController implements Initializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+
+        // 标语动画
+        welcomeText.setText(userName + "," + '\n' + "欢迎来到用户空间！");
+        welcomeText.setVisible(true);
+        recommendText.setVisible(true);
+        new FadeInUp(welcomeText).play();
+        new FadeInDown(recommendText).play();
     }
 }

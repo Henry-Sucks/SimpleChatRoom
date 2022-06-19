@@ -7,10 +7,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -38,6 +36,8 @@ public class UserMenu extends Application {
     @FXML
     private AnchorPane iconPane;
 
+    private Info info;
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UserMenu.fxml"));
@@ -50,7 +50,7 @@ public class UserMenu extends Application {
     @FXML
     private void initialize(){
         // 从哪里读取数据？
-        Info info = new Info();
+        info = new Info();
 
         // 背景
         BackgroundImage BI = new BackgroundImage(new Image(sysSrc + "\\menu-background.jpg", 450, 300, false, true),
@@ -116,6 +116,7 @@ public class UserMenu extends Application {
 
         // 姓名
         userNameText.setText("用户名");
+        info.userName = "123";
         if(info.userName != null)
             userNameInput.setPromptText("👩" + info.userName);
         else
@@ -137,8 +138,7 @@ public class UserMenu extends Application {
     }
 
 
-    public void getInfo(){
-
+    public void getInfo(String userName){
     }
 
     public void modifyUserName(String newName){

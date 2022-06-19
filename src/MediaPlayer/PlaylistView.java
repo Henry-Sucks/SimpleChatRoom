@@ -31,6 +31,8 @@ public class PlaylistView {
     private PlayerController playerController;
     private ObservableList<String> songListData;
 
+    private String userName;
+
     /** 全局变量 **/
     static Font font1 = Font.font("微软雅黑", FontWeight.MEDIUM, FontPosture.REGULAR, 20);
 
@@ -91,19 +93,19 @@ public class PlaylistView {
                         return;
                     }
                     // 创建新文件夹
-                    File playlistSrc = new File(defaultSrc+'\\'+newName+ '\\' + "songs");
+                    File playlistSrc = new File(defaultSrc+'\\'+ userName + '\\' + newName+ '\\');
                     if(!playlistSrc.exists()){
                         playlistSrc.mkdirs();
                     }
 
                     // 对文件夹进行监听：WatchService
-                    setWatchService(playlistSrc.getAbsolutePath());
+//                    setWatchService(playlistSrc.getAbsolutePath());
 
 
                     // 弹出提示框
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
                     a.setTitle("新歌单已创建完成！");
-                    a.setContentText("歌单目录位于:\n"+ defaultSrc+'\\'+newName+ '\\' + "songs" + "\n请将本地音乐文件放置至此");
+                    a.setContentText("歌单目录位于:\n"+ defaultSrc+'\\'+ userName + '\\' + newName + "\n请将本地音乐文件放置至此");
                     a.showAndWait();
 
                     // 设置歌单封面
@@ -148,6 +150,10 @@ public class PlaylistView {
                 newWatcher.start();
             }
         });
+    }
+
+    public void setUserName(String userName){
+        this.userName = userName;
     }
 
 
