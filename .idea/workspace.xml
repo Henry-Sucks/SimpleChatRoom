@@ -41,9 +41,15 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29f2hRkREoaxqkpU6TumZJkRQHM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -57,7 +63,7 @@
       <recent name="D:\俄罗斯方块\java项目\聊天室\SimpleChatRoom\src\Source\Emojy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client.Client">
+  <component name="RunManager" selected="Application.Server.Server">
     <configuration name="Client.Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client.Client" />
       <module name="SimpleChatRoom" />
@@ -133,6 +139,11 @@
       <item itemvalue="Application.Server.Server" />
       <item itemvalue="Application.UI.UserMenu" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Client.Client" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -213,6 +224,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
