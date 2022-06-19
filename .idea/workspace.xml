@@ -6,30 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d2a9643-4d79-402b-b964-4d432635b2d6" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlayerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerReadAndPrint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$EmojiChooseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$EmojiChooseHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$ImageChooseHnadler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$ImageChooseHnadler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$Friend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$Friend.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientMessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientMessageThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/PlaylistView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/PlaylistView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerMessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerMessageThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/ClientChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientChatView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/FriendListPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/FriendListPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/UserMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/UserMenu.java" afterDir="false" />
-    </list>
+    <list default="true" id="9d2a9643-4d79-402b-b964-4d432635b2d6" name="变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,8 +34,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/Client/ClientMessageThread.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Client/ClientMessageThread.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,19 +45,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Studying/Sophomore II/java_project/SimpleChatRoom/src/Source/playlist/1234/我的歌单",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "工件",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.database.main"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Studying\Sophomore II\java_project\SimpleChatRoom\src\Source\playlist\1234\我的歌单" />
@@ -93,7 +57,7 @@
       <recent name="D:\俄罗斯方块\java项目\聊天室\SimpleChatRoom\src\Source\Emojy" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Client.Client">
+  <component name="RunManager" selected="Application.Client.Client">
     <configuration name="Client.Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client.Client" />
       <module name="SimpleChatRoom" />
@@ -163,21 +127,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="应用程序.ClockStage.ClockStage" />
-      <item itemvalue="应用程序.Server.Server" />
-      <item itemvalue="应用程序.UI.UserMenu" />
-      <item itemvalue="应用程序.Client.Client" />
-      <item itemvalue="应用程序.MediaPlayer.Main" />
+      <item itemvalue="Application.Client.Client" />
+      <item itemvalue="Application.ClockStage.ClockStage" />
+      <item itemvalue="Application.MediaPlayer.Main" />
+      <item itemvalue="Application.Server.Server" />
+      <item itemvalue="Application.UI.UserMenu" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="应用程序.Client.Client" />
-        <item itemvalue="应用程序.Server.Server" />
-        <item itemvalue="应用程序.MediaPlayer.Main" />
-        <item itemvalue="应用程序.ClockStage.ClockStage" />
-        <item itemvalue="应用程序.UI.UserMenu" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
