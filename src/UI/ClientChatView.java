@@ -4,6 +4,7 @@ import Client.ClientFileThread;
 import Client.ClientImageThread;
 import Client.ClientMessageThread;
 import Client.ClientReadAndPrint;
+import ClockStage.ClockStage;
 import MediaPlayer.MiniPlayer;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -142,6 +143,10 @@ public class ClientChatView extends Application {
             vBox.getChildren().addAll(listView, miniPlayer.getMiniPlayer());
             root.setRight(vBox);
 
+            /** 增加计时功能 **/
+            ClockStage clockStage = new ClockStage();
+            clockStage.start(new Stage());
+
             //处理发送按钮
             chatHandler = new ClientReadAndPrint(). new ChatViewHandler();
             chatHandler.setClientView(primaryStage);
@@ -192,7 +197,6 @@ public class ClientChatView extends Application {
             primaryStage.setScene(scene);
             primaryStage.getIcons().add(new Image(sysSrc + '\\' + "icon.png"));
             primaryStage.setTitle(userName);
-
             primaryStage.show();
         } catch(Exception e){
             e.printStackTrace();

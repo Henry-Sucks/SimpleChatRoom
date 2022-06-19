@@ -250,7 +250,7 @@ public class ClientReadAndPrint extends Thread{
             // 发送系统消息...注册
             if(state){
                 String msg = UserProtocol.REGISTER_ROUND + userName + UserProtocol.SPLIT_SIGN + userPwd
-                + UserProtocol.SPLIT_SIGN + userEmail;
+                        + UserProtocol.SPLIT_SIGN + userEmail;
                 clientMessageThread.sendRegisterMsg(msg);
                 res = 0;
             }
@@ -304,6 +304,5 @@ public class ClientReadAndPrint extends Thread{
         }
     }
 }
-
 
 

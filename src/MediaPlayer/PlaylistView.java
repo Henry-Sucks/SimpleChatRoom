@@ -99,7 +99,7 @@ public class PlaylistView {
                     }
 
                     // 对文件夹进行监听：WatchService
-                    setWatchService(playlistSrc.getAbsolutePath());
+//                    setWatchService(playlistSrc.getAbsolutePath());
 
 
                     // 弹出提示框

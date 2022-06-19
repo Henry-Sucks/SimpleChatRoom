@@ -111,14 +111,16 @@ class ServerReadAndPrint extends Thread{
                 System.out.println(outList.size());
                 for(Socket socket: outList) {
                     out = new PrintWriter(socket.getOutputStream());  // 对每个客户端新建相应的socket套接字
-                    if(socket == nowSocket) {  // 发送给当前客户端
-                        out.println("1" + str);
-                    }
-                    else {  // 发送给其它客户端
+                    if(socket != nowSocket) {  // 发送给其他客户端
                         out.println("2" + str); //1和2用来判断自己和别人发的消息
+                        out.flush();  // 清空out中的缓存
                     }
-                    out.flush();  // 清空out中的缓存
                 }
+                // 发送给当前客户端
+                out = new PrintWriter(nowSocket.getOutputStream());
+                out.println("1" + str);
+                System.out.println("1" + str);
+                out.flush();
                 // 调用自定义函数输出到图形界面
                 serverView.setTextArea(str);
             }

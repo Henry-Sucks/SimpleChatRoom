@@ -156,19 +156,26 @@ public class FriendListPane{
         listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                String name = listView.getSelectionModel().getSelectedItem().getName();
-                Text newText = new Text();
-                newText.setFill(Color.web("#999999FF"));
-                if(!name.equals(userName)) {
-                    chatViewDirectSend.DirectSend("%&%~" + (listView.getSelectionModel().getSelectedIndex() + 1));
-                    newText.setText('\n' + "                                      开启私聊模式-> " + name);
-                    textFlow.getChildren().add(newText);
-                }
-                else{
-                    chatViewDirectSend.DirectSend("%&%~" + 7);
-                    newText.setText('\n' + "                                      关闭私聊模式");
-                    textFlow.getChildren().add(newText);
-                }
+                    String name = listView.getSelectionModel().getSelectedItem().getName();
+                    Text newText = new Text();
+                    newText.setFill(Color.web("#999999FF"));
+                    if (!name.equals(userName)) {
+                        chatViewDirectSend.DirectSend("%&%~" + (listView.getSelectionModel().getSelectedIndex() + 1));
+                        newText.setText('\n' + "                                      开启私聊模式-> " + name);
+                        textFlow.getChildren().add(newText);
+                    } else {
+                        chatViewDirectSend.DirectSend("%&%~" + 7);
+                        newText.setText('\n' + "                                      关闭私聊模式");
+                        textFlow.getChildren().add(newText);
+                    }
+//                else if(mouseEvent.isSecondaryButtonDown()){
+//                    UserMenu userMenu = new UserMenu();
+//                    try {
+//                        userMenu.start(new Stage());
+//                    } catch (Exception e) {
+//                        throw new RuntimeException(e);
+//                    }
+//                }
             }
         });
     }
