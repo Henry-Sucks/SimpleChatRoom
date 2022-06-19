@@ -32,8 +32,10 @@ import tools.EmojiFactory;
 
 import java.io.File;
 
+import static MediaPlayer.MediaPlayerGlobal.sysSrc;
+
 public class ClientChatView extends Application {
-    private String userName = "默认";
+    private String userName;
     private TextFlow textFlow;
     private ScrollPane sp;
     private TextField  textIn = new TextField();
@@ -188,7 +190,8 @@ public class ClientChatView extends Application {
 
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
-
+            primaryStage.getIcons().add(new Image(sysSrc + '\\' + "icon.png"));
+            primaryStage.setTitle(userName);
 
             primaryStage.show();
         } catch(Exception e){

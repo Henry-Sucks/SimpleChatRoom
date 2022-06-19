@@ -34,7 +34,8 @@ public class Main extends Application {
             // 增加icon
             Image image = new Image(sysSrc + "\\lotus.png");
             stage.getIcons().add(image);
-            stage.setTitle("欢迎来到专注空间！");
+            stage.setTitle(userName +"，欢迎来到专注空间！");
+            stage.setResizable(false);
             stage.show();
 
             stage.setOnCloseRequest(event -> {

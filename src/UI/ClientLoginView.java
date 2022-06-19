@@ -22,6 +22,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
+import static MediaPlayer.MediaPlayerGlobal.sysSrc;
 
 
 public class ClientLoginView extends Application{
@@ -96,6 +97,7 @@ public class ClientLoginView extends Application{
 
         Scene scene=new Scene(pane,450,300);
         primaryStage.setTitle("ChatRoom Welcome");
+        primaryStage.getIcons().add(new Image(sysSrc + '\\' + "icon.png"));
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
@@ -107,6 +109,7 @@ public class ClientLoginView extends Application{
         @Override
         public void handle(ActionEvent event)
         {
+            ((Button)event.getSource()).getScene().getWindow().hide();
             RegisterView register = new RegisterView(user);
             register.run();
         }

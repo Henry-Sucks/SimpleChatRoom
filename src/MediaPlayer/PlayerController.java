@@ -100,12 +100,14 @@ public class PlayerController implements Initializable {
         nextBtn.setPrefSize(buttonSize2, buttonSize2);
         nextBtn.setGraphic(new ImageView(image));
 
+    }
+
+    public void initStart(){
         /** 初始化歌单界面 **/
         PlaylistView playlistViewController = new PlaylistView(playlistView, playlistData, this, songListData);
         playlistViewController.setUserName(userName);
         playlistViewController.init();
     }
-
 
     public void playlistInit(String playlistName){
         if(!playlistName.isEmpty()){
@@ -113,17 +115,7 @@ public class PlayerController implements Initializable {
             playlistLabel.setText("正在播放：" + playlistName);
             // 初始化歌单
             playListDir = getPlaylistDir(playlistName);
-            File[] temp;
-            temp = playListDir.listFiles();
-
-            // 导入歌单
-            SongListView songListViewController = new SongListView(songListView, songListData, this);
-            songListViewController.init();
-            songs.clear();
-            for(File song : temp){
-                songs.put(song.getName(), song);
-                songListViewController.addSong(song.getName());
-            }
+            songListReset();
 
             // 设置现在播放歌曲
             songIndex = 0;
@@ -320,18 +312,19 @@ public class PlayerController implements Initializable {
 
     public void songListReset(){
         File[] temp;
+        System.out.println(playListDir.getAbsolutePath());
         temp = playListDir.listFiles();
 
         // 导入歌单
         SongListView songListViewController = new SongListView(songListView, songListData, this);
         songListViewController.init();
         songs.clear();
+        if(temp == null)
+            return;
         for(File song : temp){
             songs.put(song.getName(), song);
             songListViewController.addSong(song.getName());
         }
-
-        // 重置index
 
     }
 

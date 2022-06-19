@@ -22,6 +22,7 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import static MediaPlayer.MediaPlayerGlobal.sysSrc;
 
 
 public class RegisterView extends Application{
@@ -95,6 +96,7 @@ public class RegisterView extends Application{
         Scene scene=new Scene(pane,450,300);
         primaryStage.setTitle("ChatRoom Register");
         primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image(sysSrc + '\\' + "icon.png"));
         primaryStage.setResizable(false);
         primaryStage.show();
 

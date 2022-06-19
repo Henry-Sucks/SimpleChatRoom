@@ -3,21 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="9d2a9643-4d79-402b-b964-4d432635b2d6" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientLoginThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$LoginHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$LoginHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Global/UserProtocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Global/UserProtocol.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MediaPlayerGlobal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MediaPlayerGlobal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlayerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView$Playlist.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/PlaylistView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerLoginThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerReadAndPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerReadAndPrint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/白噪音/星条旗小丑 - 亚洲-其他-Mother_Ganges_JM.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/白噪音/星条旗小丑 - 印度-和平.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/白噪音/阿克特雅巴尔 - Mandate of Heaven／天命.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/轻音乐/Lana Del Rey - Cherry.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/轻音乐/瑜伽冥想减压音乐 - Jaya jagdamba(心轮歌曲）.mp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$EmojiChooseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$EmojiChooseHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" afterDir="false" />
@@ -25,26 +24,21 @@
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView$RegisterHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView$RegisterHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$Friend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$Friend.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$FriendListCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane$FriendListCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FriendListPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/t.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientFileThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientLoginThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientMessageThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Global/UserProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Global/UserProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/RegisterView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/RegisterView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MediaPlayer/MediaPlayerGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/MediaPlayerGlobal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MediaPlayer/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MediaPlayer/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/PlaylistView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaPlayer/PlaylistView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerLoginThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerMessageThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/白噪音/星条旗小丑 - 亚洲-其他-Mother_Ganges_JM.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/白噪音/星条旗小丑 - 印度-和平.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/白噪音/阿克特雅巴尔 - Mandate of Heaven／天命.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/轻音乐/Lana Del Rey - Cherry.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/轻音乐/瑜伽冥想减压音乐 - Jaya jagdamba(心轮歌曲）.mp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/ClientChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientChatView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/ClientLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientLoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/FriendListPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/FriendListPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/RegisterView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +246,7 @@
       <workItem from="1655522572992" duration="7893000" />
       <workItem from="1655547327950" duration="698000" />
       <workItem from="1655559925925" duration="4508000" />
-      <workItem from="1655592829988" duration="20109000" />
+      <workItem from="1655592829988" duration="22975000" />
     </task>
     <servers />
   </component>
