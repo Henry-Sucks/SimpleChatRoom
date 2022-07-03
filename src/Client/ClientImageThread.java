@@ -1,7 +1,7 @@
 package Client;
 
-import UI.OtherImageFrame;
-import UI.SelfImageFrame;
+import ui.OtherImageFrame;
+import ui.SelfImageFrame;
 import javafx.application.Platform;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;

@@ -2,10 +2,10 @@ package Client;
 
 import Global.GlobalSettings;
 import Global.UserProtocol;
-import UI.ClientChatView;
-import UI.OthersChatFrame;
-import UI.SelfChatFrame;
-import UI.WordFrame;
+import ui.ClientChatView;
+import ui.OthersChatFrame;
+import ui.SelfChatFrame;
+import ui.WordFrame;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

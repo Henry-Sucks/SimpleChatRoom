@@ -2,7 +2,7 @@ package Client;
 
 import Global.GlobalSettings;
 import Global.UserProtocol;
-import UI.FriendListPane;
+import ui.FriendListPane;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 

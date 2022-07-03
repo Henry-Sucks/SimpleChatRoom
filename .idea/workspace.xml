@@ -6,7 +6,231 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d2a9643-4d79-402b-b964-4d432635b2d6" name="变更" comment="" />
+    <list default="true" id="9d2a9643-4d79-402b-b964-4d432635b2d6" name="变更" comment="变更">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientFileThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientImageThread$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientImageThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$ChatViewHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint$LoginHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Client/ClientReadAndPrint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/Menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/MiniPlayer.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/Player.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/MediaPlayer/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/FileReadAndWrite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ImageReadAndWrite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerFileThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerImageThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerReadAndPrint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Server/ServerView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/123/我的音乐/Taylor Swift - Afterglow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/123/我的音乐/Taylor Swift - All You Had To Do Was Stay.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/123/我的音乐/Taylor Swift - august.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/123/我的音乐/Taylor Swift - ‘tis the damn season.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/1234/我的歌单/Taylor Swift - Afterglow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/1234/我的歌单/Taylor Swift - All You Had To Do Was Stay.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/1234/我的歌单/Taylor Swift - august.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/1234/我的歌单/Taylor Swift - ‘tis the damn season.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/白噪音/Taylor Swift - Afterglow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/白噪音/Taylor Swift - All You Had To Do Was Stay.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/白噪音/Taylor Swift - august.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/轻音乐/Taylor Swift - Afterglow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/轻音乐/Taylor Swift - All You Had To Do Was Stay.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/轻音乐/Taylor Swift - august.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/playlist/轻音乐/Taylor Swift - ‘tis the damn season.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/ClockBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/default-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/end.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/enter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/exit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/female.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/forest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/forward-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/harp.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/heavy_rain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/listening.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/lotus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/male.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/menu-background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/music-notes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/pause.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/pause1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/pause2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/play-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/play-button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/previous.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/question-mark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/reset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/rewind-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/start.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/Source/systemSrc/yoga.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$EmojiChooseHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$FileChooseHnadler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView$ImageChooseHnadler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientChatView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView$RegisterHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/ClientLoginView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/EmojiChooseView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/EmojiChooseView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/EmojyPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/FileChoose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/OtherImageFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/OthersChatFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/RegisterView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/SelfChatFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/SelfImageFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/UserMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/UI/WordFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/EmojiFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/IconImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/Image2SuitableSize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/ImagePut.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/SerializableImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordLength.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleChatRoom/tools/WordsSplit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientImageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientImageThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientMessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientMessageThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientReadAndPrint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/MediaPlayerGlobal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/Menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/MenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/MiniPlayer.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/MiniPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/Player.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/PlayerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/PlaylistView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/SongListView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/SongListWatcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaPlayer/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerFileThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ServerFileThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerImageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ServerImageThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerMessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ServerMessageThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ServerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Background/动态背景.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/background/动态背景.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Background/注册背景.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Background/注册背景.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Background/登录背景.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/background/登录背景.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Background/聊天背景.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Background/聊天背景.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Background/表情背景.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Background/表情背景.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/10.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/11.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/12.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/13.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/14.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/15.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/15.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/16.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/17.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/17.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/18.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/19.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/19.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/20.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/20.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/21.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/21.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/22.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/22.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/23.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/23.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/24.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/24.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/25.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/25.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/26.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/26.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/27.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/27.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/28.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/28.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/29.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/29.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/30.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/30.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/31.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/31.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/33.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/33.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/34.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/34.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/35.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/35.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/36.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/36.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/37.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/37.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/38.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/38.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/39.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/39.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/Emoji/7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Emoji/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/source/emoji/9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/123/我的音乐/Taylor Swift - Afterglow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/123/我的音乐/Taylor Swift - All You Had To Do Was Stay.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/123/我的音乐/Taylor Swift - august.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/123/我的音乐/Taylor Swift - ‘tis the damn season.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/1234/我的歌单/Taylor Swift - Afterglow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/1234/我的歌单/Taylor Swift - All You Had To Do Was Stay.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/1234/我的歌单/Taylor Swift - august.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/1234/我的歌单/Taylor Swift - ‘tis the damn season.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/白噪音/Taylor Swift - Afterglow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/白噪音/Taylor Swift - All You Had To Do Was Stay.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/白噪音/Taylor Swift - august.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/轻音乐/Taylor Swift - Afterglow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/轻音乐/Taylor Swift - All You Had To Do Was Stay.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/轻音乐/Taylor Swift - august.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/playlist/轻音乐/Taylor Swift - ‘tis the damn season.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/ClockBG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/default-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/end.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/enter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/exit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/female.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/forest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/forward-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/harp.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/heavy_rain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/listening.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/lotus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/male.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/menu-background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/music-notes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/pause.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/pause1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/pause2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/play-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/play-button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/previous.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/question-mark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/reset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/rewind-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/start.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/systemSrc/yoga.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/ClientChatView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ClientChatView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/ClientChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ClientChatView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/ClientLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ClientLoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/EmojiChooseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/EmojiChooseView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/EmojyPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/EmojyPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/FileChoose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/FileChoose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/FriendListPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/FriendListPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/OtherImageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/OtherImageFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/OthersChatFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/OthersChatFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/RegisterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/SelfChatFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/SelfChatFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/SelfImageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/SelfImageFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/UserMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/UserMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/UserMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/UserMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/WordFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/WordFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +274,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -105,12 +331,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Server.Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server.Server" />
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="SimpleChatRoom" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Server.*" />
+          <option name="PATTERN" value="server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,13 +344,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UI.UserMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UI.UserMenu" />
+    <configuration name="UserMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.UserMenu" />
       <module name="SimpleChatRoom" />
       <option name="VM_PARAMETERS" value="--module-path D:\JavaFX\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml,javafx.media" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="UI.*" />
+          <option name="PATTERN" value="ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -141,6 +367,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server.Server" />
         <item itemvalue="Application.Client.Client" />
       </list>
     </recent_temporary>
@@ -208,6 +435,9 @@
       <workItem from="1655559925925" duration="4508000" />
       <workItem from="1655592829988" duration="26022000" />
       <workItem from="1655625155844" duration="7427000" />
+      <workItem from="1655636846334" duration="159000" />
+      <workItem from="1655640869984" duration="595000" />
+      <workItem from="1656811599649" duration="946000" />
     </task>
     <servers />
   </component>

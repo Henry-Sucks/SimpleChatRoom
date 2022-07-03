@@ -1,7 +1,7 @@
 
 package Client;
 
-import UI.ClientLoginView;
+import ui.ClientLoginView;
 import javafx.application.Application;
 
 public class Client {
